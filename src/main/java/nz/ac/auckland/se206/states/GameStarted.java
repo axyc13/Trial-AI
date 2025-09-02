@@ -4,7 +4,6 @@ import java.io.IOException;
 import javafx.scene.input.MouseEvent;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
-import nz.ac.auckland.se206.speech.TextToSpeech;
 
 /**
  * The GameStarted state of the game. Handles the initial interactions when the game starts,
@@ -33,15 +32,6 @@ public class GameStarted implements GameState {
    */
   @Override
   public void handleRectangleClick(MouseEvent event, String rectangleId) throws IOException {
-    // Transition to chat view or provide an introduction based on the clicked rectangle
-    switch (rectangleId) {
-      case "rectCashier":
-        TextToSpeech.speak("Welcome to my cafe!");
-        return;
-      case "rectWaitress":
-        TextToSpeech.speak("Hi, let me know when you are ready to order!");
-        return;
-    }
     App.openChat(event, context.getProfession(rectangleId));
   }
 
@@ -52,8 +42,7 @@ public class GameStarted implements GameState {
    * @throws IOException if there is an I/O error
    */
   @Override
-  public void handleGuessClick() throws IOException {
-    TextToSpeech.speak("Make a guess, click on the " + context.getProfessionToGuess());
-    context.setState(context.getGuessingState());
+  public void handleFinalDecisionClick() throws IOException {
+    App.openFinalPage();
   }
 }

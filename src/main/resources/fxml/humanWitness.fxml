@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="599.0" maxWidth="789.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.HumanWitnessChatController">
+  <children>
+    <AnchorPane maxHeight="599.0" maxWidth="789.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="789.0">
+      <children>
+        <ImageView fitHeight="896.0" fitWidth="1391.0" layoutX="-252.0" layoutY="-272.0" preserveRatio="true">
+          <image>
+            <Image url="@../images/witnessRoom.jpg" />
+          </image>
+        </ImageView>
+         <TextArea fx:id="txtaChat" editable="false" layoutX="20.0" layoutY="230.0" opacity="0.83" prefHeight="299.0" prefWidth="223.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" wrapText="true" />
+        <TextField fx:id="txtInput" layoutX="20.0" layoutY="545.0" opacity="0.83" prefHeight="26.0" prefWidth="223.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" />
+        <Button fx:id="btnSend" layoutX="252.0" layoutY="545.0" mnemonicParsing="false" onAction="#onSendMessage" text="Send" />
+        <Button layoutX="25.0" layoutY="29.0" mnemonicParsing="false" onAction="#onGoBack" prefHeight="52.0" prefWidth="130.0" text="Go Back" />
+        <Label fx:id="timer" layoutX="639.0" layoutY="23.0" prefHeight="63.0" prefWidth="155.0" text="2:00" textFill="WHITE">
+          <font>
+            <Font size="50.0" />
+          </font></Label>
+        <ProgressBar fx:id="progressBar" layoutX="-1.0" layoutY="104.0" prefHeight="20.0" prefWidth="790.0" progress="0.0" />
+        <Label layoutX="334.0" layoutY="30.0" style="-fx-background-color: #000;" text=" This is a flashback! " textFill="WHITE">
+          <font>
+            <Font size="20.0" />
+          </font>
+        </Label>
+        <Label layoutX="259.0" layoutY="60.0" style="-fx-background-color: #000;" text="Once you leave you can't come back. " textFill="WHITE">
+          <font>
+            <Font size="20.0" />
+         </font>     
+        </Label> 
+      </children>
+    </AnchorPane>
+    
+    <VBox fx:id="flashbackMessage" alignment="CENTER" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false">
+      <children>
+        <Label prefHeight="88.0" prefWidth="165.0" style="-fx-text-fill: white; -fx-font-size: 36px;" text="Flashback!">
+          <font>
+            <Font size="14.0" />
+          </font>
+        </Label>
+      </children>
+    </VBox>
+  </children> 
+</StackPane>

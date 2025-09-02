@@ -1,6 +1,8 @@
 package nz.ac.auckland.se206;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Map;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -8,7 +10,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import nz.ac.auckland.se206.controllers.ChatController;
+import nz.ac.auckland.se206.controllers.ChatControllerCentre;
+import nz.ac.auckland.se206.controllers.RoomController;
 
 /**
  * This is the entry point of the JavaFX application. This class initializes and runs the JavaFX
@@ -17,6 +20,24 @@ import nz.ac.auckland.se206.controllers.ChatController;
 public class App extends Application {
 
   private static Scene scene;
+  private static final Map<String, String> fxmlMap =
+      Map.of(
+          "AI Defendant", "/fxml/defendant.fxml",
+          "AI Witness", "/fxml/aiWitness.fxml",
+          "Human Witness", "/fxml/humanWitness.fxml");
+
+  private static final Map<String, String> trialTxtMap =
+      Map.of(
+          "AI Defendant", "defendant.txt",
+          "AI Witness", "aiWitness.txt",
+          "Human Witness", "humanWitness.txt");
+  private static final Map<String, String> flashBackTxtMap =
+      Map.of(
+          "AI Defendant", "defendantFlashback.txt",
+          "AI Witness", "aiWitnessFlashback.txt",
+          "Human Witness", "humanWitnessFlashback.txt");
+  private static ArrayList<String> professionsOpened = new ArrayList<>();
+  private static Stage primaryStage;
 
   /**
    * The main method that launches the JavaFX application.
@@ -50,23 +71,44 @@ public class App extends Application {
   }
 
   /**
-   * Opens the chat view and sets the profession in the chat controller.
+   * Opens a flashback or chat view depending on now many times the profession has been opened.
    *
    * @param event the mouse event that triggered the method
    * @param profession the profession to set in the chat controller
    * @throws IOException if the FXML file is not found
    */
   public static void openChat(MouseEvent event, String profession) throws IOException {
-    FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/chat.fxml"));
-    Parent root = loader.load();
+    if (!professionsOpened.contains(profession)) {
+      professionsOpened.add(profession);
+      FXMLLoader loader = new FXMLLoader(App.class.getResource(fxmlMap.get(profession)));
+      Parent root = loader.load();
 
-    ChatController chatController = loader.getController();
-    chatController.setProfession(profession);
+      ChatControllerCentre chatController = loader.getController();
+      chatController.initialiseChatGpt(flashBackTxtMap.get(profession), profession);
 
-    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      scene = new Scene(root);
+      stage.setScene(scene);
+      stage.show();
+    } else {
+      FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/room.fxml"));
+      Parent root = loader.load();
+
+      RoomController controller = loader.getController();
+      controller.initialiseChatGpt(trialTxtMap.get(profession), profession);
+      controller.showOverlay();
+
+      Scene scene = new Scene(root);
+      primaryStage.setScene(scene);
+      primaryStage.show();
+    }
+  }
+
+  public static void openFinalPage() throws IOException {
+    Parent root = loadFxml("finalPage");
     scene = new Scene(root);
-    stage.setScene(scene);
-    stage.show();
+    primaryStage.setScene(scene);
+    primaryStage.show();
   }
 
   /**
@@ -77,6 +119,7 @@ public class App extends Application {
    */
   @Override
   public void start(final Stage stage) throws IOException {
+    primaryStage = stage;
     Parent root = loadFxml("room");
     scene = new Scene(root);
     stage.setScene(scene);

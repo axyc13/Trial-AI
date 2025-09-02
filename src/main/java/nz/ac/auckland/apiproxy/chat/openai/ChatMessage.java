@@ -4,6 +4,7 @@ public class ChatMessage {
 
   private String role;
   private String content;
+  private boolean isSystemPrompt;
 
   public ChatMessage(String role, String content) {
     this.role = role;
@@ -16,5 +17,13 @@ public class ChatMessage {
 
   public String getContent() {
     return content;
+  }
+
+  public void setSystemPrompt(boolean b) {
+    this.isSystemPrompt = b;
+  }
+
+  public boolean isSystemPrompt() {
+    return isSystemPrompt;
   }
 }
