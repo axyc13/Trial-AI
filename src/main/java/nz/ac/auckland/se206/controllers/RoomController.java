@@ -10,6 +10,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
@@ -147,6 +149,20 @@ public class RoomController {
         };
 
     new Thread(task).start();
+  }
+
+  /**
+   * Handles the key pressed event.
+   *
+   * @param event the key event
+   */
+  @FXML
+  public void sendMessage(KeyEvent event) {
+    System.out.println("Key " + event.getCode() + " pressed");
+    if (event.getCode().equals(KeyCode.ENTER)) {
+      // Send the message
+      onSendClick();
+    }
   }
 
   /**
