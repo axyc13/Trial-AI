@@ -39,6 +39,15 @@ public class HumanWitnessChatController extends ChatControllerCentre {
   @FXML private Label dialogue6;
   @FXML private Polygon dialogueText6;
   @FXML private ImageView musiciansStudio;
+  @FXML private Label dialogue7;
+  @FXML private Polygon dialogueText7;
+  @FXML private Label dialogue8;
+  @FXML private Polygon dialogueText8;
+  @FXML private Label dialogue9;
+  @FXML private Polygon dialogueText9;
+  @FXML private ImageView celebrationParty;
+  @FXML private Label dialogue10;
+  @FXML private Polygon dialogueText10;
 
   @Override
   @FXML
@@ -73,12 +82,11 @@ public class HumanWitnessChatController extends ChatControllerCentre {
 
   private void showDialogue(int value) {
     // Plays through the dialogue as you move the slider
-    if (value >= 1) {
+    // Background view number 1
+    if (value >= 1 && value < 3) {
       phoneInHand.setVisible(true);
-      musiciansCalling.setVisible(false);
-    } else if (value < 1) {
+    } else if (value < 1 || value >= 3) {
       phoneInHand.setVisible(false);
-      musiciansCalling.setVisible(true);
     }
     if (value == 2) {
       dialogue1.setVisible(true);
@@ -87,12 +95,11 @@ public class HumanWitnessChatController extends ChatControllerCentre {
       dialogue1.setVisible(false);
       dialogueText1.setVisible(false);
     }
-    if (value >= 3) {
+    // Background view number 2
+    if (value >= 3 && value < 9) {
       musiciansCalling.setVisible(true);
-      phoneInHand.setVisible(false);
-    } else if (value < 3) {
+    } else if (value < 3 || value >= 9) {
       musiciansCalling.setVisible(false);
-      phoneInHand.setVisible(true);
     }
     if (value == 4) {
       dialogue2.setVisible(true);
@@ -129,10 +136,45 @@ public class HumanWitnessChatController extends ChatControllerCentre {
       dialogue6.setVisible(false);
       dialogueText6.setVisible(false);
     }
-    if (value >= 9) {
+    // Background view number 3
+    if (value >= 9 && value < 13) {
       musiciansStudio.setVisible(true);
-    } else if (value < 9) {
+    } else if (value < 9 || value >= 13) {
       musiciansStudio.setVisible(false);
+    }
+    if (value == 10) {
+      dialogue7.setVisible(true);
+      dialogueText7.setVisible(true);
+    } else if (value != 10) {
+      dialogue7.setVisible(false);
+      dialogueText7.setVisible(false);
+    }
+    if (value == 11) {
+      dialogue8.setVisible(true);
+      dialogueText8.setVisible(true);
+    } else if (value != 11) {
+      dialogue8.setVisible(false);
+      dialogueText8.setVisible(false);
+    }
+    if (value == 12) {
+      dialogue9.setVisible(true);
+      dialogueText9.setVisible(true);
+    } else if (value != 12) {
+      dialogue9.setVisible(false);
+      dialogueText9.setVisible(false);
+    }
+    // Background view number 4
+    if (value >= 13) {
+      celebrationParty.setVisible(true);
+    } else if (value < 13) {
+      celebrationParty.setVisible(false);
+    }
+    if (value == 14) {
+      dialogue10.setVisible(true);
+      dialogueText10.setVisible(true);
+    } else if (value != 14) {
+      dialogue10.setVisible(false);
+      dialogueText10.setVisible(false);
     }
   }
 }

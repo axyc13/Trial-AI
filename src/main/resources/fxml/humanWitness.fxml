@@ -43,7 +43,7 @@
             <Font size="20.0" />
          </font>     
         </Label>
-            <Slider fx:id="slidingBar" blockIncrement="2.0" layoutX="325.0" layoutY="551.0" max="20.0" prefHeight="14.0" prefWidth="452.0">
+            <Slider fx:id="slidingBar" blockIncrement="2.0" layoutX="325.0" layoutY="551.0" max="15.0" prefHeight="14.0" prefWidth="452.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -74,7 +74,20 @@
                <image>
                   <Image url="@../images/humanAiCollaboration.png" />
                </image>
-            </ImageView> 
+            </ImageView>
+            <Label fx:id="dialogue7" alignment="CENTER" contentDisplay="CENTER" layoutX="473.0" layoutY="230.0" prefHeight="42.0" prefWidth="147.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Cook up something homie&#10;" visible="false" />
+            <Polygon fx:id="dialogueText7" fill="WHITE" layoutX="480.0" layoutY="220.0" points="-8.39996337890625, 109.60000610351562, 25.20001220703125, 49.600006103515625, 6.0, 49.600006103515625" stroke="WHITE" strokeType="INSIDE" visible="false" />
+            <Label fx:id="dialogue8" alignment="CENTER" contentDisplay="CENTER" layoutX="454.0" layoutY="246.0" prefHeight="42.0" prefWidth="147.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Generating beats... done." visible="false" />
+            <Polygon fx:id="dialogueText8" fill="WHITE" layoutX="543.0" layoutY="223.0" points="68.5999755859375, 102.60000610351562, 42.20001220703125, 56.399993896484375, 7.5999755859375, 49.600006103515625" stroke="WHITE" strokeType="INSIDE" visible="false" />
+            <Label fx:id="dialogue9" alignment="CENTER" contentDisplay="CENTER" layoutX="473.0" layoutY="247.0" prefHeight="52.0" prefWidth="122.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="That's lit yo, &#10;I'm publishing this&#10;" visible="false" />
+            <Polygon fx:id="dialogueText9" fill="WHITE" layoutX="490.0" layoutY="230.0" points="-21.5999755859375, 101.19998168945312, 17.5999755859375, 68.99996948242188, 0.0, 68.99996948242188" stroke="WHITE" strokeType="INSIDE" visible="false" />
+            <ImageView fx:id="celebrationParty" fitHeight="335.0" fitWidth="452.0" layoutX="321.0" layoutY="184.0" pickOnBounds="true" visible="false">
+               <image>
+                  <Image url="@../images/partyCelebration.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="dialogue10" alignment="CENTER" contentDisplay="CENTER" layoutX="518.0" layoutY="209.0" prefHeight="42.0" prefWidth="196.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="We gon be rich forever gang" visible="false" />
+            <Polygon fx:id="dialogueText10" fill="WHITE" layoutX="548.0" layoutY="181.0" points="-36.4000244140625, 147.79998779296875, 17.5999755859375, 68.99996948242188, 0.0, 68.99996948242188" stroke="WHITE" strokeType="INSIDE" visible="false" /> 
       </children>
     </AnchorPane>
     
