@@ -46,7 +46,6 @@ public class AiWitnessChatController extends ChatControllerCentre {
   @FXML private ImageView speechBubble11;
   @FXML private ImageView speechBubble12;
   @FXML private Button clearNoiseBtn;
-  @FXML private ImageView binImage;
   @FXML private ImageView rumourBin;
 
   @Override
@@ -61,6 +60,7 @@ public class AiWitnessChatController extends ChatControllerCentre {
     setupSpeechBubbleTexts();
     hideAllSpeechBubbles();
     clearNoiseBtn.setVisible(false);
+    rumourBin.setVisible(false);
 
     // Create and style the instruction label
     instructionLabel = new Label("Drag the rumours into the bin");
@@ -120,12 +120,12 @@ public class AiWitnessChatController extends ChatControllerCentre {
     label.setTextAlignment(TextAlignment.CENTER);
     label.setAlignment(Pos.CENTER);
 
-    // Set width to 80% of bubble width to prevent text touching edges
-    label.setPrefWidth(bubble.getFitWidth() * 0.8);
+    // Set width to 60% of bubble width to prevent text touching edges
+    label.setPrefWidth(bubble.getFitWidth() * 0.6);
     label.setPrefHeight(bubble.getFitHeight() * 0.8);
 
     // Add styling for better readability
-    label.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
+    label.setStyle("-fx-font-size: 12.5px; -fx-font-weight: bold;");
 
     // Create StackPane to hold both bubble and text
     StackPane stack = new StackPane();
@@ -147,17 +147,17 @@ public class AiWitnessChatController extends ChatControllerCentre {
   }
 
   private void setupSpeechBubbleTexts() {
-    addTextToSpeechBubble(speechBubble1, "Did you hear about that new AI project?");
-    addTextToSpeechBubble(speechBubble2, "Yeah, it was trained on a bunch of music.");
-    addTextToSpeechBubble(speechBubble3, "Some people say the artists never agreed to it...");
+    addTextToSpeechBubble(speechBubble2, "Did you hear about that new AI project?");
+    addTextToSpeechBubble(speechBubble1, "Yeah, it was trained on a bunch of music.");
+    addTextToSpeechBubble(speechBubble7, "Some people say the artists never agreed to it...");
     addTextToSpeechBubble(
         speechBubble4, "I thought I heard something about consent, but not sure.");
-    addTextToSpeechBubble(speechBubble5, "Either way, musicians are upset.");
-    addTextToSpeechBubble(speechBubble6, "They think their styles were copied.");
-    addTextToSpeechBubble(speechBubble7, "It sounds like the AI just stole the music.");
-    addTextToSpeechBubble(speechBubble8, "I don’t know... inspiration isn’t the same as stealing.");
-    addTextToSpeechBubble(speechBubble9, "But everyone keeps calling it unethical.");
-    addTextToSpeechBubble(speechBubble10, "Rumours spread so quickly about this stuff.");
+    addTextToSpeechBubble(speechBubble8, "Either way, musicians are upset.");
+    addTextToSpeechBubble(speechBubble5, "They think their styles were copied.");
+    addTextToSpeechBubble(speechBubble3, "It sounds like the AI just stole the music.");
+    addTextToSpeechBubble(speechBubble9, "I don’t know... inspiration isn’t the same as stealing.");
+    addTextToSpeechBubble(speechBubble10, "But everyone keeps calling it unethical.");
+    addTextToSpeechBubble(speechBubble6, "Rumours spread so quickly about this stuff.");
     addTextToSpeechBubble(speechBubble11, "Hard to tell what’s true anymore...");
     addTextToSpeechBubble(
         speechBubble12, "Still, people say the whole story is clear — the AI crossed a line.");
@@ -253,6 +253,7 @@ public class AiWitnessChatController extends ChatControllerCentre {
   private void onClearNoiseBtnClick() {
     // Show the instruction label
     instructionLabel.setVisible(true);
+    rumourBin.setVisible(false);
 
     // Create a fade transition for the instruction
     javafx.animation.FadeTransition fadeOut =
@@ -274,5 +275,7 @@ public class AiWitnessChatController extends ChatControllerCentre {
         makeDraggableWithBinDetection((StackPane) bubble.getParent(), bubble);
       }
     }
+
+    clearNoiseBtn.setVisible(false);
   }
 }

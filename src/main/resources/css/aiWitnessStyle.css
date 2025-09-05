@@ -1,0 +1,60 @@
+/* Slider track */
+.slider .track {
+  -fx-background-color: linear-gradient(to right, #444, #888);
+  -fx-background-radius: 6;
+  -fx-pref-height: 10;
+  -fx-effect: innershadow(gaussian, #222, 4, 0.3, 0, 0);
+}
+
+/* Filled portion of slider */
+.slider .track:filled {
+  -fx-background-color: #5a9bd5;
+  -fx-effect: innershadow(gaussian, #3a6ea5, 3, 0.3, 0, 0);
+}
+
+/* Slider thumb (the knob) */
+.slider .thumb {
+  -fx-background-color: #d9534f;
+  -fx-background-radius: 14;
+  -fx-pref-width: 20;
+  -fx-pref-height: 20;
+  -fx-effect: dropshadow(gaussian, #000000, 6, 0.5, 0, 1);
+  -fx-cursor: hand;
+}
+
+/* Tick marks */
+.slider .tick-mark {
+  -fx-stroke: #aaa;
+  -fx-stroke-width: 1.5;
+}
+
+/* Tick labels */
+.slider .tick-label {
+  -fx-text-fill: #ccc;
+  -fx-font-size: 13px;
+  -fx-font-weight: normal;
+}
+
+
+/* Base button style */
+.clear-noise-button {
+  -fx-background-color: #1a1a1a;
+  -fx-text-fill: #00ffe7;
+  -fx-font-family: "Consolas";
+  -fx-font-size: 16px;
+  -fx-font-weight: bold;
+  -fx-padding: 10 20;
+  -fx-border-color: #00ffe7;
+  -fx-border-width: 2;
+  -fx-border-radius: 5;
+  -fx-background-radius: 5;
+  -fx-effect: dropshadow(gaussian, #00ffe7, 4, 0.4, 0, 0);
+}
+
+/* Subtle hover glitch effect */
+.clear-noise-button:hover {
+  -fx-background-color: #1a1a1a;
+  -fx-text-fill: #ff3c00;
+  -fx-border-color: #ff3c00;
+  -fx-effect: dropshadow(gaussian, #ff3c00, 6, 0.6, 1, 1);
+}
