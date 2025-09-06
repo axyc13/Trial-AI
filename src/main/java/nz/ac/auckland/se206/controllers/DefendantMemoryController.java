@@ -19,6 +19,9 @@ public class DefendantMemoryController {
   @FXML private StackPane scene1;
   @FXML private StackPane scene2;
   @FXML private StackPane scene3;
+  @FXML private StackPane scene4;
+  @FXML private StackPane scene5;
+  @FXML private StackPane scene6;
   @FXML private Slider slidingBar;
   @FXML private ImageView image1;
   @FXML private ImageView image2;
@@ -56,6 +59,11 @@ public class DefendantMemoryController {
   }
 
   private void showDialogue(int value) {
+    if (value == 0) {
+      scene1.setVisible(false);
+      scene2.setVisible(false);
+      scene3.setVisible(false);
+    }
     if (value == 1) {
       image1.setVisible(true);
       scene1.setVisible(true);
@@ -70,6 +78,19 @@ public class DefendantMemoryController {
       scene2.setVisible(false);
       scene3.setVisible(false);
       image1.setVisible(false);
+      scene4.setVisible(false);
+    } else if (value == 5) {
+      scene4.setVisible(true);
+      scene5.setVisible(false);
+    } else if (value == 6) {
+      scene4.setVisible(false);
+      scene5.setVisible(true);
+      scene6.setVisible(false);
+    } else if (value == 7) {
+      scene5.setVisible(false);
+      scene6.setVisible(true);
+    } else if (value == 8) {
+      scene6.setVisible(false);
     }
   }
 

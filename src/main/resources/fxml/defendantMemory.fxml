@@ -88,6 +88,48 @@
           </Text>
           </AnchorPane>
         </StackPane>
+        <StackPane fx:id="scene4" layoutX="516.0" layoutY="126.0" prefHeight="170.0" prefWidth="270.0" visible="false">
+          <ImageView fitHeight="167.0" fitWidth="263.0" preserveRatio="true">
+            <image>
+              <Image url="@../images/Speech Balloon 2.png" />
+            </image>
+          </ImageView>
+          <AnchorPane>
+            <Text layoutX="76.0" layoutY="63.0" text="hi, may i use your music as inspiration?" textAlignment="CENTER" wrappingWidth="126.3935922999649">
+              <font>
+                <Font size="18.0" />
+              </font>
+          </Text>
+          </AnchorPane>
+        </StackPane>
+        <StackPane fx:id="scene5" layoutX="66.0" layoutY="155.0" prefHeight="170.0" prefWidth="270.0" visible="false">
+          <ImageView fitHeight="167.0" fitWidth="263.0" preserveRatio="true">
+            <image>
+              <Image url="@../images/Speech Balloon 3.png" />
+            </image>
+          </ImageView>
+          <AnchorPane>
+            <Text layoutX="64.0" layoutY="71.0" text="sure! you have my consent!!" textAlignment="CENTER" wrappingWidth="126.1255650717303">
+              <font>
+                <Font size="18.0" />
+              </font>
+          </Text>
+          </AnchorPane>
+        </StackPane>
+        <StackPane fx:id="scene6" layoutX="527.0" layoutY="137.0" prefHeight="170.0" prefWidth="270.0" visible="false">
+          <ImageView fitHeight="167.0" fitWidth="263.0" preserveRatio="true">
+            <image>
+              <Image url="@../images/Speech Balloon 2.png" />
+            </image>
+          </ImageView>
+          <AnchorPane>
+            <Text layoutX="78.0" layoutY="72.0" text="thanks! adding to database..." textAlignment="CENTER" wrappingWidth="117.6533882122913">
+              <font>
+                <Font size="18.0" />
+              </font>
+          </Text>
+          </AnchorPane>
+        </StackPane>
 
       </children>
     </AnchorPane>
