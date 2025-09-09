@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
@@ -49,6 +50,7 @@ public class HumanWitnessChatController extends ChatControllerCentre {
   @FXML private Label dialogue10;
   @FXML private Polygon dialogueText10;
   @FXML private Label storyCompletionLabel;
+  @FXML private ImageView backgroundImage;
 
   @Override
   @FXML
@@ -66,6 +68,7 @@ public class HumanWitnessChatController extends ChatControllerCentre {
             (obs, oldVal, newVal) -> {
               showDialogue(newVal.intValue());
               storyCompletionPercentage(newVal.intValue());
+              backgroundHuePercentage(newVal.intValue());
             });
 
     Platform.runLater(
@@ -85,6 +88,13 @@ public class HumanWitnessChatController extends ChatControllerCentre {
   private void storyCompletionPercentage(int value) {
     // Shows the percentage of the story currently completed
     storyCompletionLabel.setText("Story completion: " + (int) ((value / 15.0) * 100) + " % ");
+  }
+
+  private void backgroundHuePercentage(int value) {
+    // Adjusts the hue according to the story percentage completed
+    ColorAdjust colorAdjust = new ColorAdjust();
+    colorAdjust.setHue((-1.0 + (value / 15.0) * 2));
+    backgroundImage.setEffect(colorAdjust);
   }
 
   private void showDialogue(int value) {
