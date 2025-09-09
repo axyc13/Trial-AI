@@ -48,6 +48,7 @@ public class HumanWitnessChatController extends ChatControllerCentre {
   @FXML private ImageView celebrationParty;
   @FXML private Label dialogue10;
   @FXML private Polygon dialogueText10;
+  @FXML private Label storyCompletionLabel;
 
   @Override
   @FXML
@@ -64,6 +65,7 @@ public class HumanWitnessChatController extends ChatControllerCentre {
         .addListener(
             (obs, oldVal, newVal) -> {
               showDialogue(newVal.intValue());
+              storyCompletionPercentage(newVal.intValue());
             });
 
     Platform.runLater(
@@ -78,6 +80,11 @@ public class HumanWitnessChatController extends ChatControllerCentre {
           mediaPlayer.play();
           pause.play();
         });
+  }
+
+  private void storyCompletionPercentage(int value) {
+    // Shows the percentage of the story currently completed
+    storyCompletionLabel.setText("Story completion: " + (int) ((value / 15.0) * 100) + " % ");
   }
 
   private void showDialogue(int value) {

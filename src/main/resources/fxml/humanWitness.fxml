@@ -5,8 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.Slider?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -23,32 +22,32 @@
           <image>
             <Image url="@../images/witnessRoom.jpg" />
           </image>
+               <effect>
+                  <ColorAdjust hue="-1.0" />
+               </effect>
         </ImageView>
-         <TextArea fx:id="txtaChat" editable="false" layoutX="20.0" layoutY="230.0" opacity="0.83" prefHeight="299.0" prefWidth="223.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" wrapText="true" />
-        <TextField fx:id="txtInput" layoutX="20.0" layoutY="545.0" opacity="0.83" prefHeight="26.0" prefWidth="223.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" />
-        <Button fx:id="btnSend" layoutX="252.0" layoutY="545.0" mnemonicParsing="false" onAction="#onSendMessage" text="Send" />
         <Button layoutX="25.0" layoutY="29.0" mnemonicParsing="false" onAction="#onGoBack" prefHeight="52.0" prefWidth="130.0" text="Go Back" />
         <Label fx:id="timer" layoutX="639.0" layoutY="23.0" prefHeight="63.0" prefWidth="155.0" text="2:00" textFill="WHITE">
           <font>
             <Font size="50.0" />
           </font></Label>
         <ProgressBar fx:id="progressBar" layoutX="-1.0" layoutY="104.0" prefHeight="20.0" prefWidth="790.0" progress="0.0" />
-        <Label layoutX="334.0" layoutY="30.0" style="-fx-background-color: #000;" text=" This is a flashback! " textFill="WHITE">
+        <Label layoutX="331.0" layoutY="23.0" style="-fx-background-color: #000;" text=" This is a flashback! " textFill="WHITE">
           <font>
             <Font size="20.0" />
           </font>
         </Label>
-        <Label layoutX="259.0" layoutY="60.0" style="-fx-background-color: #000;" text="Once you leave you can't come back. " textFill="WHITE">
+        <Label alignment="CENTER" layoutX="259.0" layoutY="60.0" prefHeight="30.0" prefWidth="319.0" style="-fx-background-color: #000;" text="Drag across to reveal story" textFill="WHITE">
           <font>
             <Font size="20.0" />
          </font>     
         </Label>
-            <Slider fx:id="slidingBar" blockIncrement="2.0" layoutX="325.0" layoutY="551.0" max="15.0" prefHeight="14.0" prefWidth="452.0">
+            <Slider fx:id="slidingBar" blockIncrement="2.0" layoutX="167.0" layoutY="548.0" max="15.0" prefHeight="40.0" prefWidth="319.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" style="-fx-background-size: 10;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Slider>
-            <ImageView fx:id="phoneInHand" fitHeight="323.0" fitWidth="452.0" layoutX="325.0" layoutY="196.0" pickOnBounds="true" visible="false">
+            <ImageView fx:id="phoneInHand" fitHeight="369.0" fitWidth="689.0" layoutX="74.0" layoutY="141.0" pickOnBounds="true">
                <image>
                   <Image url="@../images/phoneInHand.png" />
                </image>
@@ -87,7 +86,17 @@
                </image>
             </ImageView>
             <Label fx:id="dialogue10" alignment="CENTER" contentDisplay="CENTER" layoutX="518.0" layoutY="209.0" prefHeight="42.0" prefWidth="196.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="We gon be rich forever gang" visible="false" />
-            <Polygon fx:id="dialogueText10" fill="WHITE" layoutX="548.0" layoutY="181.0" points="-36.4000244140625, 147.79998779296875, 17.5999755859375, 68.99996948242188, 0.0, 68.99996948242188" stroke="WHITE" strokeType="INSIDE" visible="false" /> 
+            <Polygon fx:id="dialogueText10" fill="WHITE" layoutX="548.0" layoutY="181.0" points="-36.4000244140625, 147.79998779296875, 17.5999755859375, 68.99996948242188, 0.0, 68.99996948242188" stroke="WHITE" strokeType="INSIDE" visible="false" />
+            <Label fx:id="storyCompletionLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="262.0" layoutY="519.0" prefHeight="30.0" prefWidth="264.0" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 5;" text="Story completion: 0 % " textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="665.0" layoutY="548.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="111.0" text="Continue">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button> 
       </children>
     </AnchorPane>
     
