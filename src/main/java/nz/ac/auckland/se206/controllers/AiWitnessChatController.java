@@ -1,10 +1,6 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -55,6 +51,8 @@ public class AiWitnessChatController extends ChatControllerCentre {
   @FXML private ImageView speechBubble12;
   @FXML private Button clearNoiseBtn;
   @FXML private ImageView rumourBin;
+  @FXML private TextArea chatTextArea;
+
   private Label completionLabel;
   private List<String> playerActions = new ArrayList<>();
   private int bubblesInBin = 0;
@@ -66,26 +64,76 @@ public class AiWitnessChatController extends ChatControllerCentre {
    */
   private void logAction(String action) {
     playerActions.add(action);
-    System.out.println("Player action: " + action); // For debugging
+    System.out.println("Player action: " + action);
 
-    // Build context message for AI
-    StringBuilder contextMsg = new StringBuilder();
-    contextMsg.append("Context Update:\n");
-    contextMsg.append(
-        "- The player can interact with speech bubbles containing rumors about AI music"
-            + " generation\n");
-    contextMsg.append("- The player can drag these rumours into a bin to dispose of them\n");
-    contextMsg.append(
-        "- Each action represents the player's interaction with these rumors in your memory\n\n");
-    contextMsg.append("Recent player actions:\n");
-    for (String playerAction : playerActions) {
-      contextMsg.append("- ").append(playerAction).append("\n");
+    if (action.startsWith("Disposed:")) {
+      bubblesInBin++;
+      System.out.println("Bubbles in bin: " + bubblesInBin + "/12");
+
+      // Check if all speech bubbles have been disposed
+      if (bubblesInBin == 12) {
+        Platform.runLater(
+            () -> {
+              // Simple fade in for the completion label
+              javafx.animation.FadeTransition fadeIn =
+                  new javafx.animation.FadeTransition(Duration.seconds(1.0), completionLabel);
+              fadeIn.setFromValue(0.0);
+              fadeIn.setToValue(1.0);
+
+              // Show the conclusion message
+              completionLabel.setVisible(true);
+              fadeIn.play();
+
+              // Add context to chat storage
+              ChatMessage actionMsg =
+                  new ChatMessage(
+                      "system",
+                      "Player has cleared all the rumours. The AI witness should now make a final"
+                          + " comment on the situation.");
+              actionMsg.setSystemPrompt(true);
+              ChatStorage.addMessage("system", actionMsg);
+            });
+      }
+    }
+  }
+
+  private void addAiComment(String action) {
+    final String comment;
+    if (action.contains("cleared")) {
+      comment = "Hold up, what noise?? This is obviously true.";
+    } else if (action.contains("revealed all")) {
+      comment = "I heard these things while I was on the train.";
+    } else if (action.contains("disposed")) {
+      // Get the text of the disposed bubble
+      String bubbleText = action.substring(action.indexOf(":") + 1).trim();
+
+      // Only respond to key statements about the ethical concerns
+      if (bubbleText.contains("never agreed to it")) {
+        comment = "Woah woah woah, why are you getting rid of that one?!";
+      } else if (bubbleText.contains("stole the music")) {
+        comment = "No, this one is definitely true. Im sure of it.";
+      } else if (bubbleText.contains("crossed a line")) {
+        comment =
+            "Excuse me but that one is definitely true. The AI's actions were clearly unethical."
+                + " They said it themselves.";
+      } else if (bubbleText.contains("inspiration isn't the same as stealing")) {
+        // Only respond to this attempt to justify the behavior
+        comment = "oh yeah that one you can get rid of. I don't think it's right.";
+      } else {
+        // Stay silent for other bubbles, including other attempts to minimize the issue
+        comment = "";
+      }
+    } else {
+      comment = "";
     }
 
-    // Add context to chat storage
-    ChatMessage actionMsg = new ChatMessage("system", contextMsg.toString());
-    actionMsg.setSystemPrompt(true);
-    ChatStorage.addMessage("system", actionMsg);
+    if (!comment.isEmpty()) {
+      String finalComment = comment;
+      Platform.runLater(
+          () -> {
+            txtaChat.appendText("AI Witness: " + finalComment + "\n\n");
+          });
+    }
   }
 
   @Override
@@ -93,16 +141,7 @@ public class AiWitnessChatController extends ChatControllerCentre {
   public void initialize() {
     try {
       super.initialize();
-
-      // Read the initial prompt from the file
-      Path promptPath = Paths.get("src/main/resources/prompts/aiWitness.txt");
-      String basePrompt = Files.readString(promptPath);
-
-      // Add initial system message from the file
-      ChatMessage contextMsg = new ChatMessage("system", basePrompt);
-      contextMsg.setSystemPrompt(true);
-      ChatStorage.addMessage("system", contextMsg);
-    } catch (ApiProxyException | IOException e) {
+    } catch (ApiProxyException e) {
       e.printStackTrace();
     }
     flashbackMessage.setVisible(true);
@@ -124,24 +163,22 @@ public class AiWitnessChatController extends ChatControllerCentre {
     // Create and style the completion label
     completionLabel =
         new Label(
-            "The AI witness testimony is unreliable.\n"
-                + "Rumours replace facts,\n"
-                + "and the truth is lost.");
+            "After investigation AI witness' testimony is based solely on rumours and is"
+                + " unreliable.");
     completionLabel.setStyle(
-        "-fx-font-size: 40px; -fx-text-fill: #528deb; -fx-background-color: rgba(0, 0, 0, 0.8);"
-            + " -fx-padding: 20px; -fx-background-radius: 10px; -fx-text-alignment: center;");
-    completionLabel.setTextAlignment(TextAlignment.CENTER);
+        "-fx-font-size: 24px; -fx-text-fill: white; -fx-background-color: rgba(0, 0, 0, 0.8);"
+            + " -fx-padding: 15px; -fx-background-radius: 10px;");
+    completionLabel.setWrapText(true);
+    completionLabel.setPrefWidth(400); // Adjusted to fit the anchor pane width
+    completionLabel.setPrefHeight(150); // Set a reasonable height
     completionLabel.setAlignment(Pos.CENTER);
-    completionLabel.setPrefWidth(400); // Slightly smaller than the AnchorPane width
-    completionLabel.setWrapText(true); // Enable text wrapping
-    completionLabel.setLayoutX(301 + (435 - 400) / 2); // Center horizontally in AnchorPane
-    completionLabel.setLayoutY(164 + 356 / 2 - 150); // Center vertically in AnchorPane
+    completionLabel.setTextAlignment(TextAlignment.CENTER);
+
+    // Position within the dedicated anchor pane area (301, 164, 435x356)
+    completionLabel.setLayoutX(301 + 17); // Centered horizontally in the anchor pane
+    completionLabel.setLayoutY(164 + 103); // Centered vertically in the anchor pane
     completionLabel.setVisible(false);
-    // Add the completion label to the AnchorPane at (301, 164)
-    AnchorPane messagePane = (AnchorPane) ((AnchorPane) slider.getParent()).lookup("AnchorPane");
-    if (messagePane != null) {
-      messagePane.getChildren().add(completionLabel);
-    }
+    ((AnchorPane) slider.getParent()).getChildren().add(completionLabel);
 
     slider
         .valueProperty()
@@ -269,7 +306,8 @@ public class AiWitnessChatController extends ChatControllerCentre {
       showBubbleWithText(speechBubble12);
       clearNoiseBtn.setVisible(true);
       slider.setVisible(false);
-      logAction("Player has revealed all speech bubbles about AI music generation controversy");
+      logAction("Revealed all rumors");
+      addAiComment("revealed all");
     }
   }
 
@@ -284,15 +322,20 @@ public class AiWitnessChatController extends ChatControllerCentre {
   private void makeDraggableWithBinDetection(StackPane stack, ImageView bubble) {
     double[] deltaX = {0.0};
     double[] deltaY = {0.0};
+    boolean[] isDragging = {false};
+    boolean[] isOverBin = {false};
 
     stack.setOnMousePressed(
         e -> {
           deltaX[0] = stack.getLayoutX() - e.getSceneX();
           deltaY[0] = stack.getLayoutY() - e.getSceneY();
+          isDragging[0] = true;
         });
 
     stack.setOnMouseDragged(
         e -> {
+          if (!isDragging[0]) return;
+
           stack.setLayoutX(e.getSceneX() + deltaX[0]);
           stack.setLayoutY(e.getSceneY() + deltaY[0]);
 
@@ -310,44 +353,27 @@ public class AiWitnessChatController extends ChatControllerCentre {
           double stackCenterX = stackBounds.getMinX() + stackBounds.getWidth() / 2;
           double stackCenterY = stackBounds.getMinY() + stackBounds.getHeight() / 2;
 
-          if (Math.abs(stackCenterX - binCenterX) < collisionWidth / 2
-              && Math.abs(stackCenterY - binCenterY) < collisionHeight / 2
-              && stack.isVisible()) { // Only process if the stack is still visible
+          isOverBin[0] =
+              Math.abs(stackCenterX - binCenterX) < collisionWidth / 2
+                  && Math.abs(stackCenterY - binCenterY) < collisionHeight / 2;
+        });
+
+    stack.setOnMouseReleased(
+        e -> {
+          if (isDragging[0] && isOverBin[0]) {
+            stack.setVisible(false); // Hide the whole stack (bubble + text)
             Label label = speechBubbleLabels.get(bubble);
             if (label != null) {
-              logAction("Player disposed rumour: \"" + label.getText() + "\"");
               label.setVisible(false);
+              String bubbleText = label.getText();
+              // Log the action and pass the bubble's text
+              logAction("Disposed: " + bubbleText);
+              addAiComment("disposed: " + bubbleText);
             }
-            stack.setVisible(false); // Hide the whole stack (bubble + text)
-            bubblesInBin++;
-            checkAllBubblesHidden();
           }
+          isDragging[0] = false;
+          isOverBin[0] = false;
         });
-  }
-
-  private void checkAllBubblesHidden() {
-    // Check if all speech bubbles are hidden
-    boolean allHidden = true;
-    for (ImageView bubble :
-        new ImageView[] {
-          speechBubble1, speechBubble2, speechBubble3, speechBubble4,
-          speechBubble5, speechBubble6, speechBubble7, speechBubble8,
-          speechBubble9, speechBubble10, speechBubble11, speechBubble12
-        }) {
-      if (bubble.getParent() instanceof StackPane && bubble.getParent().isVisible()) {
-        allHidden = false;
-        break;
-      }
-    }
-
-    if (allHidden) {
-      // Show the completion message and log the completion
-      completionLabel.setVisible(true);
-      logAction(
-          "Player completed rumour clearing activity by disposing all "
-              + bubblesInBin
-              + " speech bubbles");
-    }
   }
 
   @FXML
@@ -355,7 +381,8 @@ public class AiWitnessChatController extends ChatControllerCentre {
     // Show the instruction label
     instructionLabel.setVisible(true);
     rumourBin.setVisible(true);
-    logAction("Player started clearing rumours by activating the rumour bin");
+    logAction("Clear Noise button clicked");
+    addAiComment("cleared");
 
     // Create a fade transition for the instruction
     javafx.animation.FadeTransition fadeOut =
