@@ -1,12 +1,16 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.File;
+import java.io.IOException;
 import javafx.animation.PauseTransition;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
@@ -14,6 +18,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Polygon;
 import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
+import nz.ac.auckland.se206.App;
 
 /**
  * Controller class for the chat view. Handles user interactions and communication with the GPT
@@ -48,6 +53,9 @@ public class HumanWitnessChatController extends ChatControllerCentre {
   @FXML private ImageView celebrationParty;
   @FXML private Label dialogue10;
   @FXML private Polygon dialogueText10;
+  @FXML private Label storyCompletionLabel;
+  @FXML private ImageView backgroundImage;
+  @FXML private Button continueButton;
 
   @Override
   @FXML
@@ -64,6 +72,8 @@ public class HumanWitnessChatController extends ChatControllerCentre {
         .addListener(
             (obs, oldVal, newVal) -> {
               showDialogue(newVal.intValue());
+              storyCompletionPercentage(newVal.intValue());
+              backgroundHuePercentage(newVal.intValue());
             });
 
     Platform.runLater(
@@ -78,6 +88,19 @@ public class HumanWitnessChatController extends ChatControllerCentre {
           mediaPlayer.play();
           pause.play();
         });
+  }
+
+  private void storyCompletionPercentage(int value) {
+    // Shows the percentage of the story currently completed
+    storyCompletionLabel.setText("Story completion: " + (int) ((value / 15.0) * 100) + " % ");
+  }
+
+  private void backgroundHuePercentage(int value) {
+    // Adjusts the hue according to the story percentage completed
+    ColorAdjust colorAdjust = new ColorAdjust();
+    colorAdjust.setHue((-1.0 + (value / 15.0) * 2));
+    backgroundImage.setEffect(colorAdjust);
+    storyCompletionLabel.setEffect(colorAdjust);
   }
 
   private void showDialogue(int value) {
@@ -176,5 +199,19 @@ public class HumanWitnessChatController extends ChatControllerCentre {
       dialogue10.setVisible(false);
       dialogueText10.setVisible(false);
     }
+    // Button to leave the flashback
+    if (value == 15) {
+      continueButton.setVisible(true);
+      continueButton.setDisable(false);
+    } else if (value != 15) {
+      continueButton.setVisible(false);
+      continueButton.setDisable(true);
+    }
+  }
+
+  @FXML
+  private void OngoChat(ActionEvent event) throws ApiProxyException, IOException {
+    // SetRoot to the human witness chat room
+    App.setRoot("room");
   }
 }
