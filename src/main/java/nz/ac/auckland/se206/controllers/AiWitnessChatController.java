@@ -31,6 +31,62 @@ import nz.ac.auckland.se206.ChatStorage;
  */
 public class AiWitnessChatController extends ChatControllerCentre {
 
+  // Tracks how many times the AI witness has been clicked
+  private int aiWitnessClickCount = 0;
+  private int flashbackStep = 1;
+  @FXML private ImageView FlashbackOne;
+  @FXML private ImageView FlashbackTwo;
+  @FXML private ImageView FlashbackThree;
+  @FXML private Button continueButton;
+
+  /**
+   * Handles clicks on the AI witness. Shows flashback scene on first click, memory on subsequent
+   * clicks.
+   */
+  @FXML
+  private void onAiWitnessClicked() {
+    if (aiWitnessClickCount == 0) {
+      // Show flashback scene
+      showFlashbackScene();
+    } else {
+      // Show memory scene directly
+      showMemoryScene();
+    }
+    aiWitnessClickCount++;
+  }
+
+  /** Shows the flashback scene. Replace this with your actual scene-switching logic. */
+  private void showFlashbackScene() {
+    try {
+      javafx.fxml.FXMLLoader loader =
+          new javafx.fxml.FXMLLoader(getClass().getResource("/fxml/AIWitnessFlashback.fxml"));
+      javafx.scene.Parent root = loader.load();
+      javafx.scene.Scene scene = new javafx.scene.Scene(root);
+      // Get the current stage from any node (e.g., txtaChat)
+      javafx.stage.Stage stage = (javafx.stage.Stage) txtaChat.getScene().getWindow();
+      stage.setScene(scene);
+      stage.show();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  /** Shows the memory scene. Replace this with your actual scene-switching logic. */
+  private void showMemoryScene() {
+    try {
+      javafx.fxml.FXMLLoader loader =
+          new javafx.fxml.FXMLLoader(getClass().getResource("/fxml/aiWitness.fxml"));
+      javafx.scene.Parent root = loader.load();
+      javafx.scene.Scene scene = new javafx.scene.Scene(root);
+      // Get the current stage from any node (e.g., txtaChat)
+      javafx.stage.Stage stage = (javafx.stage.Stage) txtaChat.getScene().getWindow();
+      stage.setScene(scene);
+      stage.show();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
   @FXML private TextArea txtaChat;
   @FXML private Slider slider;
   @FXML private VBox flashbackMessage;
@@ -136,6 +192,32 @@ public class AiWitnessChatController extends ChatControllerCentre {
     }
   }
 
+  @FXML
+  private void onContinueFlashback() {
+    flashbackStep++;
+    switch (flashbackStep) {
+      case 2:
+        // Show second flashback
+        FlashbackOne.setVisible(false);
+        FlashbackTwo.setVisible(true);
+        FlashbackThree.setVisible(false);
+        break;
+      case 3:
+        // Show third flashback
+        FlashbackOne.setVisible(false);
+        FlashbackTwo.setVisible(false);
+        FlashbackThree.setVisible(true);
+        if (continueButton != null) {
+          continueButton.setText("Enter Memory");
+        }
+        break;
+      default:
+        // After third flashback, switch to memory scene
+        showMemoryScene();
+        break;
+    }
+  }
+
   @Override
   @FXML
   public void initialize() {
@@ -144,6 +226,17 @@ public class AiWitnessChatController extends ChatControllerCentre {
     } catch (ApiProxyException e) {
       e.printStackTrace();
     }
+
+    // Initialize flashback UI if we're in the flashback scene
+    if (FlashbackOne != null && continueButton != null) {
+      // Show first flashback, hide others
+      FlashbackOne.setVisible(true);
+      FlashbackTwo.setVisible(false);
+      FlashbackThree.setVisible(false);
+      continueButton.setText("Continue");
+      flashbackStep = 1;
+    }
+
     flashbackMessage.setVisible(true);
     setupSpeechBubbleTexts();
     hideAllSpeechBubbles();
