@@ -240,7 +240,7 @@ public class AiWitnessChatController extends ChatControllerCentre {
 
     flashbackMessage.setVisible(true);
     setupSpeechBubbleTexts();
-    
+
     // Restore state from manager
     AiWitnessStateManager state = AiWitnessStateManager.getInstance();
 
@@ -253,19 +253,20 @@ public class AiWitnessChatController extends ChatControllerCentre {
     if (state.hasShownAllBubbles()) {
       slider.setValue(11);
       slider.setVisible(false);
-      
+
       // Show all bubbles first
       showSpeechBubble(11);
-      
+
       // If clear noise was clicked, show bin and make bubbles draggable
       if (state.hasClickedClearNoise()) {
         rumourBin.setVisible(true);
         // Make all non-disposed bubbles draggable
-        for (ImageView bubble : new ImageView[] {
-          speechBubble1, speechBubble2, speechBubble3, speechBubble4,
-          speechBubble5, speechBubble6, speechBubble7, speechBubble8,
-          speechBubble9, speechBubble10, speechBubble11, speechBubble12
-        }) {
+        for (ImageView bubble :
+            new ImageView[] {
+              speechBubble1, speechBubble2, speechBubble3, speechBubble4,
+              speechBubble5, speechBubble6, speechBubble7, speechBubble8,
+              speechBubble9, speechBubble10, speechBubble11, speechBubble12
+            }) {
           if (bubble.getParent() instanceof StackPane && bubble.isVisible()) {
             makeDraggableWithBinDetection((StackPane) bubble.getParent(), bubble);
           }
@@ -278,7 +279,7 @@ public class AiWitnessChatController extends ChatControllerCentre {
       double sliderValue = state.getSliderValue();
       slider.setValue(sliderValue);
       // Show bubbles up to the saved slider value
-      showSpeechBubble((int)sliderValue);
+      showSpeechBubble((int) sliderValue);
     }
 
     // Restore disposed bubbles
@@ -305,8 +306,7 @@ public class AiWitnessChatController extends ChatControllerCentre {
     ((AnchorPane) slider.getParent()).getChildren().add(instructionLabel);
 
     // Create and style the completion label
-    completionLabel =
-        new Label("The AI's actions were clearly unethical - using artists' work without consent.");
+    completionLabel = new Label("The AI witness testimony is unreliable and based on rumours.");
     completionLabel.setStyle(
         "-fx-font-size: 30px; -fx-text-fill: white; -fx-background-color: rgba(0, 0, 0, 0.8);"
             + " -fx-padding: 20px; -fx-background-radius: 10px;");
