@@ -41,7 +41,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Slider>
-            <ImageView fx:id="speechBubble2" fitHeight="144.0" fitWidth="262.0" layoutX="274.0" layoutY="221.0">
+            <ImageView fx:id="speechBubble2" fitHeight="144.0" fitWidth="262.0" layoutX="223.0" layoutY="257.0">
                <image>
                   <Image url="@../images/Speech%20Balloon%203.png" />
                </image>
@@ -71,38 +71,15 @@
                   <Image url="@../images/speech%20ballooon%204.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="speechBubble3" fitHeight="169.0" fitWidth="297.0" layoutX="194.0" layoutY="307.0">
-               <image>
-                  <Image url="@../images/Speech%20Balloon%203.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="speechBubble5" fitHeight="169.0" fitWidth="262.0" layoutX="411.0" layoutY="256.0">
+            <ImageView fx:id="speechBubble5" fitHeight="169.0" fitWidth="262.0" layoutX="374.0" layoutY="282.0">
                <image>
                   <Image url="@../images/Speech%20Balloon%202.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="speechBubble6" fitHeight="138.0" fitWidth="213.0" layoutX="354.0" layoutY="391.0">
+            <ImageView fx:id="speechBubble6" fitHeight="138.0" fitWidth="213.0" layoutX="299.0" layoutY="401.0">
                <image>
                   <Image url="@../images/speech%20ballooon.png" />
                </image>
-            </ImageView>
-            <ImageView fx:id="speechBubble11" fitHeight="138.0" fitWidth="203.0" layoutX="194.0" layoutY="413.0">
-               <image>
-                  <Image url="@../images/speech%20ballooon%204.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="speechBubble10" fitHeight="157.0" fitWidth="297.0" layoutX="57.0" layoutY="83.0">
-               <image>
-                  <Image url="@../images/Speech%20Balloon%202.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="speechBubble12" fitHeight="138.0" fitWidth="181.0" layoutX="620.0" layoutY="462.0">
-               <image>
-                  <Image url="@../images/speech%20ballooon.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
             </ImageView>
             <Button fx:id="clearNoiseBtn" layoutX="401.0" layoutY="539.0" mnemonicParsing="false" onAction="#onClearNoiseBtnClick" prefHeight="39.0" prefWidth="193.0" styleClass="clear-noise-button" stylesheets="@../css/aiWitnessStyle.css" text="CLEAR THE NOISE" />
             <ImageView fx:id="rumourBin" fitHeight="100.0" fitWidth="100.0" layoutX="27.0" layoutY="113.0">
@@ -110,7 +87,7 @@
                   <Image url="@../images/Bin.png" />
                </image>
             </ImageView>
-            <AnchorPane layoutX="301.0" layoutY="164.0" prefHeight="356.0" prefWidth="435.0" />
+            <AnchorPane layoutX="295.0" layoutY="163.0" prefHeight="356.0" prefWidth="435.0" visible="false" />
       </children>
     </AnchorPane>
     

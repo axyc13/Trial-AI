@@ -15,7 +15,6 @@ public class AiWitnessStateManager {
   private final List<Integer> disposedBubbles = new ArrayList<>();
   private boolean hasClickedClearNoise = false;
   private boolean hasShownAllBubbles = false;
-  private int bubblesInBin = 0;
   private int currentFlashbackState = 1;
   private boolean isEndLabelVisible = false;
 
@@ -70,7 +69,6 @@ public class AiWitnessStateManager {
   public void addDisposedBubble(int bubbleNumber) {
     if (!disposedBubbles.contains(bubbleNumber)) {
       disposedBubbles.add(bubbleNumber);
-      bubblesInBin++;
     }
   }
 
@@ -116,7 +114,7 @@ public class AiWitnessStateManager {
    * @return number of bubbles in the bin
    */
   public int getBubblesInBin() {
-    return bubblesInBin;
+    return disposedBubbles.size();
   }
 
   /**
@@ -161,7 +159,6 @@ public class AiWitnessStateManager {
     disposedBubbles.clear();
     hasClickedClearNoise = false;
     hasShownAllBubbles = false;
-    bubblesInBin = 0;
     currentFlashbackState = 1;
     isEndLabelVisible = false;
   }
