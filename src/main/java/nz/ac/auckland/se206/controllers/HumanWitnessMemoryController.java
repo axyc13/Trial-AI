@@ -33,6 +33,11 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
     } catch (ApiProxyException e) {
       e.printStackTrace();
     }
+
+    // Disable and turn visibility off the cassette tape
+    cassetteTape.setVisible(false);
+    cassetteTape.setDisable(true);
+
     // Display flashback message at the beginning
     flashbackMessage.setVisible(true);
     Platform.runLater(
@@ -43,6 +48,13 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
         });
 
     DraggableMaker.makeDraggable(cassetteTape);
+  }
+
+  @FXML
+  private void turnOnCassetteTape() {
+    // Enable and turn visibility on the cassette tape
+    cassetteTape.setVisible(true);
+    cassetteTape.setDisable(false);
   }
 
   @FXML

@@ -43,7 +43,7 @@
                   <Image url="@../images/aICasetteTape.png" />
                </image>
             </ImageView>
-        <ImageView fx:id="cassetteTape" fitHeight="142.0" fitWidth="231.0" layoutX="371.0" layoutY="195.0" preserveRatio="true">
+        <ImageView fx:id="cassetteTape" disable="true" fitHeight="142.0" fitWidth="231.0" layoutX="578.0" layoutY="280.0" preserveRatio="true">
           <image>
             <Image url="@../images/cassetteTape.png" />
           </image>
@@ -67,12 +67,32 @@
             <Font size="30.0" />
           </font>
         </Label>
+            <Button layoutX="646.0" layoutY="197.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="84.0" text="Next Song">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="424.0" layoutY="197.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="94.0" text="Previous Song">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="playButton" layoutX="536.0" layoutY="196.0" mnemonicParsing="false" onAction="#turnOnCassetteTape" prefHeight="46.0" prefWidth="84.0" text="Play">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label fx:id="songLabel" alignment="CENTER" layoutX="424.0" layoutY="137.0" prefHeight="52.0" prefWidth="308.0" style="-fx-background-color: black; -fx-background-radius: 10;" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
       </children>
     </AnchorPane>
     
     <VBox fx:id="flashbackMessage" alignment="CENTER" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false">
       <children>
-        <Label prefHeight="88.0" prefWidth="165.0" style="-fx-text-fill: white; -fx-font-size: 36px;" text="Flashback!">
+        <Label prefHeight="88.0" prefWidth="165.0" style="-fx-text-fill: white; -fx-font-size: 36px;" text="Memory!">
           <font>
             <Font size="14.0" />
           </font>
