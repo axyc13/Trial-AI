@@ -25,7 +25,14 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
 
   private int currentSongIndex = 0;
   private String[] songs = {
-    "Song 1", "Song 2", "Song 3", "Song 4", "Song 5", "Song 6", "Song 7", "Song 8"
+    "HUMBLE - Kendrick Llama",
+    "Blinding Lights - The Weekday",
+    "Yellow - Hotplay",
+    "Rap god - Skittles",
+    "Believer - Imagine Slightly Larger Lizards",
+    "Old Town Road - Lil Nas Y",
+    "Do I Wanna Know? - Arctic Gorillas",
+    "Smoke Weed Everyday - Snoop Catt"
   };
   private Image image1 = new Image(getClass().getResourceAsStream("/images/carRadio.jpg"));
   private Image image2 = new Image(getClass().getResourceAsStream("/images/cityLights.jpg"));
