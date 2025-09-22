@@ -37,7 +37,7 @@ public class FinalPageController {
     // Stop 2:00 timer and play flashback tts
     TimerManager.getInstance().stop();
 
-    String audioFile = "src/main/resources/sounds/tenSecondsLeft.mp3";
+    String audioFile = "src/main/resources/sounds/oneMinuteLeft.mp3";
 
     Media sound = new Media(new File(audioFile).toURI().toString());
     MediaPlayer mediaPlayer = new MediaPlayer(sound);
