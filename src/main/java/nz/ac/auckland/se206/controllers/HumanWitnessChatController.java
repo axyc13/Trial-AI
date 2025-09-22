@@ -107,78 +107,31 @@ public class HumanWitnessChatController extends ChatControllerCentre {
 
   private void showDialogue(int value) {
     // Plays through the dialogue as you move the slider
-    // Background view number 1
+    // Background view
     phoneInHand.setVisible((value >= 1 && value < 3));
-    phoneInHand.setVisible(!(value < 1 || value >= 3));
-
-    dialogue1.setVisible((value == 2));
-    dialogueText1.setVisible((value == 2));
-    dialogue1.setVisible(!(value != 2));
-    dialogueText1.setVisible(!(value != 2));
-
-    // Background view number 2
     musiciansCalling.setVisible((value >= 3 && value < 9));
-    musiciansCalling.setVisible(!(value < 3 || value >= 9));
-
-    dialogue2.setVisible((value == 4));
-    dialogueText2.setVisible((value == 4));
-    dialogue2.setVisible(!(value != 4));
-    dialogueText2.setVisible(!(value != 4));
-
-    dialogue3.setVisible((value == 5));
-    dialogueText3.setVisible((value == 5));
-    dialogue3.setVisible(!(value != 5));
-    dialogueText3.setVisible(!(value != 5));
-
-    dialogue4.setVisible((value == 6));
-    dialogueText4.setVisible((value == 6));
-    dialogue4.setVisible(!(value != 6));
-    dialogueText4.setVisible(!(value != 6));
-
-    dialogue5.setVisible((value == 7));
-    dialogueText5.setVisible((value == 7));
-    dialogue5.setVisible(!(value != 7));
-    dialogueText5.setVisible(!(value != 7));
-
-    dialogue6.setVisible((value == 8));
-    dialogueText6.setVisible((value == 8));
-    dialogue6.setVisible(!(value != 8));
-    dialogueText6.setVisible(!(value != 8));
-
-    // Background view number 3
     musiciansStudio.setVisible((value >= 9 && value < 13));
-    musiciansStudio.setVisible(!(value < 9 || value >= 13));
+    celebrationParty.setVisible((value >= 13 && value < 15));
 
-    dialogue7.setVisible((value == 10));
-    dialogueText7.setVisible((value == 10));
-    dialogue7.setVisible(!(value != 10));
-    dialogueText7.setVisible(!(value != 10));
-
-    dialogue8.setVisible((value == 11));
-    dialogueText8.setVisible((value == 11));
-    dialogue8.setVisible(!(value != 11));
-    dialogueText8.setVisible(!(value != 11));
-
-    dialogue9.setVisible((value == 12));
-    dialogueText9.setVisible((value == 12));
-    dialogue9.setVisible(!(value != 12));
-    dialogueText9.setVisible(!(value != 12));
-
-    // Background view number 4
-    celebrationParty.setVisible((value >= 13));
-    celebrationParty.setVisible(!(value < 13));
-
-    dialogue10.setVisible((value == 14));
-    dialogueText10.setVisible((value == 14));
-    dialogue10.setVisible(!(value != 14));
-    dialogueText10.setVisible(!(value != 14));
+    setVisibility(value == 2, dialogue1, dialogueText1);
+    setVisibility(value == 4, dialogue2, dialogueText2);
+    setVisibility(value == 5, dialogue3, dialogueText3);
+    setVisibility(value == 6, dialogue4, dialogueText4);
+    setVisibility(value == 7, dialogue5, dialogueText5);
+    setVisibility(value == 8, dialogue6, dialogueText6);
+    setVisibility(value == 10, dialogue7, dialogueText7);
+    setVisibility(value == 11, dialogue8, dialogueText8);
+    setVisibility(value == 12, dialogue9, dialogueText9);
+    setVisibility(value == 14, dialogue10, dialogueText10);
 
     // Button to leave the flashback
-
     continueButton.setVisible((value == 15));
-    continueButton.setDisable(!(value == 15));
-    continueButton.setVisible(!(value != 15));
     continueButton.setDisable((value != 15));
+  }
+
+  private void setVisibility(boolean visible, Label speechBubble, Polygon speechBubbleArrow) {
+    speechBubbleArrow.setVisible(visible);
+    speechBubble.setVisible(visible);
   }
 
   @FXML
