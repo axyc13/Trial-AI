@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.DefendantChatController">
+<StackPane stylesheets="@../css/defendantChat.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.DefendantChatController">
   <children>
     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="789.0">
       <children>
@@ -96,7 +96,16 @@
             <Font size="20.0" />
           </font>
         </Label>
-            <Button fx:id="gameButton" onAction="#onGameStart" layoutX="455.0" layoutY="351.0" mnemonicParsing="false" text="Click to start game" />
+            <Button fx:id="gameButton" layoutX="455.0" layoutY="351.0" mnemonicParsing="false" onAction="#onGameStart" text="Click to start game" />
+            <AnchorPane fx:id="messageBox" layoutX="328.0" layoutY="276.0" prefHeight="187.0" prefWidth="401.0" style="-fx-background-color: #000;" visible="false">
+               <children>
+                  <Text fx:id="message" fill="WHITE" layoutX="8.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: #000;" text="Game Over! You made the correct judgement on 4/5 songs" textAlignment="CENTER" wrappingWidth="384.7127152457932">
+                     <font>
+                        <Font size="37.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
       </children>
     </AnchorPane>
     

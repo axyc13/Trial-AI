@@ -17,6 +17,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
@@ -37,6 +38,8 @@ public class DefendantChatController extends ChatControllerCentre {
   @FXML private AnchorPane disc5;
   @FXML private ImageView basket;
   @FXML private Button gameButton;
+  @FXML private Text message;
+  @FXML private AnchorPane messageBox;
 
   @FXML private VBox flashbackMessage;
   private MediaPlayer mediaPlayer;
@@ -71,7 +74,7 @@ public class DefendantChatController extends ChatControllerCentre {
         .layoutXProperty()
         .addListener(
             (obs, oldX, newX) -> {
-              double minX = 350;
+              double minX = 310;
               double maxX = 650;
               if (newX.doubleValue() < minX) {
                 basket.setLayoutX(minX);
@@ -93,11 +96,11 @@ public class DefendantChatController extends ChatControllerCentre {
   }
 
   private void dropDisc(AnchorPane disc) {
-    double minX = 350;
+    double minX = 310;
     double maxX = 650;
     double x = minX + Math.random() * (maxX - minX);
 
-    disc.setLayoutY(10);
+    disc.setLayoutY(70);
     disc.setLayoutX(x);
     disc.setVisible(true);
   }
@@ -108,7 +111,14 @@ public class DefendantChatController extends ChatControllerCentre {
       dropDisc(discs.get(discIndex));
     } else {
       basket.setVisible(false);
-
+      message.setText("Game Over! You made the correct judgement on " + score + "/5 songs");
+      messageBox.setVisible(true);
+      Platform.runLater(
+          () -> {
+            PauseTransition pause = new PauseTransition(Duration.seconds(3));
+            pause.setOnFinished(e -> messageBox.setVisible(false));
+            pause.play();
+          });
       gameLoop.stop();
       return;
     }
@@ -125,6 +135,7 @@ public class DefendantChatController extends ChatControllerCentre {
               disc.setLayoutY(disc.getLayoutY() + 2);
 
               if (disc.getBoundsInParent().intersects(basket.getBoundsInParent())) {
+                // Disc caught
                 if (discIndex == 0 || discIndex == 3) {
                   score += 1;
                 }
@@ -132,8 +143,11 @@ public class DefendantChatController extends ChatControllerCentre {
                 sendNextDisc();
               }
 
-              if (disc.getLayoutY() > 600) {
+              if (disc.getLayoutY() > 530) {
                 // Disc missed
+                if (discIndex != 0 || discIndex != 3) {
+                  score += 1;
+                }
                 disc.setVisible(false);
                 sendNextDisc();
               }
