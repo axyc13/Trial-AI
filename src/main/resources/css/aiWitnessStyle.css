@@ -1,60 +1,122 @@
 /* Slider track */
 .slider .track {
-  -fx-background-color: linear-gradient(to right, #444, #888);
+  background-color: linear-gradient(to right, #444, #888);
+  background: linear-gradient(to right, #444, #888);
   -fx-background-radius: 6;
+  border-radius: 6px;
   -fx-pref-height: 10;
+  height: 10px;
   -fx-effect: innershadow(gaussian, #222, 4, 0.3, 0, 0);
+  /* Removing standard box-shadow as it's not compatible with JavaFX CSS parser */
 }
 
 /* Filled portion of slider */
 .slider .track:filled {
   -fx-background-color: #5a9bd5;
+  background-color: #5a9bd5;
   -fx-effect: innershadow(gaussian, #3a6ea5, 3, 0.3, 0, 0);
 }
 
 /* Slider thumb (the knob) */
 .slider .thumb {
   -fx-background-color: #d9534f;
+  background-color: #d9534f;
   -fx-background-radius: 14;
+  border-radius: 14px;
   -fx-pref-width: 20;
+  width: 20px;
   -fx-pref-height: 20;
+  height: 20px;
   -fx-effect: dropshadow(gaussian, #000000, 6, 0.5, 0, 1);
   -fx-cursor: hand;
+  cursor: pointer;
 }
 
 /* Tick marks */
 .slider .tick-mark {
   -fx-stroke: #aaa;
+  stroke: #aaa;
   -fx-stroke-width: 1.5;
+  stroke-width: 1.5px;
 }
 
 /* Tick labels */
 .slider .tick-label {
   -fx-text-fill: #ccc;
+  color: #ccc;
   -fx-font-size: 13px;
+  font-size: 13px;
   -fx-font-weight: normal;
+  font-weight: normal;
 }
 
 
 /* Base button style */
 .clear-noise-button {
   -fx-background-color: #1a1a1a;
-  -fx-text-fill: #00ffe7;
+  background-color: #1a1a1a;
+  -fx-text-fill: #379bc3;
+  color: #379bc3;
   -fx-font-family: "Consolas";
+  font-family: "Consolas";
   -fx-font-size: 16px;
+  font-size: 16px;
   -fx-font-weight: bold;
+  font-weight: bold;
   -fx-padding: 10 20;
-  -fx-border-color: #00ffe7;
+  padding: 10px 20px;
+  -fx-border-color: #379bc3;
+  border-color: #379bc3;
   -fx-border-width: 2;
+  border-width: 2px;
   -fx-border-radius: 5;
+  border-radius: 5px;
   -fx-background-radius: 5;
-  -fx-effect: dropshadow(gaussian, #00ffe7, 4, 0.4, 0, 0);
+  -fx-effect: dropshadow(gaussian, #379bc3, 4, 0.4, 0, 0);
 }
 
 /* Subtle hover glitch effect */
 .clear-noise-button:hover {
   -fx-background-color: #1a1a1a;
-  -fx-text-fill: #ff3c00;
-  -fx-border-color: #ff3c00;
-  -fx-effect: dropshadow(gaussian, #ff3c00, 6, 0.6, 1, 1);
+  background-color: #1a1a1a;
+  -fx-text-fill: #b55c43;
+  color: #b55c43;
+  -fx-border-color: #b55c43;
+  border-color: #b55c43;
+  -fx-effect: dropshadow(gaussian, #b55c43, 6, 0.6, 1, 1),
+    dropshadow(gaussian, #379bc3, 6, 0.6, -1, -1);
+}
+
+.continue-button {
+  -fx-background-color: #1a1a1a;
+  background-color: #1a1a1a;
+  -fx-text-fill: #379bc3;
+  color: #379bc3;
+  -fx-font-family: "Consolas";
+  font-family: "Consolas";
+  -fx-font-size: 16px;
+  font-size: 16px;
+  -fx-font-weight: bold;
+  font-weight: bold;
+  -fx-padding: 10 20;
+  padding: 10px 20px;
+  -fx-border-color: #379bc3;
+  border-color: #379bc3;
+  -fx-border-width: 2;
+  border-width: 2px;
+  -fx-border-radius: 5;
+  border-radius: 5px;
+  -fx-background-radius: 5;
+  -fx-effect: dropshadow(gaussian, #379bc3, 4, 0.4, 0, 0);
+}
+
+.continue-button:hover {
+  -fx-background-color: #1a1a1a;
+  background-color: #1a1a1a;
+  -fx-text-fill: #b55c43;
+  color: #b55c43;
+  -fx-border-color: #b55c43;
+  border-color: #b55c43;
+  -fx-effect: dropshadow(gaussian, #b55c43, 6, 0.6, 1, 1),
+    dropshadow(gaussian, #379bc3, 6, 0.6, -1, -1);
 }

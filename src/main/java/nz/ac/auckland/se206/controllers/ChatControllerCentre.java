@@ -98,11 +98,12 @@ public abstract class ChatControllerCentre {
     // Initialise gpt and run it
     try {
       ApiProxyConfig config = ApiProxyConfig.readConfig();
+
       chatCompletionRequest =
           new ChatCompletionRequest(config)
               .setN(1)
-              .setTemperature(0.2)
-              .setTopP(0.5)
+              .setTemperature(0.1) // Lower temperature for more focused responses
+              .setTopP(0.2) // More restrictive sampling
               .setModel(Model.GPT_4_1_MINI)
               .setMaxTokens(1);
 

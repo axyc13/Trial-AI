@@ -1,5 +1,4 @@
 package nz.ac.auckland.se206;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
@@ -12,20 +11,17 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import nz.ac.auckland.se206.controllers.ChatControllerCentre;
 import nz.ac.auckland.se206.controllers.RoomController;
-
 /**
  * This is the entry point of the JavaFX application. This class initializes and runs the JavaFX
  * application.
  */
 public class App extends Application {
-
   private static Scene scene;
   private static final Map<String, String> fxmlMap =
       Map.of(
           "AI Defendant", "/fxml/defendantMemory.fxml",
           "AI Witness", "/fxml/aiWitness.fxml",
           "Human Witness", "/fxml/humanWitness.fxml");
-
   private static final Map<String, String> trialTxtMap =
       Map.of(
           "AI Defendant", "defendant.txt",
@@ -38,7 +34,6 @@ public class App extends Application {
           "Human Witness", "humanWitnessFlashback.txt");
   private static ArrayList<String> professionsOpened = new ArrayList<>();
   private static Stage primaryStage;
-
   /**
    * The main method that launches the JavaFX application.
    *
@@ -47,7 +42,6 @@ public class App extends Application {
   public static void main(final String[] args) {
     launch();
   }
-
   /**
    * Sets the root of the scene to the specified FXML file.
    *
@@ -57,7 +51,6 @@ public class App extends Application {
   public static void setRoot(String fxml) throws IOException {
     scene.setRoot(loadFxml(fxml));
   }
-
   /**
    * Loads the FXML file and returns the associated node. The method expects that the file is
    * located in "src/main/resources/fxml".
@@ -69,7 +62,6 @@ public class App extends Application {
   private static Parent loadFxml(final String fxml) throws IOException {
     return new FXMLLoader(App.class.getResource("/fxml/" + fxml + ".fxml")).load();
   }
-
   /**
    * Opens a flashback or chat view depending on now many times the profession has been opened.
    *
@@ -78,60 +70,62 @@ public class App extends Application {
    * @throws IOException if the FXML file is not found
    */
   public static void openChat(MouseEvent event, String profession) throws IOException {
+    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
     // First time talking
     if (!professionsOpened.contains(profession)) {
-      // Temporary solution to make my defendant memory show up, in the future we would want to
-      // replace the fxmlMap Map with memory fxml files
-      if (profession.equals("AI Defendant")) {
-        professionsOpened.add(profession);
-        FXMLLoader loader = new FXMLLoader(App.class.getResource(fxmlMap.get(profession)));
+      professionsOpened.add(profession); // Add the profession immediately to track that it's been clicked
+      if (profession.equals("AI Witness")) {
+        // First click - show flashback
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/AIWitnessFlashback.fxml"));
         Parent root = loader.load();
-
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+      } else if (profession.equals("AI Defendant")) {
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/defendant.fxml"));
+        Parent root = loader.load();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
       } else {
-        professionsOpened.add(profession);
         FXMLLoader loader = new FXMLLoader(App.class.getResource(fxmlMap.get(profession)));
         Parent root = loader.load();
-
         ChatControllerCentre chatController = loader.getController();
         chatController.initialiseChatGpt(flashBackTxtMap.get(profession), profession);
-
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
       }
-
-      // Second time talking
     } else {
-      // Temporary solution to make 2nd+ clicks show flashback chat scene
-      if (profession.equals("AI Defendant")) {
-        FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/defendant.fxml"));
-        Parent root = loader.load();
-
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-        return;
+      // Second time talking - always load main scene
+      FXMLLoader loader;
+      Parent root;
+      if (profession.equals("AI Witness")) {
+        loader = new FXMLLoader(App.class.getResource(fxmlMap.get(profession)));
+        root = loader.load();
+        ChatControllerCentre chatController = loader.getController();
+        chatController.initialiseChatGpt(trialTxtMap.get(profession), profession);
+      } else if (profession.equals("AI Defendant")) {
+        // Return to room with defendant flashback
+        loader = new FXMLLoader(App.class.getResource("/fxml/room.fxml"));
+        root = loader.load();
+        RoomController controller = loader.getController();
+        controller.initialiseChatGpt(trialTxtMap.get(profession), profession);
+        controller.showOverlay();
+      } else {
+        // Return to room for other professions
+        loader = new FXMLLoader(App.class.getResource("/fxml/room.fxml"));
+        root = loader.load();
+        RoomController controller = loader.getController();
+        controller.initialiseChatGpt(trialTxtMap.get(profession), profession);
+        controller.showOverlay();
       }
-
-      FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/room.fxml"));
-      Parent root = loader.load();
-
-      RoomController controller = loader.getController();
-      controller.initialiseChatGpt(trialTxtMap.get(profession), profession);
-      controller.showOverlay();
-
-      Scene scene = new Scene(root);
-      primaryStage.setScene(scene);
-      primaryStage.show();
+      scene = new Scene(root);
+      stage.setScene(scene);
+      stage.show();
     }
   }
-
   public static void openFinalPage() throws IOException {
     // Uncomment this to force all professions to be opened before accessing final page
     // if (professionsOpened.size() != 3) {
@@ -143,7 +137,6 @@ public class App extends Application {
     primaryStage.setScene(scene);
     primaryStage.show();
   }
-
   /**
    * This method is invoked when the application starts. It loads and shows the "room" scene.
    *
