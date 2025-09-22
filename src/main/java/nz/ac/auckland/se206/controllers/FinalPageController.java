@@ -18,7 +18,7 @@ public class FinalPageController {
 
   @FXML private Label timer;
   @FXML private VBox overlay;
-  @FXML private VBox overlaySucess;
+  @FXML private VBox overlaySuccess;
   @FXML private VBox overlayFailure;
   @FXML private Button yesButton;
   @FXML private Button noButton;
@@ -79,7 +79,7 @@ public class FinalPageController {
 
   @FXML
   private void onYesClick() {
-    overlaySucess.setVisible(true);
+    overlaySuccess.setVisible(true);
     timeline.stop();
   }
 
