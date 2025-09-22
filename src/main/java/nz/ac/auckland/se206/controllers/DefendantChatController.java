@@ -43,6 +43,7 @@ public class DefendantChatController extends ChatControllerCentre {
   private List<AnchorPane> discs;
   private AnimationTimer gameLoop;
   private int discIndex = 0;
+  private int score = 0;
 
   @Override
   @FXML
@@ -66,7 +67,29 @@ public class DefendantChatController extends ChatControllerCentre {
           pause.play();
         });
     DraggableMaker.makeDraggable(basket);
-    discs = Arrays.asList(disc1, disc2, disc3, disc4, disc5);
+    basket
+        .layoutXProperty()
+        .addListener(
+            (obs, oldX, newX) -> {
+              double minX = 350;
+              double maxX = 650;
+              if (newX.doubleValue() < minX) {
+                basket.setLayoutX(minX);
+              } else if (newX.doubleValue() > maxX) {
+                basket.setLayoutX(maxX);
+              }
+            });
+    double basketY = basket.getLayoutY();
+
+    basket
+        .layoutYProperty()
+        .addListener(
+            (obs, oldY, newY) -> {
+              if (!newY.equals(basketY)) {
+                basket.setLayoutY(basketY);
+              }
+            });
+    discs = Arrays.asList(disc1, disc4, disc3, disc2, disc5);
   }
 
   private void dropDisc(AnchorPane disc) {
@@ -79,13 +102,13 @@ public class DefendantChatController extends ChatControllerCentre {
     disc.setVisible(true);
   }
 
-  private void nextDisc() {
+  private void sendNextDisc() {
     discIndex++;
     if (discIndex < discs.size()) {
       dropDisc(discs.get(discIndex));
     } else {
       basket.setVisible(false);
-      System.out.println("FINISHED");
+
       gameLoop.stop();
       return;
     }
@@ -102,15 +125,17 @@ public class DefendantChatController extends ChatControllerCentre {
               disc.setLayoutY(disc.getLayoutY() + 2);
 
               if (disc.getBoundsInParent().intersects(basket.getBoundsInParent())) {
-                // Disc caught
+                if (discIndex == 0 || discIndex == 3) {
+                  score += 1;
+                }
                 disc.setVisible(false);
-                nextDisc();
+                sendNextDisc();
               }
 
               if (disc.getLayoutY() > 600) {
                 // Disc missed
                 disc.setVisible(false);
-                nextDisc();
+                sendNextDisc();
               }
             }
           }
@@ -125,6 +150,7 @@ public class DefendantChatController extends ChatControllerCentre {
 
     startGame();
     discIndex = 0;
+    score = 0;
     dropDisc(discs.get(discIndex));
   }
 
