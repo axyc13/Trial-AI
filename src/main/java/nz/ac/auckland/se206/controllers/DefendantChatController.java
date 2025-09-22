@@ -38,8 +38,10 @@ public class DefendantChatController extends ChatControllerCentre {
   @FXML private AnchorPane disc5;
   @FXML private ImageView basket;
   @FXML private Button gameButton;
+  @FXML private Button replayButton;
   @FXML private Text message;
   @FXML private AnchorPane messageBox;
+  @FXML private AnchorPane instructions;
 
   @FXML private VBox flashbackMessage;
   private MediaPlayer mediaPlayer;
@@ -74,8 +76,8 @@ public class DefendantChatController extends ChatControllerCentre {
         .layoutXProperty()
         .addListener(
             (obs, oldX, newX) -> {
-              double minX = 310;
-              double maxX = 650;
+              double minX = 300;
+              double maxX = 680;
               if (newX.doubleValue() < minX) {
                 basket.setLayoutX(minX);
               } else if (newX.doubleValue() > maxX) {
@@ -120,6 +122,7 @@ public class DefendantChatController extends ChatControllerCentre {
             pause.play();
           });
       gameLoop.stop();
+      replayButton.setVisible(true);
       return;
     }
   }
@@ -159,13 +162,23 @@ public class DefendantChatController extends ChatControllerCentre {
 
   @FXML
   private void onGameStart(ActionEvent event) {
-    basket.setVisible(true);
-    gameButton.setVisible(false);
 
-    startGame();
-    discIndex = 0;
-    score = 0;
-    dropDisc(discs.get(discIndex));
+    gameButton.setVisible(false);
+    replayButton.setVisible(false);
+    instructions.setVisible(true);
+
+    PauseTransition pause = new PauseTransition(Duration.seconds(2));
+    pause.setOnFinished(
+        e -> {
+          instructions.setVisible(false);
+          basket.setVisible(true);
+          // Start the game
+          startGame();
+          discIndex = 0;
+          score = 0;
+          dropDisc(discs.get(discIndex));
+        });
+    pause.play();
   }
 
   @FXML
