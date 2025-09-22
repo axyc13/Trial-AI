@@ -7,6 +7,9 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -22,6 +25,8 @@ public class FinalPageController {
   @FXML private VBox overlayFailure;
   @FXML private Button yesButton;
   @FXML private Button noButton;
+  @FXML private TextArea txtInput;
+  @FXML private Button submitButton;
 
   private Timeline timeline;
   private final int totalSeconds = 60;
@@ -43,6 +48,8 @@ public class FinalPageController {
     MediaPlayer mediaPlayer = new MediaPlayer(sound);
 
     mediaPlayer.play();
+
+    submitButton.setDisable(false);
 
     timer.setText(String.format("01:00"));
 
@@ -87,5 +94,38 @@ public class FinalPageController {
   private void onNoClick() {
     overlayFailure.setVisible(true);
     timeline.stop();
+  }
+
+  @FXML
+  private void onSendClick() {
+    String message = txtInput.getText().trim();
+    if (message.isEmpty()) {
+      return;
+    }
+    txtInput.clear();
+    submitButton.setDisable(true);
+
+    // Task<Void> task =
+    //     new Task<>() {
+    //       @Override
+    //       protected Void call() {
+    //         try {
+    //           runGpt(message);
+    //         } catch (ApiProxyException e) {
+    //           e.printStackTrace();
+    //         }
+    //         return null;
+    //       }
+    //     };
+
+    // new Thread(task).start();
+  }
+
+  @FXML
+  public void sendMessage(KeyEvent event) {
+    if (event.getCode().equals(KeyCode.ENTER)) {
+      // Send the message
+      onSendClick();
+    }
   }
 }

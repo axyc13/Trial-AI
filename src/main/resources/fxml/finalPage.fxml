@@ -9,15 +9,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.FinalPageController">
+<StackPane onKeyPressed="#sendMessage" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.FinalPageController">
   <children>
     <AnchorPane prefHeight="599.0" prefWidth="789.0">
       <children>
-        <Button fx:id="yesButton" alignment="CENTER" layoutX="296.0" layoutY="234.0" mnemonicParsing="false" onAction="#onYesClick" prefHeight="39.0" prefWidth="70.0" text="Yes">
+        <Button fx:id="yesButton" alignment="CENTER" layoutX="276.0" layoutY="234.0" mnemonicParsing="false" onAction="#onYesClick" prefHeight="39.0" prefWidth="70.0" text="Yes">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-        <Button fx:id="noButton" layoutX="411.0" layoutY="234.0" mnemonicParsing="false" onAction="#onNoClick" prefHeight="39.0" prefWidth="70.0" text="No">
+        <Button fx:id="noButton" layoutX="456.0" layoutY="234.0" mnemonicParsing="false" onAction="#onNoClick" prefHeight="39.0" prefWidth="70.0" text="No">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
@@ -26,7 +26,7 @@
             <Font size="40.0" />
           </font>
         </Label>
-        <Label fx:id="timer" layoutX="316.0" layoutY="150.0" prefHeight="95.0" prefWidth="230.0" text="00:10">
+        <Label fx:id="timer" alignment="CENTER" layoutX="286.0" layoutY="144.0" prefHeight="95.0" prefWidth="230.0" text="00:10">
           <font>
             <Font size="50.0" />
           </font>
@@ -37,9 +37,9 @@
           </font>
         </Label>
             <Button layoutX="657.0" layoutY="519.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="102.0" text="Restart Game" />
-            <TextArea layoutX="208.0" layoutY="308.0" prefHeight="146.0" prefWidth="336.0" />
-            <Button layoutX="341.0" layoutY="463.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="70.0" text="Submit" />
-            <Label alignment="CENTER" layoutX="296.0" layoutY="274.0" prefHeight="33.0" prefWidth="160.0" text="Briefly state why?">
+            <TextArea fx:id="txtInput" layoutX="235.0" layoutY="316.0" prefHeight="146.0" prefWidth="336.0" promptText="Input text here" />
+            <Button fx:id="submitButton" layoutX="366.0" layoutY="479.0" mnemonicParsing="false" onAction="#onSendClick" prefHeight="39.0" prefWidth="70.0" text="Submit" />
+            <Label alignment="CENTER" layoutX="321.0" layoutY="277.0" prefHeight="33.0" prefWidth="160.0" text="Briefly state why?">
                <font>
                   <Font size="18.0" />
                </font>
