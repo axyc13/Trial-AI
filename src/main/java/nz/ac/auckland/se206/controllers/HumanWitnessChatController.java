@@ -212,6 +212,6 @@ public class HumanWitnessChatController extends ChatControllerCentre {
   @FXML
   private void OngoChat(ActionEvent event) throws ApiProxyException, IOException {
     // SetRoot to the human witness chat room
-    App.setRoot("room");
+    App.setRoot("HumanWitnessMemory");
   }
 }
