@@ -3,6 +3,8 @@ package nz.ac.auckland.se206.controllers;
 import java.io.IOException;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
+import javafx.animation.RotateTransition;
+import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -59,6 +61,8 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
   @FXML private Button playPreviousSongButton;
   @FXML private Button playNextSongButton;
   @FXML private Label robotTextDisplay;
+  @FXML private ImageView rotatingCassetteTape;
+  @FXML private ImageView rotatingCassetteTape1;
 
   @Override
   @FXML
@@ -74,6 +78,8 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
     // Disable and turn visibility off the cassette tape
     cassetteTape.setVisible(false);
     cassetteTape.setDisable(true);
+    rotatingCassetteTape.setVisible(false);
+    rotatingCassetteTape1.setVisible(false);
 
     // Set initial song
     songLabel.setText(songs[currentSongIndex]);
@@ -143,7 +149,42 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
 
     cassetteTape.setOpacity(0.8);
 
+    // Set timer for each text
     robotTextDisplay.setText("Generating beats...");
+    PauseTransition pauseText = new PauseTransition(Duration.seconds(3));
+    pauseText.setOnFinished(e -> robotTextDisplay.setText("Scanning for \r\n" + "copyright....."));
+    pauseText.play();
+    PauseTransition pauseText2 = new PauseTransition(Duration.seconds(6));
+    pauseText2.setOnFinished(
+        e -> {
+          // Displays last text and begins rotating casette tape
+          robotTextDisplay.setText("Playing new song");
+          rotateCasetteTape();
+        });
+    pauseText2.play();
+  }
+
+  private void rotateCasetteTape() {
+    // Enable visibility of casette tapes
+    rotatingCassetteTape.setVisible(true);
+    rotatingCassetteTape1.setVisible(true);
+
+    // Rotate both of the casette tapes
+    RotateTransition rotationTransform = new RotateTransition();
+    rotationTransform.setNode(rotatingCassetteTape);
+
+    rotationTransform.setDuration(Duration.millis(5000));
+    rotationTransform.setCycleCount(TranslateTransition.INDEFINITE);
+    rotationTransform.setByAngle(360);
+    rotationTransform.play();
+
+    RotateTransition rotationTransform1 = new RotateTransition();
+    rotationTransform1.setNode(rotatingCassetteTape1);
+
+    rotationTransform1.setDuration(Duration.millis(5000));
+    rotationTransform1.setCycleCount(TranslateTransition.INDEFINITE);
+    rotationTransform1.setByAngle(360);
+    rotationTransform1.play();
   }
 
   @FXML

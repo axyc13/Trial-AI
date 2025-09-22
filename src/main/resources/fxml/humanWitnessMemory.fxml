@@ -118,6 +118,16 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
         </ImageView>
+            <ImageView fx:id="rotatingCassetteTape" fitHeight="21.0" fitWidth="17.0" layoutX="454.0" layoutY="494.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/cassetteSpinning.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="rotatingCassetteTape1" fitHeight="21.0" fitWidth="17.0" layoutX="509.0" layoutY="494.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/cassetteSpinning.png" />
+               </image>
+            </ImageView>
       </children>
     </AnchorPane>
     
