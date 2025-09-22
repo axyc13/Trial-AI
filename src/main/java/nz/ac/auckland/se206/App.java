@@ -95,6 +95,12 @@ public class App extends Application {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+      } else if (profession.equals("Human Witness")) {
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/humanWitness.fxml"));
+        Parent root = loader.load();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
       } else {
         FXMLLoader loader = new FXMLLoader(App.class.getResource(fxmlMap.get(profession)));
         Parent root = loader.load();
@@ -115,6 +121,10 @@ public class App extends Application {
         chatController.initialiseChatGpt(trialTxtMap.get(profession), profession);
       } else if (profession.equals("AI Defendant")) {
         loader = new FXMLLoader(App.class.getResource("/fxml/defendant.fxml"));
+        root = loader.load();
+      } else if (profession.equals("Human Witness")) {
+        // Return to room with human witness
+        loader = new FXMLLoader(App.class.getResource("/fxml/humanWitnessMemory.fxml"));
         root = loader.load();
         ChatControllerCentre chatController = loader.getController();
         chatController.initialiseChatGpt(trialTxtMap.get(profession), profession);
