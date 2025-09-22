@@ -52,7 +52,10 @@
                <font>
                   <Font size="14.0" />
                </font></Button>
-        <Button layoutX="25.0" layoutY="29.0" mnemonicParsing="false" onAction="#onGoBack" prefHeight="52.0" prefWidth="130.0" text="Go Back" />
+        <Button layoutX="25.0" layoutY="29.0" mnemonicParsing="false" onAction="#onGoBack" prefHeight="52.0" prefWidth="130.0" text="Go Back">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
           <Label fx:id="timer" layoutX="639.0" layoutY="23.0" prefHeight="63.0" prefWidth="155.0" text="2:00" textFill="WHITE">
             <font>
               <Font size="50.0" />
@@ -63,17 +66,17 @@
             <Font size="30.0" />
           </font>
         </Label>
-            <Button fx:id="playNextSongButton" layoutX="708.0" layoutY="215.0" mnemonicParsing="false" onAction="#goToNextSong" onMouseEntered="#onlightUpNextButton" onMouseExited="#onlightDownNextButton" opacity="0.7" prefHeight="33.0" prefWidth="34.0" style="-fx-background-radius: 17;">
+            <Button fx:id="playNextSongButton" layoutX="708.0" layoutY="215.0" mnemonicParsing="false" onAction="#onGoToNextSong" onMouseEntered="#onlightUpNextButton" onMouseExited="#onlightDownNextButton" opacity="0.7" prefHeight="33.0" prefWidth="34.0" style="-fx-background-radius: 17;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="playPreviousSongButton" layoutX="564.0" layoutY="216.0" mnemonicParsing="false" onAction="#goToPreviousSong" onMouseEntered="#onlightUpPreviousButton" onMouseExited="#onlightDownPreviousButton" opacity="0.7" prefHeight="33.0" prefWidth="34.0" style="-fx-background-radius: 17;">
+            <Button fx:id="playPreviousSongButton" layoutX="564.0" layoutY="216.0" mnemonicParsing="false" onAction="#onGoToPreviousSong" onMouseEntered="#onlightUpPreviousButton" onMouseExited="#onlightDownPreviousButton" opacity="0.7" prefHeight="33.0" prefWidth="34.0" style="-fx-background-radius: 17;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="playButton" layoutX="629.0" layoutY="207.0" mnemonicParsing="false" onAction="#turnOnCassetteTape" prefHeight="46.0" prefWidth="46.0" style="-fx-background-color: white; -fx-background-radius: 200;">
+            <Button fx:id="playButton" layoutX="629.0" layoutY="207.0" mnemonicParsing="false" onAction="#onTurnOnCassetteTape" prefHeight="46.0" prefWidth="46.0" style="-fx-background-color: white; -fx-background-radius: 200;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

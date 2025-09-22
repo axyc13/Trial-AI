@@ -188,14 +188,14 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
   }
 
   @FXML
-  private void turnOnCassetteTape() {
+  private void onTurnOnCassetteTape() {
     // Enable and turn visibility on the cassette tape
     cassetteTape.setVisible(true);
     cassetteTape.setDisable(false);
   }
 
   @FXML
-  private void goToNextSong() {
+  private void onGoToNextSong() {
     // Fade transitions
     FadeTransition fadeOut = new FadeTransition(Duration.millis(300), songLabel);
     fadeOut.setFromValue(1.0);
@@ -219,7 +219,7 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
   }
 
   @FXML
-  private void goToPreviousSong() {
+  private void onGoToPreviousSong() {
     // Fade transitions
     FadeTransition fadeOut = new FadeTransition(Duration.millis(300), songLabel);
     fadeOut.setFromValue(1.0);

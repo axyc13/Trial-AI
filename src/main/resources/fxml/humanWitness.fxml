@@ -139,7 +139,7 @@
                   <ColorAdjust hue="-1.0" />
                </effect>
             </Label>
-            <Button fx:id="continueButton" disable="true" layoutX="665.0" layoutY="548.0" mnemonicParsing="false" onAction="#OngoChat" prefHeight="26.0" prefWidth="111.0" text="Continue" visible="false">
+            <Button fx:id="continueButton" disable="true" layoutX="665.0" layoutY="548.0" mnemonicParsing="false" onAction="#onGoChat" prefHeight="26.0" prefWidth="111.0" text="Continue" visible="false">
                <font>
                   <Font size="18.0" />
                </font>

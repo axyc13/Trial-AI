@@ -67,15 +67,17 @@ public class HumanWitnessChatController extends ChatControllerCentre {
     }
     flashbackMessage.setVisible(true);
 
+    // Set visuals based off the sliding bar value
     slidingBar
         .valueProperty()
         .addListener(
             (obs, oldVal, newVal) -> {
               showDialogue(newVal.intValue());
-              storyCompletionPercentage(newVal.intValue());
+              viewStoryCompletionPercentage(newVal.intValue());
               backgroundHuePercentage(newVal.intValue());
             });
 
+    // Play the flashback sound
     Platform.runLater(
         () -> {
           PauseTransition pause = new PauseTransition(Duration.seconds(1));
@@ -90,7 +92,7 @@ public class HumanWitnessChatController extends ChatControllerCentre {
         });
   }
 
-  private void storyCompletionPercentage(int value) {
+  private void viewStoryCompletionPercentage(int value) {
     // Shows the percentage of the story currently completed
     storyCompletionLabel.setText("Story completion: " + (int) ((value / 15.0) * 100) + " % ");
   }
@@ -106,111 +108,81 @@ public class HumanWitnessChatController extends ChatControllerCentre {
   private void showDialogue(int value) {
     // Plays through the dialogue as you move the slider
     // Background view number 1
-    if (value >= 1 && value < 3) {
-      phoneInHand.setVisible(true);
-    } else if (value < 1 || value >= 3) {
-      phoneInHand.setVisible(false);
-    }
-    if (value == 2) {
-      dialogue1.setVisible(true);
-      dialogueText1.setVisible(true);
-    } else if (value != 2) {
-      dialogue1.setVisible(false);
-      dialogueText1.setVisible(false);
-    }
+    phoneInHand.setVisible((value >= 1 && value < 3));
+    phoneInHand.setVisible(!(value < 1 || value >= 3));
+
+    dialogue1.setVisible((value == 2));
+    dialogueText1.setVisible((value == 2));
+    dialogue1.setVisible(!(value != 2));
+    dialogueText1.setVisible(!(value != 2));
+
     // Background view number 2
-    if (value >= 3 && value < 9) {
-      musiciansCalling.setVisible(true);
-    } else if (value < 3 || value >= 9) {
-      musiciansCalling.setVisible(false);
-    }
-    if (value == 4) {
-      dialogue2.setVisible(true);
-      dialogueText2.setVisible(true);
-    } else if (value != 4) {
-      dialogue2.setVisible(false);
-      dialogueText2.setVisible(false);
-    }
-    if (value == 5) {
-      dialogue3.setVisible(true);
-      dialogueText3.setVisible(true);
-    } else if (value != 5) {
-      dialogue3.setVisible(false);
-      dialogueText3.setVisible(false);
-    }
-    if (value == 6) {
-      dialogue4.setVisible(true);
-      dialogueText4.setVisible(true);
-    } else if (value != 6) {
-      dialogue4.setVisible(false);
-      dialogueText4.setVisible(false);
-    }
-    if (value == 7) {
-      dialogue5.setVisible(true);
-      dialogueText5.setVisible(true);
-    } else if (value != 7) {
-      dialogue5.setVisible(false);
-      dialogueText5.setVisible(false);
-    }
-    if (value == 8) {
-      dialogue6.setVisible(true);
-      dialogueText6.setVisible(true);
-    } else if (value != 8) {
-      dialogue6.setVisible(false);
-      dialogueText6.setVisible(false);
-    }
+    musiciansCalling.setVisible((value >= 3 && value < 9));
+    musiciansCalling.setVisible(!(value < 3 || value >= 9));
+
+    dialogue2.setVisible((value == 4));
+    dialogueText2.setVisible((value == 4));
+    dialogue2.setVisible(!(value != 4));
+    dialogueText2.setVisible(!(value != 4));
+
+    dialogue3.setVisible((value == 5));
+    dialogueText3.setVisible((value == 5));
+    dialogue3.setVisible(!(value != 5));
+    dialogueText3.setVisible(!(value != 5));
+
+    dialogue4.setVisible((value == 6));
+    dialogueText4.setVisible((value == 6));
+    dialogue4.setVisible(!(value != 6));
+    dialogueText4.setVisible(!(value != 6));
+
+    dialogue5.setVisible((value == 7));
+    dialogueText5.setVisible((value == 7));
+    dialogue5.setVisible(!(value != 7));
+    dialogueText5.setVisible(!(value != 7));
+
+    dialogue6.setVisible((value == 8));
+    dialogueText6.setVisible((value == 8));
+    dialogue6.setVisible(!(value != 8));
+    dialogueText6.setVisible(!(value != 8));
+
     // Background view number 3
-    if (value >= 9 && value < 13) {
-      musiciansStudio.setVisible(true);
-    } else if (value < 9 || value >= 13) {
-      musiciansStudio.setVisible(false);
-    }
-    if (value == 10) {
-      dialogue7.setVisible(true);
-      dialogueText7.setVisible(true);
-    } else if (value != 10) {
-      dialogue7.setVisible(false);
-      dialogueText7.setVisible(false);
-    }
-    if (value == 11) {
-      dialogue8.setVisible(true);
-      dialogueText8.setVisible(true);
-    } else if (value != 11) {
-      dialogue8.setVisible(false);
-      dialogueText8.setVisible(false);
-    }
-    if (value == 12) {
-      dialogue9.setVisible(true);
-      dialogueText9.setVisible(true);
-    } else if (value != 12) {
-      dialogue9.setVisible(false);
-      dialogueText9.setVisible(false);
-    }
+    musiciansStudio.setVisible((value >= 9 && value < 13));
+    musiciansStudio.setVisible(!(value < 9 || value >= 13));
+
+    dialogue7.setVisible((value == 10));
+    dialogueText7.setVisible((value == 10));
+    dialogue7.setVisible(!(value != 10));
+    dialogueText7.setVisible(!(value != 10));
+
+    dialogue8.setVisible((value == 11));
+    dialogueText8.setVisible((value == 11));
+    dialogue8.setVisible(!(value != 11));
+    dialogueText8.setVisible(!(value != 11));
+
+    dialogue9.setVisible((value == 12));
+    dialogueText9.setVisible((value == 12));
+    dialogue9.setVisible(!(value != 12));
+    dialogueText9.setVisible(!(value != 12));
+
     // Background view number 4
-    if (value >= 13) {
-      celebrationParty.setVisible(true);
-    } else if (value < 13) {
-      celebrationParty.setVisible(false);
-    }
-    if (value == 14) {
-      dialogue10.setVisible(true);
-      dialogueText10.setVisible(true);
-    } else if (value != 14) {
-      dialogue10.setVisible(false);
-      dialogueText10.setVisible(false);
-    }
+    celebrationParty.setVisible((value >= 13));
+    celebrationParty.setVisible(!(value < 13));
+
+    dialogue10.setVisible((value == 14));
+    dialogueText10.setVisible((value == 14));
+    dialogue10.setVisible(!(value != 14));
+    dialogueText10.setVisible(!(value != 14));
+
     // Button to leave the flashback
-    if (value == 15) {
-      continueButton.setVisible(true);
-      continueButton.setDisable(false);
-    } else if (value != 15) {
-      continueButton.setVisible(false);
-      continueButton.setDisable(true);
-    }
+
+    continueButton.setVisible((value == 15));
+    continueButton.setDisable(!(value == 15));
+    continueButton.setVisible(!(value != 15));
+    continueButton.setDisable((value != 15));
   }
 
   @FXML
-  private void OngoChat(ActionEvent event) throws ApiProxyException, IOException {
+  private void onGoChat(ActionEvent event) throws ApiProxyException, IOException {
     // SetRoot to the human witness chat room
     App.setRoot("HumanWitnessMemory");
   }
