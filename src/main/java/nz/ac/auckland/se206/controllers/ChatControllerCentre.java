@@ -10,6 +10,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest.Model;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionResult;
@@ -167,6 +169,18 @@ public abstract class ChatControllerCentre {
   }
 
   /**
+   * Handles the key pressed event.
+   *
+   * @param event the key event
+   */
+  @FXML
+  public void sendMessage(KeyEvent event) {
+    if (event.getCode().equals(KeyCode.ENTER)) {
+      onSendMessage();
+    }
+  }
+
+  /**
    * Sends a message to the GPT model.
    *
    * @param event the action event triggered by the send button
@@ -174,7 +188,7 @@ public abstract class ChatControllerCentre {
    * @throws IOException if there is an I/O error
    */
   @FXML
-  private void onSendMessage(ActionEvent event) throws ApiProxyException, IOException {
+  private void onSendMessage() {
     String message = txtInput.getText().trim();
     // Don't do anything if no text sent
     if (message.isEmpty()) {
