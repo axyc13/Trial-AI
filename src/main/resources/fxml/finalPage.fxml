@@ -58,7 +58,7 @@
             <Font size="30.0" />
           </font>
         </Label>
-            <Button fx:id="restartButton" layoutX="657.0" layoutY="519.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="102.0" text="Restart Game">
+            <Button fx:id="restartButton" layoutX="657.0" layoutY="519.0" mnemonicParsing="false" onAction="#onResetGame" prefHeight="39.0" prefWidth="102.0" text="Restart Game">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>

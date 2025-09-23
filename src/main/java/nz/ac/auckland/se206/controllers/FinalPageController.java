@@ -1,9 +1,10 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.File;
+import java.io.IOException;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -15,6 +16,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.TimerManager;
 
 public class FinalPageController {
@@ -63,6 +65,14 @@ public class FinalPageController {
     restartButton.setDisable(true);
 
     questionLabel.setText("Briefly state why?");
+
+    // Initialise yes and no buttons
+    noButton.setScaleX(1);
+    noButton.setScaleY(1);
+    yesButton.setScaleX(1);
+    yesButton.setScaleY(1);
+    isYesClicked = false;
+    isNoClicked = false;
 
     // Prevent line skipping with enter key
     txtInput.addEventFilter(
@@ -114,13 +124,6 @@ public class FinalPageController {
                 }));
     timeline.setCycleCount(totalSeconds);
     timeline.play();
-  }
-
-  private void showOverlay() {
-    Platform.runLater(
-        () -> {
-          overlay.setVisible(true);
-        });
   }
 
   @FXML
@@ -254,5 +257,10 @@ public class FinalPageController {
     Timeline loseTime =
         new Timeline(new KeyFrame(Duration.seconds(2), e -> overlayFailure.setVisible(false)));
     loseTime.play();
+  }
+
+  @FXML
+  private void onResetGame(ActionEvent event) throws ApiProxyException, IOException {
+    App.setRoot("room");
   }
 }
