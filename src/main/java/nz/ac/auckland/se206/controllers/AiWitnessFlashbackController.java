@@ -2,6 +2,8 @@ package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import nz.ac.auckland.se206.AiWitnessStateManager;
@@ -39,7 +41,11 @@ public class AiWitnessFlashbackController extends ChatControllerCentre {
         break;
       default:
         // After third flashback, switch to memory scene
-        App.setRoot("aiWitness");
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/aiWitness.fxml"));
+        Parent root = loader.load();
+        ChatControllerCentre chatController = loader.getController();
+        chatController.initialiseChatGpt("aiWitness.txt", "AI Witness");
+        App.getScene().setRoot(root);
         break;
     }
   }

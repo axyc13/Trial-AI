@@ -183,9 +183,6 @@ public class DefendantChatController extends ChatControllerCentre {
 
   @FXML
   private void onGoBack(ActionEvent event) throws ApiProxyException, IOException {
-    if (this.mediaPlayer != null) {
-      this.mediaPlayer.stop();
-    }
     App.setRoot("room");
   }
 }

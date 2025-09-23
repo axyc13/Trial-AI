@@ -5,6 +5,8 @@ import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -162,6 +164,10 @@ public class DefendantMemoryController {
    */
   @FXML
   private void onProceed(ActionEvent event) throws ApiProxyException, IOException {
-    App.setRoot("defendant");
+    FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/defendant.fxml"));
+    Parent root = loader.load();
+    ChatControllerCentre chatController = loader.getController();
+    chatController.initialiseChatGpt("defendant.txt", "AI Defendant");
+    App.getScene().setRoot(root);
   }
 }

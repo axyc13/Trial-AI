@@ -6,6 +6,8 @@ import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -137,6 +139,10 @@ public class HumanWitnessChatController extends ChatControllerCentre {
   @FXML
   private void onGoChat(ActionEvent event) throws ApiProxyException, IOException {
     // SetRoot to the human witness chat room
-    App.setRoot("HumanWitnessMemory");
+    FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/humanWitnessMemory.fxml"));
+    Parent root = loader.load();
+    ChatControllerCentre chatController = loader.getController();
+    chatController.initialiseChatGpt("humanWitness.txt", "Human Witness");
+    App.getScene().setRoot(root);
   }
 }
