@@ -33,11 +33,6 @@ public class App extends Application {
           "AI Defendant", "defendant.txt",
           "AI Witness", "aiWitness.txt",
           "Human Witness", "humanWitness.txt");
-  private static final Map<String, String> flashBackTxtMap =
-      Map.of(
-          "AI Defendant", "defendantFlashback.txt",
-          "AI Witness", "aiWitnessFlashback.txt",
-          "Human Witness", "humanWitnessFlashback.txt");
   private static ArrayList<String> professionsOpened = new ArrayList<>();
   private static Stage primaryStage;
 

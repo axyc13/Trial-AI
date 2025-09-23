@@ -44,7 +44,6 @@ public class DefendantChatController extends ChatControllerCentre {
   @FXML private AnchorPane instructions;
 
   @FXML private VBox flashbackMessage;
-  private MediaPlayer mediaPlayer;
   private List<AnchorPane> discs;
   private AnimationTimer gameLoop;
   private int discIndex = 0;
