@@ -30,6 +30,7 @@ public class FinalPageController {
   @FXML private Label optionPickingMessage;
   @FXML private Label optionTextMessage;
   @FXML private Label questionLabel;
+  @FXML private Button restartButton;
 
   private Timeline timeline;
   private final int totalSeconds = 60;
@@ -58,6 +59,8 @@ public class FinalPageController {
     yesButton.setDisable(false);
     noButton.setDisable(false);
     txtInput.setDisable(false);
+    restartButton.setVisible(false);
+    restartButton.setDisable(true);
 
     questionLabel.setText("Briefly state why?");
 
@@ -128,8 +131,6 @@ public class FinalPageController {
     isYesClicked = true;
     isNoClicked = false;
     setYesOrNoClick();
-
-    // overlaySuccess.setVisible(true);
   }
 
   @FXML
@@ -140,8 +141,6 @@ public class FinalPageController {
     isNoClicked = true;
     isYesClicked = false;
     setYesOrNoClick();
-
-    // overlayFailure.setVisible(true);
   }
 
   private void setYesOrNoClick() {
@@ -181,14 +180,14 @@ public class FinalPageController {
     txtInput.clear();
 
     // No message and out of time
-    if (message.isEmpty() && (remainingSeconds <= 0)) {
+    if (message.isEmpty()) {
       txtInput.appendText("You Lose! Incorrect rationale was given.");
     } // The no button is clicked and timer is out
-    else if (isNoClicked == true && (remainingSeconds <= 0) && !(message.isEmpty())) {
+    else if (isNoClicked == true && !(message.isEmpty())) {
       txtInput.appendText("You Lose! Incorrect verdict was chosen.");
     } // None of the buttons are chosen and timer runs out
-    else if (isNoClicked == false && isYesClicked == false && (remainingSeconds <= 0)) {
-      txtInput.appendText("You Lose ! No verdict was chosen.");
+    else if (isNoClicked == false && isYesClicked == false) {
+      txtInput.appendText("You Lose! No verdict was chosen.");
     }
 
     // Disable all buttons and stop timer
@@ -202,22 +201,36 @@ public class FinalPageController {
     questionLabel.setText("Feedback:");
 
     // yes button is chosen and message is not empty
-    // if (isYesClicked == true && !(message.isEmpty())) {
-    //   Task<Void> task =
-    //       new Task<>() {
-    //         @Override
-    //         protected Void call() {
-    //           try {
-    //             runGpt(message);
-    //           } catch (ApiProxyException e) {
-    //             e.printStackTrace();
-    //           }
-    //           return null;
-    //         }
-    //       };
+    if (isYesClicked == true && !(message.isEmpty())) {
+      txtInput.appendText("You Win!");
 
-    //   new Thread(task).start();
-    // }
+      // Display the winning vbox
+      setWinOverlay();
+
+      // Task<Void> task =
+      //     new Task<>() {
+      //       @Override
+      //       protected Void call() {
+      //         try {
+      //           runGpt(message);
+      //         } catch (ApiProxyException e) {
+      //           e.printStackTrace();
+      //         }
+      //         return null;
+      //       }
+      //     };
+
+      // new Thread(task).start();
+    } else {
+      // Display the losing vbox
+      setLoseOverlay();
+    }
+
+    // Append the GPT response to txtInput
+
+    // Enable the restart button
+    restartButton.setVisible(true);
+    restartButton.setDisable(false);
   }
 
   @FXML
@@ -225,5 +238,21 @@ public class FinalPageController {
     txtInput.getStyleClass().removeAll("text-area-normal", "text-area-error");
     txtInput.getStyleClass().add("text-area-normal");
     optionTextMessage.setText("");
+  }
+
+  private void setWinOverlay() {
+    // Display winning
+    overlaySuccess.setVisible(true);
+    Timeline winTime =
+        new Timeline(new KeyFrame(Duration.seconds(2), e -> overlaySuccess.setVisible(false)));
+    winTime.play();
+  }
+
+  private void setLoseOverlay() {
+    // Display losing
+    overlayFailure.setVisible(true);
+    Timeline loseTime =
+        new Timeline(new KeyFrame(Duration.seconds(2), e -> overlayFailure.setVisible(false)));
+    loseTime.play();
   }
 }
