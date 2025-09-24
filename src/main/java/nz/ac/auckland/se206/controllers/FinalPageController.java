@@ -94,6 +94,8 @@ public class FinalPageController {
               onSendClick();
             } else {
               optionPickingMessage.setText("Please Choose Yes or No");
+              yesButton.getStyleClass().add("button-error");
+              noButton.getStyleClass().add("button-error");
             }
           }
         });
@@ -137,9 +139,6 @@ public class FinalPageController {
 
   @FXML
   private void onYesClick() {
-    yesButton.setScaleX(1.2);
-    yesButton.setScaleY(1.2);
-
     isYesClicked = true;
     isNoClicked = false;
     setYesOrNoClick();
@@ -147,9 +146,6 @@ public class FinalPageController {
 
   @FXML
   private void onNoClick() {
-    noButton.setScaleX(1.2);
-    noButton.setScaleY(1.2);
-
     isNoClicked = true;
     isYesClicked = false;
     setYesOrNoClick();
@@ -157,35 +153,52 @@ public class FinalPageController {
 
   private void setYesOrNoClick() {
     optionPickingMessage.setText("");
-    // If yes and no are not clicked yet
-    if (isNoClicked == false && isYesClicked == false) {
-      return;
-      // If no is clicked after yes
+
+    // Reset both buttons to normal scale first
+    yesButton.setScaleX(1);
+    yesButton.setScaleY(1);
+    noButton.setScaleX(1);
+    noButton.setScaleY(1);
+
+    // Remove selected and error styling from both buttons
+    yesButton.getStyleClass().removeAll("selected-button", "button-error");
+    noButton.getStyleClass().removeAll("selected-button", "button-error");
+
+    // Scale up and add glow to the selected button
+    if (isYesClicked) {
+      yesButton.setScaleX(1.2);
+      yesButton.setScaleY(1.2);
+      yesButton.getStyleClass().add("selected-button");
     } else if (isNoClicked) {
-      yesButton.setScaleX(1);
-      yesButton.setScaleY(1);
-      // If yes is clicked after no
-    } else if (isYesClicked) {
-      noButton.setScaleX(1);
-      noButton.setScaleY(1);
+      noButton.setScaleX(1.2);
+      noButton.setScaleY(1.2);
+      noButton.getStyleClass().add("selected-button");
     }
   }
 
   @FXML
   private void onSendClick() {
     String message = txtInput.getText().trim();
+    boolean hasErrors = false;
 
-    // Checks for empty string
+    // Check for empty string
     if (message.isEmpty() && !(remainingSeconds <= 0)) {
       txtInput.getStyleClass().removeAll("text-area-normal", "text-area-error");
       txtInput.getStyleClass().add("text-area-error");
       optionTextMessage.setText("Please provide an answer");
-      return;
+      hasErrors = true;
     }
 
     // Check if at least yes or no is clicked
     if (isNoClicked == false && isYesClicked == false && !(remainingSeconds <= 0)) {
       optionPickingMessage.setText("Please Choose Yes or No");
+      yesButton.getStyleClass().add("button-error");
+      noButton.getStyleClass().add("button-error");
+      hasErrors = true;
+    }
+
+    // Return early if there are any errors
+    if (hasErrors) {
       return;
     }
 

@@ -1,9 +1,128 @@
-.text-area-error {
-  border-color: #FF0000;
-  -fx-border-color: #FF0000;
+/* Root background styling */
+.root {
+  -fx-background-color: #36454F;
+  -fx-text-fill: #F9E79F;
 }
 
-.text-area-normal {
-  border-color: #D3D3D3;
-  -fx-border-color: #D3D3D3;
+/* General text color for all labels */
+.label {
+  -fx-text-fill: #F9E79F;
+}
+
+/* Text color for text areas */
+.text-area {
+  -fx-text-fill: #000000;
+  -fx-border-color: #1a1a1a;
+  -fx-border-width: 4px;
+  -fx-border-radius: 10px;
+  -fx-background-radius: 10px;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 8, 0, 0, 4);
+}
+
+/* Text area error state - red border when option text message shows */
+.text-area.text-area-error {
+  -fx-border-color: #FF4500;
+  -fx-effect: dropshadow(gaussian, rgba(255, 69, 0, 0.8), 8, 0, 0, 4);
+}
+
+/* Text color for other text elements */
+.text {
+  -fx-text-fill: #F9E79F;
+}
+
+/* Override specific FXML elements that have inline textFill */
+#optionTextMessage {
+  -fx-text-fill: #FF4500 !important;
+}
+
+#optionPickingMessage {
+  -fx-text-fill: #FF4500 !important;
+}
+
+/* Timer warning color when <= 10 seconds */
+#timer.low-time {
+  -fx-text-fill: #FF4500 !important;
+}
+
+/* Yes button - green gradient with circular styling */
+#btn-yes {
+  -fx-pref-width: 90px;
+  -fx-pref-height: 90px;
+  -fx-background-radius: 50%;
+  -fx-border-radius: 50%;
+  -fx-border-color: #1a1a1a;
+  -fx-border-width: 4px;
+  -fx-font-size: 22px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #FFFFFF;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 8, 0, 0, 4);
+  -fx-cursor: hand;
+  -fx-background-color: radial-gradient(center 30% 30%, radius 70%, #2ecc71, #145a32);
+}
+
+/* Yes button error state - red border with smaller glow */
+#btn-yes.button-error {
+  -fx-border-color: #FF4500;
+  -fx-border-width: 6px;
+  -fx-effect: dropshadow(gaussian, rgba(255, 69, 0, 0.8), 10, 0.5, 0, 0);
+}
+
+#btn-yes:hover {
+  -fx-scale-x: 1.05;
+  -fx-scale-y: 1.05;
+}
+
+#btn-yes:pressed {
+  -fx-scale-x: 0.95;
+  -fx-scale-y: 0.95;
+  -fx-effect: dropshadow(gaussian, rgba(50, 255, 50, 0.8), 20, 0.5, 0, 0);
+}
+
+/* Glowing effect when selected (toggle state) */
+#btn-yes.selected-button {
+  -fx-effect: dropshadow(gaussian, rgba(50, 255, 50, 1.0), 30, 0.8, 0, 0);
+  -fx-scale-x: 1.1;
+  -fx-scale-y: 1.1;
+}
+
+
+/* No button - red gradient with circular styling */
+#btn-no {
+  -fx-pref-width: 90px;
+  -fx-pref-height: 90px;
+  -fx-background-radius: 50%;
+  -fx-border-radius: 50%;
+  -fx-border-color: #1a1a1a;
+  -fx-border-width: 4px;
+  -fx-font-size: 22px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #FFFFFF;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 8, 0, 0, 4);
+  -fx-cursor: hand;
+  -fx-background-color: radial-gradient(center 30% 30%, radius 70%, #e74c3c, #641e16);
+}
+
+/* No button error state - red border with smaller glow */
+#btn-no.button-error {
+  -fx-border-color: #FF4500;
+  -fx-border-width: 6px;
+  -fx-effect: dropshadow(gaussian, rgba(255, 69, 0, 0.8), 10, 0.5, 0, 0);
+}
+
+#btn-no:hover {
+  -fx-scale-x: 1.05;
+  -fx-scale-y: 1.05;
+}
+
+#btn-no:pressed {
+  -fx-scale-x: 0.95;
+  -fx-scale-y: 0.95;
+  -fx-effect: dropshadow(gaussian, rgba(255, 50, 50, 0.8), 20, 0.5, 0, 0);
+}
+
+/* Glowing effect when selected (toggle state) */
+#btn-no.selected-button {
+  -fx-effect: dropshadow(gaussian, rgba(255, 60, 60, 1.0), 30, 0.8, 0, 0);
+  -fx-scale-x: 1.1;
+  -fx-scale-y: 1.1;
 }
