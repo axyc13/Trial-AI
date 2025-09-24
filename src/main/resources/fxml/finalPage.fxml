@@ -4,83 +4,13 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<StackPane xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.FinalPageController">
+<StackPane stylesheets="@../css/finalPageStyle.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.FinalPageController">
   <children>
-    <AnchorPane prefHeight="599.0" prefWidth="789.0">
-      <children>
-        <Button fx:id="yesButton" alignment="CENTER" layoutX="297.0" layoutY="191.0" mnemonicParsing="false" onAction="#onYesClick" prefHeight="67.0" prefWidth="70.0" style="-fx-background-color: green; -fx-background-radius: 2000;" text="Yes" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <effect>
-                  <DropShadow>
-                     <color>
-                        <Color green="0.501960813999176" />
-                     </color>
-                  </DropShadow>
-               </effect></Button>
-        <Button fx:id="noButton" layoutX="438.0" layoutY="191.0" mnemonicParsing="false" onAction="#onNoClick" prefHeight="67.0" prefWidth="70.0" style="-fx-background-color: red; -fx-background-radius: 2000;" text="No" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <effect>
-                  <DropShadow>
-                     <color>
-                        <Color red="1.0" />
-                     </color>
-                  </DropShadow>
-               </effect></Button>
-        <Label layoutX="75.0" layoutY="37.0" text="Was the AI defendant Ethical or Not?">
-          <font>
-            <Font size="40.0" />
-          </font>
-        </Label>
-        <Label fx:id="timer" alignment="CENTER" layoutX="286.0" layoutY="109.0" prefHeight="95.0" prefWidth="230.0" text="00:10">
-          <font>
-            <Font size="50.0" />
-          </font>
-        </Label>
-        <Label layoutX="191.0" layoutY="88.0" text="you have 60 seconds to decide">
-          <font>
-            <Font size="30.0" />
-          </font>
-        </Label>
-            <Button fx:id="restartButton" layoutX="657.0" layoutY="519.0" mnemonicParsing="false" onAction="#onResetGame" prefHeight="39.0" prefWidth="102.0" text="Restart Game">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <TextArea fx:id="txtInput" layoutX="235.0" layoutY="339.0" onMouseClicked="#onInputStartUp" prefHeight="146.0" prefWidth="336.0" promptText="Input text here" stylesheets="@../css/finalPageStyle.css" wrapText="true" />
-            <Button fx:id="submitButton" layoutX="368.0" layoutY="529.0" mnemonicParsing="false" onAction="#onSendClick" prefHeight="39.0" prefWidth="70.0" text="Submit" />
-            <Label fx:id="questionLabel" alignment="CENTER" layoutX="323.0" layoutY="302.0" prefHeight="33.0" prefWidth="160.0" text="Briefly state why?">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <Label fx:id="optionTextMessage" alignment="CENTER" layoutX="234.0" layoutY="480.0" prefHeight="46.0" prefWidth="336.0" text="Message" textFill="RED">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="optionPickingMessage" alignment="CENTER" layoutX="227.0" layoutY="262.0" prefHeight="46.0" prefWidth="336.0" text="Message" textFill="RED">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-      </children>
-    </AnchorPane>
 
     <VBox fx:id="overlay" alignment="CENTER" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false">
       <Label style="-fx-text-fill: white; -fx-font-size: 36px;" text="Game Over! Time's up!" />
@@ -91,5 +21,47 @@
     <VBox fx:id="overlayFailure" alignment="CENTER" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false">
       <Label style="-fx-text-fill: white; -fx-font-size: 36px;" text="Wrong! Thanks for playing!" />
     </VBox>
+    <AnchorPane prefHeight="599.0" prefWidth="789.0">
+      <children>
+        <Button id="btn-yes" fx:id="yesButton" alignment="CENTER" layoutX="279.0" layoutY="171.0" mnemonicParsing="false" onAction="#onYesClick" text="YES" />
+        <Button id="btn-no" fx:id="noButton" layoutX="420.0" layoutY="171.0" mnemonicParsing="false" onAction="#onNoClick" text="NO" />
+        <Label layoutX="75.0" layoutY="13.0" text="Was the AI defendant Ethical or Not?">
+          <font>
+            <Font size="40.0" />
+          </font>
+        </Label>
+        <Label fx:id="timer" alignment="CENTER" layoutX="286.0" layoutY="85.0" prefHeight="95.0" prefWidth="230.0" text="00:10">
+          <font>
+            <Font size="50.0" />
+          </font>
+        </Label>
+        <Label layoutX="191.0" layoutY="64.0" text="you have 60 seconds to decide">
+          <font>
+            <Font size="30.0" />
+          </font>
+        </Label>
+            <Button fx:id="restartButton" layoutX="657.0" layoutY="519.0" mnemonicParsing="false" onAction="#onResetGame" prefHeight="39.0" prefWidth="102.0" text="Restart Game">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <TextArea fx:id="txtInput" layoutX="235.0" layoutY="339.0" onMouseClicked="#onInputStartUp" prefHeight="146.0" prefWidth="336.0" promptText="Input text here" wrapText="true" />
+            <Button fx:id="submitButton" layoutX="368.0" layoutY="532.0" mnemonicParsing="false" onAction="#onSendClick" prefHeight="39.0" prefWidth="70.0" text="Submit" />
+            <Label fx:id="questionLabel" alignment="CENTER" layoutX="323.0" layoutY="302.0" prefHeight="33.0" prefWidth="160.0" text="Briefly state why?">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="optionTextMessage" alignment="CENTER" layoutX="234.0" layoutY="483.0" prefHeight="46.0" prefWidth="336.0" text="Message" textFill="RED">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="optionPickingMessage" alignment="CENTER" layoutX="227.0" layoutY="259.0" prefHeight="46.0" prefWidth="336.0" text="Message" textFill="RED">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+      </children>
+    </AnchorPane>
   </children>
 </StackPane>
