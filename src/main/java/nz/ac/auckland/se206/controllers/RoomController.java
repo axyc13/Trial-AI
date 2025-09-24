@@ -14,6 +14,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest.Model;
@@ -48,6 +49,7 @@ public class RoomController {
   @FXML private Pane overlay;
   @FXML private TextArea txtaChat;
   @FXML private TextField txtInput;
+  @FXML private StackPane warningMessage;
 
   /**
    * Initialises the room view. Start's the 2:00 timer and binds it's progress to the progress bar.
@@ -106,6 +108,16 @@ public class RoomController {
    */
   @FXML
   private void onDecisionClick() throws IOException {
+    // if (App.getProfessionsOpened().size() != 3) {
+    //   warningMessage.setVisible(true);
+    //   Platform.runLater(
+    //       () -> {
+    //         PauseTransition pause = new PauseTransition(Duration.seconds(2));
+    //         pause.setOnFinished(e -> warningMessage.setVisible(false));
+    //         pause.play();
+    //       });
+    //   return;
+    // }
     context.handleFinalDecisionClick();
   }
 

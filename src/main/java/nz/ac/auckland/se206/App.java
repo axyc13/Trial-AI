@@ -103,12 +103,11 @@ public class App extends Application {
     }
   }
 
+  public static ArrayList<String> getProfessionsOpened() {
+    return professionsOpened;
+  }
+
   public static void openFinalPage() throws IOException {
-    // Uncomment this to force all professions to be opened before accessing final page
-    // if (professionsOpened.size() != 3) {
-    //   System.out.println("Not all professions have been opened yet.");
-    //   return;
-    // }
     Parent root = loadFxml("finalPage");
     scene = new Scene(root);
     primaryStage.setScene(scene);
