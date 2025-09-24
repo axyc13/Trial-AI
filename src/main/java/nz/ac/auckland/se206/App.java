@@ -110,6 +110,10 @@ public class App extends Application {
     //   return;
     // }
     Parent root = loadFxml("finalPage");
+
+    // Clears professions to enable first time visiting again when game resets
+    professionsOpened.clear();
+
     scene = new Scene(root);
     primaryStage.setScene(scene);
     primaryStage.show();
