@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -15,9 +17,16 @@ import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
+import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
+import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest.Model;
+import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionResult;
+import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
+import nz.ac.auckland.apiproxy.chat.openai.Choice;
+import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.TimerManager;
+import nz.ac.auckland.se206.prompts.PromptEngineering;
 
 public class FinalPageController {
 
@@ -205,31 +214,32 @@ public class FinalPageController {
 
     // yes button is chosen and message is not empty
     if (isYesClicked == true && !(message.isEmpty())) {
-      txtInput.appendText("You Win!");
+      txtInput.appendText("You Win! ");
 
       // Display the winning vbox
       setWinOverlay();
 
-      // Task<Void> task =
-      //     new Task<>() {
-      //       @Override
-      //       protected Void call() {
-      //         try {
-      //           runGpt(message);
-      //         } catch (ApiProxyException e) {
-      //           e.printStackTrace();
-      //         }
-      //         return null;
-      //       }
-      //     };
+      Task<Void> task =
+          new Task<>() {
+            @Override
+            protected Void call() {
+              try {
+                runGpt(message);
+              } catch (ApiProxyException e) {
+                e.printStackTrace();
+              }
+              return null;
+            }
+          };
 
-      // new Thread(task).start();
+      new Thread(task).start();
+
+      // Check rationale
+
     } else {
       // Display the losing vbox
       setLoseOverlay();
     }
-
-    // Append the GPT response to txtInput
 
     // Enable the restart button
     restartButton.setVisible(true);
@@ -262,5 +272,48 @@ public class FinalPageController {
   @FXML
   private void onResetGame(ActionEvent event) throws ApiProxyException, IOException {
     App.setRoot("room");
+  }
+
+  /**
+   * Runs the GPT model with a given chat message.
+   *
+   * @param message the chat message to process
+   * @return the response chat message
+   * @throws ApiProxyException if there is an error communicating with the API proxy
+   */
+  private ChatMessage runGpt(String message) throws ApiProxyException {
+    ApiProxyConfig config = ApiProxyConfig.readConfig();
+    ChatCompletionRequest request =
+        new ChatCompletionRequest(config)
+            .setN(1)
+            .setTemperature(0.2)
+            .setTopP(0.5)
+            .setModel(Model.GPT_4_1_MINI)
+            .setMaxTokens(1);
+
+    // Get prompt
+    String systemPrompt = getSystemPrompt("feedbackResponse.txt");
+
+    request.addMessage("system", systemPrompt);
+    request.addMessage("user", "User's rationale: " + message);
+
+    ChatCompletionResult result = request.execute();
+    Choice choice = result.getChoices().iterator().next();
+    ChatMessage assistantMsg = choice.getChatMessage();
+
+    Platform.runLater(() -> appendChatMessage(assistantMsg));
+
+    return assistantMsg;
+  }
+
+  public void appendChatMessage(ChatMessage msg) {
+    if (msg.isSystemPrompt()) {
+      return;
+    }
+    txtInput.appendText(msg.getContent());
+  }
+
+  private String getSystemPrompt(String profession) {
+    return PromptEngineering.getPrompt(profession);
   }
 }
