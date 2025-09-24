@@ -264,4 +264,8 @@ public class RoomController {
   private String getSystemPrompt(String file) {
     return PromptEngineering.getPrompt(file);
   }
+
+  public static void resetTimer() {
+    isFirstTimeInit = true;
+  }
 }
