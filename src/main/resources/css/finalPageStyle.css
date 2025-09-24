@@ -1,0 +1,9 @@
+.text-area-error {
+  border-color: #FF0000;
+  -fx-border-color: #FF0000;
+}
+
+.text-area-normal {
+  border-color: #D3D3D3;
+  -fx-border-color: #D3D3D3;
+}
