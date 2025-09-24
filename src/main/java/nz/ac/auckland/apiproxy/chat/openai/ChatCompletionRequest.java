@@ -61,6 +61,13 @@ public class ChatCompletionRequest {
     return this;
   }
 
+  public void getMessages() {
+    // For debugging purposes
+    for (ChatMessage msg : messages) {
+      System.out.println(msg.getRole() + ": " + msg.getContent());
+    }
+  }
+
   public ChatCompletionRequest setModel(Model model) {
     this.model = model;
     return this;

@@ -26,4 +26,8 @@ public class ChatMessage {
   public boolean isSystemPrompt() {
     return isSystemPrompt;
   }
+
+  public void setContent(String string) {
+    this.content = string;
+  }
 }

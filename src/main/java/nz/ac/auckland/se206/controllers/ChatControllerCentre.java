@@ -1,6 +1,7 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
+import java.util.List;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -36,7 +37,6 @@ public abstract class ChatControllerCentre {
   @FXML private Label timer;
   @FXML private ProgressBar progressBar;
 
-  private ChatCompletionRequest chatCompletionRequest;
   private String profession;
 
   /**
@@ -92,39 +92,30 @@ public abstract class ChatControllerCentre {
   public void initialiseChatGpt(String file, String profession) {
     this.profession = profession;
 
-    // Get prompt and save it
-    ChatMessage systemMsg = new ChatMessage("system", getSystemPrompt(file));
-    ChatStorage.addMessage("system", systemMsg);
-    systemMsg.setSystemPrompt(true);
-
-    // Initialise gpt and run it
-    try {
-      ApiProxyConfig config = ApiProxyConfig.readConfig();
-
-      chatCompletionRequest =
-          new ChatCompletionRequest(config)
-              .setN(1)
-              .setTemperature(0.1) // Lower temperature for more focused responses
-              .setTopP(0.2) // More restrictive sampling
-              .setModel(Model.GPT_4_1_MINI)
-              .setMaxTokens(1);
-
-      Task<Void> task =
-          new Task<>() {
-            @Override
-            protected Void call() {
-              try {
-                runGpt(systemMsg);
-              } catch (ApiProxyException e) {
-                e.printStackTrace();
-              }
-              return null;
-            }
-          };
-      new Thread(task).start();
-    } catch (ApiProxyException e) {
-      e.printStackTrace();
+    // Prints previous conversations in chat box
+    List<ChatMessage> history = ChatStorage.getHistory(this.profession);
+    for (ChatMessage msg : history) {
+      appendChatMessage(msg);
     }
+
+    // Add prompt
+    ChatMessage systemMsg = new ChatMessage("system", getSystemPrompt(file));
+    systemMsg.setSystemPrompt(true);
+    ChatStorage.setSystemPrompt(this.profession, systemMsg);
+
+    Task<Void> task =
+        new Task<>() {
+          @Override
+          protected Void call() {
+            try {
+              runGpt(systemMsg);
+            } catch (ApiProxyException e) {
+              e.printStackTrace();
+            }
+            return null;
+          }
+        };
+    new Thread(task).start();
   }
 
   /**
@@ -132,12 +123,15 @@ public abstract class ChatControllerCentre {
    *
    * @param msg the chat message to append
    */
-  private void appendChatMessage(ChatMessage msg) {
+  public void appendChatMessage(ChatMessage msg) {
     if (msg.isSystemPrompt()) {
       return;
     }
-    String displayRole = msg.getRole().equals("assistant") ? this.profession : msg.getRole();
-    txtaChat.appendText(displayRole + ": " + msg.getContent() + "\n\n");
+    if ("user".equals(msg.getRole())) {
+      txtaChat.appendText("user: " + msg.getContent() + "\n\n");
+      return;
+    }
+    txtaChat.appendText(msg.getContent() + "\n\n");
   }
 
   /**
@@ -148,24 +142,51 @@ public abstract class ChatControllerCentre {
    * @throws ApiProxyException if there is an error communicating with the API proxy
    */
   private ChatMessage runGpt(ChatMessage msg) throws ApiProxyException {
-    // Feed message to gpt
-    chatCompletionRequest.addMessage(msg);
+    ApiProxyConfig config = ApiProxyConfig.readConfig();
+    ChatCompletionRequest request =
+        new ChatCompletionRequest(config)
+            .setN(1)
+            .setTemperature(0.2)
+            .setTopP(0.5)
+            .setModel(Model.GPT_4_1_MINI)
+            .setMaxTokens(50);
 
-    // Execute gpt
-    try {
-      ChatCompletionResult chatCompletionResult = chatCompletionRequest.execute();
-      Choice result = chatCompletionResult.getChoices().iterator().next();
-      chatCompletionRequest.addMessage(result.getChatMessage());
-
-      // Save the gpt response for later
-      ChatStorage.addMessage(this.profession, result.getChatMessage());
-      Platform.runLater(() -> appendChatMessage(result.getChatMessage()));
-
-      return result.getChatMessage();
-    } catch (ApiProxyException e) {
-      e.printStackTrace();
-      return null;
+    // Get prompt
+    ChatMessage systemPrompt = ChatStorage.getSystemPrompt(this.profession);
+    if (systemPrompt != null) {
+      request.addMessage(systemPrompt);
     }
+
+    // Add shared conversations between gpts (last 5 messages)
+    List<ChatMessage> globalContext = ChatStorage.getContext();
+    int start = Math.max(0, globalContext.size() - 5);
+    for (ChatMessage contextMsg : globalContext.subList(start, globalContext.size())) {
+      if (!contextMsg.isSystemPrompt()) {
+        request.addMessage(contextMsg);
+      }
+    }
+
+    // Add current message
+    request.addMessage(msg);
+
+    ChatCompletionResult result = request.execute();
+    Choice choice = result.getChoices().iterator().next();
+    ChatMessage assistantMsg = choice.getChatMessage();
+
+    String content = assistantMsg.getContent().trim();
+    String prefix = "[" + this.profession + "]:";
+    // If GPT already added the same prefix, strip it
+    if (content.startsWith(prefix) && this.profession != "user") {
+      content = content.substring(prefix.length()).trim();
+    }
+
+    // This makes sure, the gpt will know who said what
+    assistantMsg.setContent(prefix + " " + content);
+    ChatStorage.addMessage(this.profession, assistantMsg);
+
+    Platform.runLater(() -> appendChatMessage(assistantMsg));
+
+    return assistantMsg;
   }
 
   /**
