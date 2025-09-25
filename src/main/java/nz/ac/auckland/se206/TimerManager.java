@@ -39,18 +39,21 @@ public class TimerManager {
     }
   }
 
-  private final int totalSeconds = 300;
-  private final IntegerProperty secondsRemaining = new SimpleIntegerProperty(totalSeconds);
+  private final int totalSeconds = 20;
+  private IntegerProperty secondsRemaining;
   private final DoubleProperty progress = new SimpleDoubleProperty(0);
   private Timeline timeline;
 
   private TimerManager() {}
 
   public void start() {
+
     // Starts 5:00 timer
     if (timeline != null && timeline.getStatus() == Animation.Status.RUNNING) {
       return;
     }
+
+    secondsRemaining = new SimpleIntegerProperty(totalSeconds);
 
     timeline =
         new Timeline(
