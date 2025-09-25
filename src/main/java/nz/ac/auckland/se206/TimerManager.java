@@ -64,8 +64,10 @@ public class TimerManager {
                   if (remaining <= 0) {
                     timeline.stop();
                     try {
+                      if (App.getProfessionsOpened().size() == 3) {
+                        App.setTalkedToAll(true);
+                      }
                       App.openFinalPage();
-                      App.setTalkedToAll(true);
                     } catch (IOException e1) {
                       e1.printStackTrace();
                     }
