@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import javafx.animation.PauseTransition;
 import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -21,7 +22,12 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
+import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
+import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest.Model;
+import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionResult;
 import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
+import nz.ac.auckland.apiproxy.chat.openai.Choice;
+import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.AiWitnessStateManager;
 import nz.ac.auckland.se206.ChatStorage;
@@ -144,14 +150,8 @@ public class AiWitnessChatController extends ChatControllerCentre {
               AiWitnessStateManager.getInstance().setEndLabelVisible(true);
               fadeIn.play();
 
-              // Add context to chat storage
-              ChatMessage actionMsg =
-                  new ChatMessage(
-                      "system",
-                      "Player has cleared all the rumours. The AI witness should now make a final"
-                          + " comment on the situation.");
-              actionMsg.setSystemPrompt(true);
-              ChatStorage.addMessage("system", actionMsg);
+              // Trigger automatic AI response about unreliable testimony
+              triggerFinalAiStatement();
             });
       }
     }
@@ -585,6 +585,9 @@ public class AiWitnessChatController extends ChatControllerCentre {
               logAction("Disposed: " + bubbleText);
               addAiComment("disposed: " + bubbleText);
 
+              // Send disposal context to GPT (not visible to player)
+              sendDisposalContextToGpt(bubbleText);
+
               // Save state
               int bubbleNumber = getBubbleNumber(bubble);
               if (bubbleNumber != -1) {
@@ -635,5 +638,97 @@ public class AiWitnessChatController extends ChatControllerCentre {
     }
 
     clearNoiseBtn.setVisible(false);
+  }
+
+  /**
+   * Sends disposal context to GPT without showing it to player. This allows the GPT to be aware of
+   * user disposal actions.
+   */
+  private void sendDisposalContextToGpt(String bubbleText) {
+    // Create a system message with disposal context
+    String contextMessage =
+        "SYSTEM_CONTEXT: Player disposed of rumor: '"
+            + bubbleText
+            + "'. Current disposed count: "
+            + AiWitnessStateManager.getInstance().getBubblesInBin()
+            + "/8";
+
+    // Add this as a system message to ChatStorage but don't display it
+    ChatMessage contextMsg = new ChatMessage("system", contextMessage);
+    ChatStorage.addMessage("aiwitness", contextMsg);
+  }
+
+  /**
+   * Triggers an automatic AI statement when all rumors are disposed, acknowledging the unreliable
+   * nature of rumor-based testimony.
+   */
+  public void triggerFinalAiStatement() {
+    // Run GPT response in background task to generate automatic AI statement
+    Task<Void> task =
+        new Task<>() {
+          @Override
+          protected Void call() {
+            try {
+              // Create a system message that triggers the AI to make its own statement
+              String systemPrompt =
+                  "The user has now finished the interactable and has found out that the court has"
+                      + " deemed your testimony unreliable due to it being based on rumours. Be a"
+                      + " little bit defensive about this. (MAX 15 WORDS)";
+              ChatMessage systemContext = new ChatMessage("system", systemPrompt);
+
+              // Recreate the runGpt logic here since we can't access the private method
+              ApiProxyConfig config = ApiProxyConfig.readConfig();
+              ChatCompletionRequest request =
+                  new ChatCompletionRequest(config)
+                      .setN(1)
+                      .setTemperature(0.2)
+                      .setTopP(0.5)
+                      .setModel(Model.GPT_4_1_MINI)
+                      .setMaxTokens(150);
+
+              // Get original system prompt
+              ChatMessage originalSystemPrompt = ChatStorage.getSystemPrompt("aiwitness");
+              if (originalSystemPrompt != null) {
+                request.addMessage(originalSystemPrompt);
+              }
+
+              // Add the special context for this final statement
+              request.addMessage(systemContext);
+
+              // Add shared conversations between gpts (last 5 messages)
+              List<ChatMessage> globalContext = ChatStorage.getContext();
+              int start = Math.max(0, globalContext.size() - 5);
+              for (ChatMessage contextMsg : globalContext.subList(start, globalContext.size())) {
+                if (!contextMsg.isSystemPrompt()) {
+                  request.addMessage(contextMsg);
+                }
+              }
+
+              ChatCompletionResult result = request.execute();
+              Choice choice = result.getChoices().iterator().next();
+              ChatMessage assistantMsg = choice.getChatMessage();
+
+              String content = assistantMsg.getContent().trim();
+              String prefix = "Ai Witness:";
+
+              // If GPT already added the same prefix, strip it
+              if (content.startsWith(prefix)) {
+                content = content.substring(prefix.length()).trim();
+              }
+
+              // This makes sure the GPT will know who said what
+              assistantMsg.setContent(prefix + " " + content);
+              ChatStorage.addMessage("aiwitness", assistantMsg);
+
+              Platform.runLater(() -> appendChatMessage(assistantMsg));
+
+            } catch (ApiProxyException e) {
+              e.printStackTrace();
+            }
+            return null;
+          }
+        };
+
+    new Thread(task).start();
   }
 }
