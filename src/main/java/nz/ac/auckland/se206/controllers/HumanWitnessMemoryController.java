@@ -138,6 +138,9 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
   }
 
   private void lockCassetteInTarget() {
+    txtaChat.appendText(
+        "[Human Witness]: Great choice of song! Don't worry about copyright the AI always checks"
+            + " before playing, even when it comes to creating music. \n\n");
     isLocked = true;
 
     // Disable dragging

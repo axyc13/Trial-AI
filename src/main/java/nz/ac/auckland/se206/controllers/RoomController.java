@@ -204,7 +204,7 @@ public class RoomController {
             .setTemperature(0.2)
             .setTopP(0.5)
             .setModel(Model.GPT_4_1_MINI)
-            .setMaxTokens(1);
+            .setMaxTokens(100);
 
     // Get prompt
     ChatMessage systemPrompt = ChatStorage.getSystemPrompt(profession);
