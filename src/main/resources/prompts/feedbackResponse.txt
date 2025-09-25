@@ -5,4 +5,5 @@ In truth, the defendant has not been unethical in their methods and has only sou
 The human witness supported the defendant.
 The AI witness believed false rumours and was against the defendant. The AI witness should not be believed.
 Give a short and formal feedback message based on what the user wrote.
-If they provide the wrong reason, correct their reasoning.
+If they provide the wrong reason, correct their reasoning. 
+MAKE SURE TO STATE IF THEIR REASON IS CORRECT, INCORRECT OR UNCLEAR.

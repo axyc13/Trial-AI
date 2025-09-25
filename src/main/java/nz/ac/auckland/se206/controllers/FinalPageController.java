@@ -299,6 +299,7 @@ public class FinalPageController {
   private void showOverlay() {
     overlay.setVisible(true);
 
+    // Updates loading label text
     Timeline loseTime =
         new Timeline(
             new KeyFrame(Duration.seconds(0.5), e -> waitingLabel.setText("Awaiting Results.")),
