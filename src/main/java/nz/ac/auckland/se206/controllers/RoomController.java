@@ -2,6 +2,7 @@ package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
 import java.util.List;
+import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -16,6 +17,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest.Model;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionResult;
@@ -23,6 +25,7 @@ import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.ChatStorage;
 import nz.ac.auckland.se206.GameStateContext;
 import nz.ac.auckland.se206.TimerManager;
@@ -108,16 +111,18 @@ public class RoomController {
    */
   @FXML
   private void onDecisionClick() throws IOException {
-    // if (App.getProfessionsOpened().size() != 3) {
-    //   warningMessage.setVisible(true);
-    //   Platform.runLater(
-    //       () -> {
-    //         PauseTransition pause = new PauseTransition(Duration.seconds(2));
-    //         pause.setOnFinished(e -> warningMessage.setVisible(false));
-    //         pause.play();
-    //       });
-    //   return;
-    // }
+    // Must talk to all three before being able to go to the final decision screen
+    if (App.getProfessionsOpened().size() != 3) {
+      warningMessage.setVisible(true);
+      Platform.runLater(
+          () -> {
+            PauseTransition pause = new PauseTransition(Duration.seconds(2));
+            pause.setOnFinished(e -> warningMessage.setVisible(false));
+            pause.play();
+          });
+      return;
+    }
+    App.setTalkedToAll(true);
     context.handleFinalDecisionClick();
   }
 
