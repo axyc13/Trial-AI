@@ -40,7 +40,7 @@ public class DefendantChatController extends ChatControllerCentre {
   @FXML private AnchorPane messageBox;
   @FXML private AnchorPane instructions;
 
-  @FXML private VBox flashbackMessage;
+  @FXML private VBox memoryMessage;
   private List<AnchorPane> discs;
   private AnimationTimer gameLoop;
   private int discIndex = 0;
@@ -49,16 +49,19 @@ public class DefendantChatController extends ChatControllerCentre {
   @Override
   @FXML
   public void initialize() {
+    // Initialises Timer
     try {
       super.initialize();
     } catch (ApiProxyException e) {
       e.printStackTrace();
     }
-    flashbackMessage.setVisible(true);
+    // Show memory message briefly
+    memoryMessage.setVisible(true);
+
     Platform.runLater(
         () -> {
           PauseTransition pause = new PauseTransition(Duration.seconds(1));
-          pause.setOnFinished(e -> flashbackMessage.setVisible(false));
+          pause.setOnFinished(e -> memoryMessage.setVisible(false));
           pause.play();
         });
     DraggableMaker.makeDraggable(basket);

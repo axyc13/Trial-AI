@@ -22,7 +22,7 @@ import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.TimerManager;
 
-public class DefendantMemoryController {
+public class DefendantMemoryController extends ChatControllerCentre {
 
   @FXML private Label timer;
   @FXML private ProgressBar progressBar;
@@ -42,9 +42,14 @@ public class DefendantMemoryController {
   @FXML private Button proceedButton;
   @FXML private VBox memoryMessage;
 
+  @Override
   @FXML
   public void initialize() throws ApiProxyException {
-    TimerManager timer = TimerManager.getInstance();
+    try {
+      super.initialize();
+    } catch (ApiProxyException e) {
+      e.printStackTrace();
+    }
 
     Platform.runLater(
         () -> {
@@ -55,26 +60,6 @@ public class DefendantMemoryController {
 
           mediaPlayer.play();
         });
-
-    // Set initial state immediately
-    this.timer.setText(TimerManager.formatTime(timer.getSecondsRemainingProperty().get()));
-    progressBar.progressProperty().bind(timer.getProgressProperty());
-    applyColor(timer.getProgressProperty().get());
-
-    // Bind updates
-    timer
-        .getSecondsRemainingProperty()
-        .addListener(
-            (obs, oldVal, newVal) -> {
-              this.timer.setText(TimerManager.formatTime(newVal.intValue()));
-            });
-
-    timer
-        .getProgressProperty()
-        .addListener(
-            (obs, oldVal, newVal) -> {
-              applyColor(newVal.doubleValue());
-            });
 
     slidingBar
         .valueProperty()
