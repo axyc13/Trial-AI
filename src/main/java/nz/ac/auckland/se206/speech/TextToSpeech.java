@@ -42,6 +42,7 @@ public class TextToSpeech {
 
               TextToSpeechResult ttsResult = ttsRequest.execute();
               String audioUrl = ttsResult.getAudioUrl();
+              System.out.println("Audio URL: " + audioUrl);
 
               try (InputStream inputStream =
                   new BufferedInputStream(URI.create(audioUrl).toURL().openStream())) {

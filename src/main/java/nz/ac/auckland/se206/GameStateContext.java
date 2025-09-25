@@ -23,8 +23,8 @@ public class GameStateContext {
 
     gameState = gameStartedState; // Initial state
     rectanglesToProfession = new HashMap<>();
-    rectanglesToProfession.put("rectPerson1", "AI Witness");
-    rectanglesToProfession.put("rectPerson2", "Human Witness");
+    rectanglesToProfession.put("rectPerson1", "Human Witness");
+    rectanglesToProfession.put("rectPerson2", "AI Witness");
     rectanglesToProfession.put("rectPerson3", "AI Defendant");
   }
 

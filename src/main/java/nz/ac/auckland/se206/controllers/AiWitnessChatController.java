@@ -1,6 +1,5 @@
 package nz.ac.auckland.se206.controllers;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,8 +17,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
@@ -366,12 +363,6 @@ public class AiWitnessChatController extends ChatControllerCentre {
         () -> {
           PauseTransition pause = new PauseTransition(Duration.seconds(1));
           pause.setOnFinished(e -> flashbackMessage.setVisible(false));
-          String audioFile = "src/main/resources/sounds/flashback.mp3";
-
-          Media sound = new Media(new File(audioFile).toURI().toString());
-          MediaPlayer mediaPlayer = new MediaPlayer(sound);
-
-          mediaPlayer.play();
           pause.play();
         });
   }

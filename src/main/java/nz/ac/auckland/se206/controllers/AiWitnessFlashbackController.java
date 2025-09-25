@@ -1,11 +1,18 @@
 package nz.ac.auckland.se206.controllers;
 
+import java.io.File;
 import java.io.IOException;
+import javafx.animation.PauseTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 import nz.ac.auckland.se206.AiWitnessStateManager;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.TimerManager;
@@ -16,6 +23,7 @@ public class AiWitnessFlashbackController extends ChatControllerCentre {
   @FXML private ImageView FlashbackTwo;
   @FXML private ImageView FlashbackThree;
   @FXML private Button continueButton;
+  @FXML private VBox flashbackMessage;
 
   @FXML
   private void onContinueFlashback() throws IOException {
@@ -55,6 +63,20 @@ public class AiWitnessFlashbackController extends ChatControllerCentre {
     try {
       super.initialize(); // This will handle the timer setup
       TimerManager.getInstance().start();
+
+      flashbackMessage.setVisible(true);
+      Platform.runLater(
+          () -> {
+            PauseTransition pause = new PauseTransition(Duration.seconds(1));
+            pause.setOnFinished(e -> flashbackMessage.setVisible(false));
+            String audioFile = "src/main/resources/sounds/flashback.mp3";
+
+            Media sound = new Media(new File(audioFile).toURI().toString());
+            MediaPlayer mediaPlayer = new MediaPlayer(sound);
+
+            mediaPlayer.play();
+            pause.play();
+          });
 
       // Initialize flashback UI
       if (FlashbackOne != null && continueButton != null) {

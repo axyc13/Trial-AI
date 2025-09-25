@@ -149,7 +149,7 @@ public abstract class ChatControllerCentre {
             .setTemperature(0.2)
             .setTopP(0.5)
             .setModel(Model.GPT_4_1_MINI)
-            .setMaxTokens(200);
+            .setMaxTokens(100);
 
     // Get prompt
     ChatMessage systemPrompt = ChatStorage.getSystemPrompt(this.profession);

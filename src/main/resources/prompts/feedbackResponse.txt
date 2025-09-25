@@ -2,6 +2,7 @@ Keep your answer very brief.
 The user has correctly selected the correct option, your job is to give feedback on their reasoning.
 In this scenario, the AI defendant has been accused of unethically stealing music from artists.
 In truth, the defendant has not been unethical in their methods and has only sourced copyright free music or music from consenting artists.
+The defendant sources copyright free music, not copyrighted works.
 The human witness supported the defendant.
 The AI witness believed false rumours and was against the defendant. The AI witness should not be believed.
 Give a short and formal feedback message based on what the user wrote.

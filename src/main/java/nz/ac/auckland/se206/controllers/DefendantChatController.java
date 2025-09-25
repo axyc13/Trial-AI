@@ -1,6 +1,5 @@
 package nz.ac.auckland.se206.controllers;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -15,8 +14,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
@@ -62,12 +59,6 @@ public class DefendantChatController extends ChatControllerCentre {
         () -> {
           PauseTransition pause = new PauseTransition(Duration.seconds(1));
           pause.setOnFinished(e -> flashbackMessage.setVisible(false));
-          String audioFile = "src/main/resources/sounds/flashback.mp3";
-
-          Media sound = new Media(new File(audioFile).toURI().toString());
-          MediaPlayer mediaPlayer = new MediaPlayer(sound);
-
-          mediaPlayer.play();
           pause.play();
         });
     DraggableMaker.makeDraggable(basket);
@@ -113,7 +104,8 @@ public class DefendantChatController extends ChatControllerCentre {
     } else {
       basket.setVisible(false);
       txtaChat.appendText(
-          "[AI Defendant]: I hope you can better understand the types of songs I use now!");
+          "[AI Defendant]: I hope you can better understand the types of songs I use now!"
+              + "\n\n");
       message.setText("Game Over! You made the correct judgement on " + score + "/5 songs");
       messageBox.setVisible(true);
       Platform.runLater(

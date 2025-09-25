@@ -1,5 +1,6 @@
 package nz.ac.auckland.se206.controllers;
 
+import java.io.File;
 import java.io.IOException;
 import javafx.animation.PauseTransition;
 import javafx.application.Platform;
@@ -14,6 +15,8 @@ import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
@@ -42,6 +45,16 @@ public class DefendantMemoryController {
   @FXML
   public void initialize() throws ApiProxyException {
     TimerManager timer = TimerManager.getInstance();
+
+    Platform.runLater(
+        () -> {
+          String audioFile = "src/main/resources/sounds/flashback.mp3";
+
+          Media sound = new Media(new File(audioFile).toURI().toString());
+          MediaPlayer mediaPlayer = new MediaPlayer(sound);
+
+          mediaPlayer.play();
+        });
 
     // Set initial state immediately
     this.timer.setText(TimerManager.formatTime(timer.getSecondsRemainingProperty().get()));
