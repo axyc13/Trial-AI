@@ -23,6 +23,7 @@ import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
+import nz.ac.auckland.se206.AiWitnessStateManager;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.ChatStorage;
 import nz.ac.auckland.se206.TimerManager;
@@ -320,6 +321,10 @@ public class FinalPageController {
     ChatStorage.resetAllChats();
     RoomController.resetTimer();
     // TimerManager.resetTimer();
+
+    // Reset AI witness state so flashback and memory work properly on restart
+    AiWitnessStateManager.getInstance().resetState();
+
     App.setRoot("room");
   }
 

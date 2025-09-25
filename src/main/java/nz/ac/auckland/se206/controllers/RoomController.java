@@ -25,6 +25,7 @@ import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
+import nz.ac.auckland.se206.AiWitnessStateManager;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.ChatStorage;
 import nz.ac.auckland.se206.GameStateContext;
@@ -42,6 +43,9 @@ public class RoomController {
 
   public static void resetTimer() {
     isFirstTimeInit = true;
+
+    // Reset AI witness state so flashback and memory work properly on restart
+    AiWitnessStateManager.getInstance().resetState();
   }
 
   @FXML private Rectangle rectCashier;
