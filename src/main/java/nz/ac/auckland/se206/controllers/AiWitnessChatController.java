@@ -499,27 +499,28 @@ public class AiWitnessChatController extends ChatControllerCentre {
     // Map each number back to bubbles in order of appearance
     switch (number) {
       case 1:
-        return speechBubble2; // First visible
+        return speechBubble2;
       case 2:
-        return speechBubble1; // Second visible
+        return speechBubble1;
       case 3:
-        return speechBubble7; // Third visible
+        return speechBubble7;
       case 4:
-        return speechBubble4; // Fourth visible
+        return speechBubble4;
       case 5:
-        return speechBubble8; // Fifth visible
+        return speechBubble8;
       case 6:
-        return speechBubble5; // Sixth visible
+        return speechBubble5;
       case 7:
-        return speechBubble9; // Seventh visible
+        return speechBubble9;
       case 8:
-        return speechBubble6; // Eighth visible
+        return speechBubble6;
       default:
         return null;
     }
   }
 
   private void makeDraggableWithBinDetection(StackPane stack, ImageView bubble) {
+    // Make the speech bubbles draggable
     double[] deltaX = {0.0};
     double[] deltaY = {0.0};
     boolean[] isDragging = {false};

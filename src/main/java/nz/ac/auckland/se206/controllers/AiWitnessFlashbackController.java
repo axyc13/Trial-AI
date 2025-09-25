@@ -48,7 +48,7 @@ public class AiWitnessFlashbackController extends ChatControllerCentre {
         }
         break;
       default:
-        // After third flashback, switch to memory scene
+        // After third flashback, switch to chat room scene
         FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/aiWitness.fxml"));
         Parent root = loader.load();
         ChatControllerCentre chatController = loader.getController();

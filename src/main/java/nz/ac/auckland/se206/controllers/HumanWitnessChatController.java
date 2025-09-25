@@ -138,7 +138,7 @@ public class HumanWitnessChatController extends ChatControllerCentre {
 
   @FXML
   private void onGoChat(ActionEvent event) throws ApiProxyException, IOException {
-    // SetRoot to the human witness chat room
+    // Switch to the human witness chat room
     FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/humanWitnessMemory.fxml"));
     Parent root = loader.load();
     ChatControllerCentre chatController = loader.getController();

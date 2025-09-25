@@ -50,8 +50,8 @@ public class RoomController extends ChatControllerCentre {
    */
   @FXML
   public void initialize() {
+    // Initialises timer, starts the time at the start
     TimerManager timer = TimerManager.getInstance();
-
     if (isFirstTimeInit) {
       timer.start();
       isFirstTimeInit = false;
@@ -85,6 +85,7 @@ public class RoomController extends ChatControllerCentre {
   private void onDecisionClick() throws IOException {
     // Must talk to all three before being able to go to the final decision screen
     if (App.getProfessionsOpened().size() != 3) {
+      // Warning message if not talked to all 3
       warningMessage.setVisible(true);
       Platform.runLater(
           () -> {
