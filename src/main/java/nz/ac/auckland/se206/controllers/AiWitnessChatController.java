@@ -535,7 +535,9 @@ public class AiWitnessChatController extends ChatControllerCentre {
 
     stack.setOnMouseDragged(
         e -> {
-          if (!isDragging[0]) return;
+          if (!isDragging[0]) {
+            return;
+          }
 
           stack.setLayoutX(e.getSceneX() + deltaX[0]);
           stack.setLayoutY(e.getSceneY() + deltaY[0]);
