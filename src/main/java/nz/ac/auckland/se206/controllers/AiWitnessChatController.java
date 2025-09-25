@@ -36,12 +36,35 @@ import nz.ac.auckland.se206.ChatStorage;
 public class AiWitnessChatController extends ChatControllerCentre {
 
   // Tracks how many times the AI witness has been clicked
-  private int aiWitnessClickCount = 0;
-  private int flashbackStep = 1;
   @FXML private ImageView flashbackOne;
   @FXML private ImageView flashbackTwo;
   @FXML private ImageView flashbackThree;
   @FXML private Button continueButton;
+  @FXML private TextArea txtaChat;
+  @FXML private Slider slider;
+  @FXML private VBox flashbackMessage;
+  @FXML private ImageView speechBubble1;
+  @FXML private ImageView speechBubble2;
+  // @FXML private ImageView speechBubble3;
+  @FXML private ImageView speechBubble4;
+  @FXML private ImageView speechBubble5;
+  @FXML private ImageView speechBubble6;
+  @FXML private ImageView speechBubble7;
+  @FXML private ImageView speechBubble8;
+  @FXML private ImageView speechBubble9;
+  // @FXML private ImageView speechBubble10;
+  // @FXML private ImageView speechBubble11;
+  // @FXML private ImageView speechBubble12;
+  @FXML private Button clearNoiseBtn;
+  @FXML private ImageView rumourBin;
+  @FXML private TextArea chatTextArea;
+
+  private int aiWitnessClickCount = 0;
+  private int flashbackStep = 1;
+  private final Map<ImageView, Label> speechBubbleLabels = new HashMap<>();
+  private Label instructionLabel;
+  private Label completionLabel;
+  private List<String> playerActions = new ArrayList<>();
 
   /**
    * Handles clicks on the AI witness. Shows flashback scene on first click, memory on subsequent
@@ -90,31 +113,6 @@ public class AiWitnessChatController extends ChatControllerCentre {
       e.printStackTrace();
     }
   }
-
-  @FXML private TextArea txtaChat;
-  @FXML private Slider slider;
-  @FXML private VBox flashbackMessage;
-  private final Map<ImageView, Label> speechBubbleLabels = new HashMap<>();
-  private Label instructionLabel;
-
-  @FXML private ImageView speechBubble1;
-  @FXML private ImageView speechBubble2;
-  // @FXML private ImageView speechBubble3;
-  @FXML private ImageView speechBubble4;
-  @FXML private ImageView speechBubble5;
-  @FXML private ImageView speechBubble6;
-  @FXML private ImageView speechBubble7;
-  @FXML private ImageView speechBubble8;
-  @FXML private ImageView speechBubble9;
-  // @FXML private ImageView speechBubble10;
-  // @FXML private ImageView speechBubble11;
-  // @FXML private ImageView speechBubble12;
-  @FXML private Button clearNoiseBtn;
-  @FXML private ImageView rumourBin;
-  @FXML private TextArea chatTextArea;
-
-  private Label completionLabel;
-  private List<String> playerActions = new ArrayList<>();
 
   /**
    * Logs a player action for tracking their progress through the memory/puzzle.

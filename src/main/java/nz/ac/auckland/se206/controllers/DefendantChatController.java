@@ -116,7 +116,6 @@ public class DefendantChatController extends ChatControllerCentre {
           });
       gameLoop.stop();
       replayButton.setVisible(true);
-      return;
     }
   }
 
