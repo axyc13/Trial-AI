@@ -26,7 +26,7 @@
          </image>
       </ImageView>
       <Button fx:id="continueButton" layoutX="298.0" layoutY="552.0" mnemonicParsing="false" onAction="#onContinueFlashback" prefHeight="25.0" prefWidth="194.0" styleClass="continue-button" text="CONTINUE" />
-      <Label fx:id="timer" layoutX="667.0" layoutY="7.0" prefHeight="63.0" prefWidth="155.0" text="2:00" textFill="WHITE">
+      <Label fx:id="timer" layoutX="667.0" layoutY="7.0" prefHeight="63.0" prefWidth="155.0" text="5:00" textFill="WHITE">
          <font>
             <Font size="50.0" />
          </font>

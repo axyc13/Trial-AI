@@ -47,7 +47,7 @@ public class TimerManager {
   private TimerManager() {}
 
   public void start() {
-    // Starts 2:00 timer
+    // Starts 5:00 timer
     if (timeline != null && timeline.getStatus() == Animation.Status.RUNNING) {
       return;
     }
@@ -65,6 +65,7 @@ public class TimerManager {
                     timeline.stop();
                     try {
                       App.openFinalPage();
+                      App.setTalkedToAll(true);
                     } catch (IOException e1) {
                       e1.printStackTrace();
                     }

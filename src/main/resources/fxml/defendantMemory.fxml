@@ -36,7 +36,7 @@
             </font>
         </Label>
         <ProgressBar fx:id="progressBar" layoutX="-1.0" layoutY="104.0" prefHeight="20.0" prefWidth="790.0" progress="0.0" />
-        <Label layoutX="118.0" layoutY="26.0" style="-fx-background-color: #000;" text=" This is a memory! Please use the slide bar to follow " textFill="WHITE">
+        <Label layoutX="118.0" layoutY="26.0" style="-fx-background-color: #000;" text=" This is a flashback! Please use the slide bar to follow " textFill="WHITE">
           <font>
             <Font size="20.0" />
           </font>
@@ -193,7 +193,7 @@
     <!-- Intro Pop-up -->
     <VBox fx:id="memoryMessage" alignment="CENTER" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false">
       <children>
-        <Label prefHeight="88.0" prefWidth="165.0" style="-fx-text-fill: white; -fx-font-size: 36px;" text="Memory!">
+        <Label prefHeight="88.0" prefWidth="165.0" style="-fx-text-fill: white; -fx-font-size: 36px;" text="Flashback!">
           <font>
             <Font size="14.0" />
           </font>

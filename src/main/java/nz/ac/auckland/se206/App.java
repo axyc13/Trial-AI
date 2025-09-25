@@ -35,6 +35,7 @@ public class App extends Application {
           "Human Witness", "humanWitness.txt");
   private static ArrayList<String> professionsOpened = new ArrayList<>();
   private static Stage primaryStage;
+  private static boolean talkedToAll = false;
 
   /**
    * The main method that launches the JavaFX application.
@@ -105,6 +106,14 @@ public class App extends Application {
 
   public static ArrayList<String> getProfessionsOpened() {
     return professionsOpened;
+  }
+
+  public static void setTalkedToAll(boolean b) {
+    talkedToAll = b;
+  }
+
+  public static boolean getTalkedToAll() {
+    return talkedToAll;
   }
 
   public static void openFinalPage() throws IOException {

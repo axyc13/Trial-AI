@@ -112,6 +112,8 @@ public class DefendantChatController extends ChatControllerCentre {
       dropDisc(discs.get(discIndex));
     } else {
       basket.setVisible(false);
+      txtaChat.appendText(
+          "[AI Defendant]: I hope you can better understand the types of songs I use now!");
       message.setText("Game Over! You made the correct judgement on " + score + "/5 songs");
       messageBox.setVisible(true);
       Platform.runLater(

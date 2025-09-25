@@ -57,6 +57,19 @@ public class FinalPageController {
    */
   @FXML
   public void initialize() throws ApiProxyException {
+    if (!App.getTalkedToAll()) {
+      setLoseOverlay();
+      txtInput.setText("You did not talk to all the characters!");
+      questionLabel.setVisible(false);
+      optionPickingMessage.setVisible(false);
+      optionTextMessage.setVisible(false);
+      timer.setVisible(false);
+      yesButton.setDisable(true);
+      noButton.setDisable(true);
+      submitButton.setDisable(true);
+      txtInput.setDisable(true);
+      return;
+    }
     // Stop 2:00 timer and play flashback tts
     TimerManager.getInstance().stop();
 
