@@ -69,10 +69,8 @@ public class AiWitnessChatController extends ChatControllerCentre {
   @FXML
   private void onAiWitnessClicked() {
     if (aiWitnessClickCount == 0) {
-      // Show flashback scene
       showFlashbackScene();
     } else {
-      // Show memory scene directly
       showMemoryScene();
     }
     aiWitnessClickCount++;
@@ -411,6 +409,7 @@ public class AiWitnessChatController extends ChatControllerCentre {
   }
 
   private void setupSpeechBubbleTexts() {
+    // Add text to speech bubbles
     addTextToSpeechBubble(speechBubble2, "Did you hear about that new AI project?");
     addTextToSpeechBubble(speechBubble1, "Yeah, it was trained on a bunch of music.");
     addTextToSpeechBubble(speechBubble7, "Some people say the artists never agreed to it...");

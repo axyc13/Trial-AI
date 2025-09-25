@@ -14,6 +14,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
 import nz.ac.auckland.se206.TimerManager;
@@ -22,7 +23,7 @@ import nz.ac.auckland.se206.TimerManager;
  * Controller class for the room view. Handles user interactions within the room where the user can
  * chat with customers and guess their profession.
  */
-public class RoomController {
+public class RoomController extends ChatControllerCentre {
 
   private static GameStateContext context = new GameStateContext();
   private static boolean isFirstTimeInit = true;
@@ -56,30 +57,11 @@ public class RoomController {
       isFirstTimeInit = false;
     }
 
-    // Set initial state immediately
-    this.timer.setText(TimerManager.formatTime(timer.getSecondsRemainingProperty().get()));
-    progressBar.progressProperty().bind(timer.getProgressProperty());
-    applyColor(timer.getProgressProperty().get());
-
-    // Bind updates
-    timer
-        .getSecondsRemainingProperty()
-        .addListener(
-            (obs, oldVal, newVal) -> {
-              this.timer.setText(TimerManager.formatTime(newVal.intValue()));
-            });
-
-    timer
-        .getProgressProperty()
-        .addListener(
-            (obs, oldVal, newVal) -> {
-              applyColor(newVal.doubleValue());
-            });
-  }
-
-  private void applyColor(double progress) {
-    String color = TimerManager.getAccentColor(progress);
-    progressBar.setStyle("-fx-accent: " + color + ";");
+    try {
+      super.initialize();
+    } catch (ApiProxyException e) {
+      e.printStackTrace();
+    }
   }
 
   /**

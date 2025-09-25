@@ -87,6 +87,7 @@ public class DefendantMemoryController extends ChatControllerCentre {
     scene9.setVisible(false);
     scene11.setVisible(false);
     image1.setVisible(false);
+    // Proceed button only appears at the end
     proceedButton.setVisible(false);
 
     // Show or hide speech bubbles based on slider value
@@ -104,6 +105,7 @@ public class DefendantMemoryController extends ChatControllerCentre {
         scene2.setVisible(true);
         break;
       case 3:
+        // Scene change
         image1.setVisible(true);
         scene1.setVisible(true);
         scene2.setVisible(true);
@@ -119,6 +121,7 @@ public class DefendantMemoryController extends ChatControllerCentre {
         scene6.setVisible(true);
         break;
       case 8:
+        // Scene change
         image1.setVisible(true);
         break;
       case 9:
@@ -126,6 +129,7 @@ public class DefendantMemoryController extends ChatControllerCentre {
         scene7.setVisible(true);
         break;
       case 10:
+        // Scene change
         image1.setVisible(true);
         scene7.setVisible(true);
         scene8.setVisible(true);
