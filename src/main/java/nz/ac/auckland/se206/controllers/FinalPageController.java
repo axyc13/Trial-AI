@@ -320,7 +320,6 @@ public class FinalPageController {
   private void onResetGame(ActionEvent event) throws ApiProxyException, IOException {
     ChatStorage.resetAllChats();
     RoomController.resetTimer();
-    // TimerManager.resetTimer();
 
     // Reset AI witness state so flashback and memory work properly on restart
     AiWitnessStateManager.getInstance().resetState();
@@ -376,17 +375,19 @@ public class FinalPageController {
             .setN(1)
             .setTemperature(0.1)
             .setTopP(0.3)
-            .setModel(Model.GPT_4_1_MINI)
+            .setModel(Model.GPT_4o_MINI)
             .setMaxTokens(30);
 
     // Get prompt
     String systemPrompt = getSystemPrompt("rationaleChecker.txt");
 
     request.addMessage("system", systemPrompt);
+    request.addMessage("user", message);
 
     ChatCompletionResult result = request.execute();
     Choice choice = result.getChoices().iterator().next();
     ChatMessage response = choice.getChatMessage();
+    System.out.println(response.getContent());
 
     // Returns true for correct rationale
     return response.getContent().trim().equalsIgnoreCase("CORRECT");

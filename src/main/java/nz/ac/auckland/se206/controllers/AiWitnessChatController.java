@@ -426,7 +426,9 @@ public class AiWitnessChatController extends ChatControllerCentre {
   }
 
   private void showSpeechBubble(int value) {
+    // Clear all sppech bubbles
     hideAllSpeechBubbles();
+    // Show text corresponding to bar value
     if (value >= 2) {
       showBubbleWithText(speechBubble2);
     }
