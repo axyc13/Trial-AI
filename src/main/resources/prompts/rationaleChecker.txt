@@ -1,3 +1,3 @@
-Analyse this feedback message and determine if it indicates if the player's reasoning was CORRECT or INCORRECT.
-If the feedback confirms the reasoning is accurate, correct, right, valid, true or praises the reasoning, respond with 'CORRECT'.
-If the feedback confirms the reasoning is incorrect, unclear, wrong or criticizes the reasoning, respond with 'INCORRECT'.
+Analyse the first sentence of the message and determine if it indicates if the player's reasoning was CORRECT or INCORRECT.
+If the message says the reasoning is incorrect or unclear, respond with 'INCORRECT'.
+If the message says the reasoning is correct or praises the reasoning, respond with 'CORRECT'.
