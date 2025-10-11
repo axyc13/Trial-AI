@@ -17,176 +17,176 @@
     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="789.0" prefWidth="1100.0">
       <children>
       <!-- Background Images -->
-        <ImageView fx:id="image2" fitHeight="560.0" fitWidth="879.0" layoutX="-45.0" layoutY="110.0" preserveRatio="true">
+        <ImageView fx:id="image2" fitHeight="775.0" fitWidth="1298.0" layoutX="-46.0" layoutY="130.0" preserveRatio="true">
           <image>
             <Image url="@../images/defendantCalling.png" />
           </image>
         </ImageView>
-        <ImageView fx:id="image1" fitHeight="568.0" fitWidth="874.0" layoutX="-48.0" layoutY="42.0" preserveRatio="true">
+        <ImageView fx:id="image1" fitHeight="785.0" fitWidth="1318.0" layoutX="-48.0" layoutY="42.0" preserveRatio="true">
           <image>
             <Image url="@../images/defendantSearching.png" />
           </image>
         </ImageView>
 
         <!-- Top Section -->
-        <Label layoutX="-2.0" layoutY="-7.0" prefHeight="123.0" prefWidth="796.0" style="-fx-background-color: #000;" />
-        <Label fx:id="timer" layoutX="639.0" layoutY="23.0" prefHeight="63.0" prefWidth="155.0" text="5:00" textFill="WHITE">
+        <Label layoutX="-2.0" layoutY="-7.0" prefHeight="145.0" prefWidth="1182.0" style="-fx-background-color: #000;" />
+        <Label fx:id="timer" layoutX="941.0" layoutY="24.0" prefHeight="63.0" prefWidth="155.0" text="5:00" textFill="WHITE">
             <font>
               <Font size="50.0" />
             </font>
         </Label>
-        <ProgressBar fx:id="progressBar" layoutX="-1.0" layoutY="104.0" prefHeight="20.0" prefWidth="790.0" progress="0.0" />
-        <Label layoutX="118.0" layoutY="26.0" style="-fx-background-color: #000;" text=" This is a flashback! Please use the slide bar to follow " textFill="WHITE">
+        <ProgressBar fx:id="progressBar" layoutX="-1.0" layoutY="132.0" prefHeight="26.0" prefWidth="1108.0" progress="0.0" />
+        <Label layoutX="279.0" layoutY="27.0" style="-fx-background-color: #000;" text=" This is a flashback! Please use the slide bar to follow " textFill="WHITE">
           <font>
             <Font size="20.0" />
           </font>
         </Label>
-        <Label layoutX="102.0" layoutY="57.0" style="-fx-background-color: #000;" text="the defendant's story and proceed when you're satisfied" textFill="WHITE">
+        <Label layoutX="263.0" layoutY="58.0" style="-fx-background-color: #000;" text="the defendant's story and proceed when you're satisfied" textFill="WHITE">
           <font>
             <Font size="20.0" />
           </font>
         </Label>
         
         <!-- Speech Bubbles -->
-        <StackPane fx:id="scene1" layoutX="488.0" layoutY="144.0" prefHeight="170.0" prefWidth="270.0" visible="false">
-          <ImageView fitHeight="167.0" fitWidth="263.0" preserveRatio="true">
+        <StackPane fx:id="scene1" layoutX="714.0" layoutY="191.0" prefHeight="170.0" prefWidth="270.0" visible="false">
+          <ImageView fitHeight="227.0" fitWidth="345.0" preserveRatio="true">
             <image>
               <Image url="@../images/Speech Balloon 2.png" />
             </image>
           </ImageView>
-          <AnchorPane>
-            <Text layoutX="83.0" layoutY="62.0" text="searching for copyright free music... " textAlignment="CENTER" wrappingWidth="120.40625">
+          <AnchorPane prefHeight="274.0" prefWidth="374.0">
+            <Text layoutX="102.0" layoutY="77.0" text="searching for copyright free music... " textAlignment="CENTER" wrappingWidth="155.8450327840209">
               <font>
-                <Font size="18.0" />
+                <Font size="22.0" />
               </font>
           </Text>
           </AnchorPane>
         </StackPane>
-        <StackPane fx:id="scene2" layoutX="169.0" layoutY="144.0" prefHeight="170.0" prefWidth="270.0" visible="false">
-          <ImageView fitHeight="167.0" fitWidth="263.0" preserveRatio="true">
+        <StackPane fx:id="scene2" layoutX="258.0" layoutY="134.0" prefHeight="170.0" prefWidth="270.0" visible="false">
+          <ImageView fitHeight="264.0" fitWidth="365.0" preserveRatio="true">
+            <image>
+              <Image url="@../images/Speech Balloon 3.png" />
+            </image>
+          </ImageView>
+          <AnchorPane prefHeight="264.0" prefWidth="398.0">
+            <Text layoutX="84.0" layoutY="91.0" text="found! double checking license..." textAlignment="CENTER" wrappingWidth="177.8115030565899">
+              <font>
+                <Font size="22.0" />
+              </font>
+          </Text>
+          </AnchorPane>
+        </StackPane>
+        <StackPane fx:id="scene3" layoutX="128.0" layoutY="343.0" prefHeight="170.0" prefWidth="270.0" visible="false">
+          <ImageView fitHeight="241.0" fitWidth="353.0" preserveRatio="true">
             <image>
               <Image url="@../images/Speech Balloon 3.png" />
             </image>
           </ImageView>
           <AnchorPane>
-            <Text layoutX="67.0" layoutY="60.0" text="found! double checking license..." textAlignment="CENTER" wrappingWidth="120.40625">
+            <Text layoutX="91.0" layoutY="88.0" text="valid! adding to database...." textAlignment="CENTER" wrappingWidth="139.6149579555447">
               <font>
-                <Font size="18.0" />
+                <Font size="22.0" />
               </font>
           </Text>
           </AnchorPane>
         </StackPane>
-        <StackPane fx:id="scene3" layoutX="64.0" layoutY="263.0" prefHeight="170.0" prefWidth="270.0" visible="false">
-          <ImageView fitHeight="167.0" fitWidth="263.0" preserveRatio="true">
-            <image>
-              <Image url="@../images/Speech Balloon 3.png" />
-            </image>
-          </ImageView>
-          <AnchorPane>
-            <Text layoutX="73.0" layoutY="68.0" text="valid! adding to database...." textAlignment="CENTER" wrappingWidth="107.40625">
-              <font>
-                <Font size="18.0" />
-              </font>
-          </Text>
-          </AnchorPane>
-        </StackPane>
-        <StackPane fx:id="scene4" layoutX="516.0" layoutY="126.0" prefHeight="170.0" prefWidth="270.0" visible="false">
-          <ImageView fitHeight="167.0" fitWidth="263.0" preserveRatio="true">
+        <StackPane fx:id="scene4" layoutX="722.0" layoutY="130.0" prefHeight="170.0" prefWidth="270.0" visible="false">
+          <ImageView fitHeight="241.0" fitWidth="398.0" preserveRatio="true">
             <image>
               <Image url="@../images/Speech Balloon 2.png" />
             </image>
           </ImageView>
           <AnchorPane>
-            <Text layoutX="76.0" layoutY="63.0" text="hi, may i use your music as inspiration?" textAlignment="CENTER" wrappingWidth="126.3935922999649">
+            <Text layoutX="149.0" layoutY="86.0" text="hi, may i use your music as inspiration?" textAlignment="CENTER" wrappingWidth="126.3935922999649">
               <font>
-                <Font size="18.0" />
+                <Font size="22.0" />
               </font>
           </Text>
           </AnchorPane>
         </StackPane>
         <StackPane fx:id="scene5" layoutX="66.0" layoutY="155.0" prefHeight="170.0" prefWidth="270.0" visible="false">
-          <ImageView fitHeight="167.0" fitWidth="263.0" preserveRatio="true">
+          <ImageView fitHeight="263.0" fitWidth="379.0" preserveRatio="true">
             <image>
               <Image url="@../images/Speech Balloon 3.png" />
             </image>
           </ImageView>
           <AnchorPane>
-            <Text layoutX="64.0" layoutY="71.0" text="sure! you have my consent!!" textAlignment="CENTER" wrappingWidth="126.1255650717303">
+            <Text layoutX="108.0" layoutY="93.0" text="sure! you have my consent!!" textAlignment="CENTER" wrappingWidth="151.19207745881977">
               <font>
-                <Font size="18.0" />
+                <Font size="22.0" />
               </font>
           </Text>
           </AnchorPane>
         </StackPane>
-        <StackPane fx:id="scene6" layoutX="527.0" layoutY="137.0" prefHeight="170.0" prefWidth="270.0" visible="false">
-          <ImageView fitHeight="167.0" fitWidth="263.0" preserveRatio="true">
+        <StackPane fx:id="scene6" layoutX="730.0" layoutY="139.0" prefHeight="170.0" prefWidth="270.0" visible="false">
+          <ImageView fitHeight="241.0" fitWidth="386.0" preserveRatio="true">
             <image>
               <Image url="@../images/Speech Balloon 2.png" />
             </image>
           </ImageView>
-          <AnchorPane>
-            <Text layoutX="78.0" layoutY="72.0" text="thanks! adding to database..." textAlignment="CENTER" wrappingWidth="117.6533882122913">
+          <AnchorPane prefHeight="249.0" prefWidth="426.0">
+            <Text layoutX="138.0" layoutY="97.0" text="thanks! adding to database..." textAlignment="CENTER" wrappingWidth="138.69140607210102">
               <font>
-                <Font size="18.0" />
+                <Font size="22.0" />
               </font>
           </Text>
           </AnchorPane>
         </StackPane>
-        <StackPane fx:id="scene7" layoutX="474.0" layoutY="130.0" prefHeight="170.0" prefWidth="270.0" visible="false">
-          <ImageView fitHeight="211.0" fitWidth="330.0" preserveRatio="true">
+        <StackPane fx:id="scene7" layoutX="664.0" layoutY="148.0" prefHeight="170.0" prefWidth="270.0" visible="false">
+          <ImageView fitHeight="291.0" fitWidth="432.0" preserveRatio="true">
             <image>
               <Image url="@../images/Speech Balloon 2.png" />
             </image>
           </ImageView>
           <AnchorPane prefWidth="330.0">
-            <Text layoutX="94.0" layoutY="64.0" text="system, please cross reference that all collected songs are ok to use" textAlignment="CENTER" wrappingWidth="155.0">
+            <Text layoutX="129.0" layoutY="92.0" text="system, please cross reference that all collected songs are ok to use" textAlignment="CENTER" wrappingWidth="197.6696420109754">
               <font>
-                <Font size="17.0" />
+                <Font size="22.0" />
               </font>
           </Text>
           </AnchorPane>
         </StackPane>
         <StackPane fx:id="scene8" layoutX="105.0" layoutY="211.0" prefHeight="170.0" prefWidth="270.0" visible="false">
-          <ImageView fitHeight="167.0" fitWidth="263.0" preserveRatio="true">
+          <ImageView fitHeight="256.0" fitWidth="406.0" preserveRatio="true">
             <image>
               <Image url="@../images/Speech Balloon 3.png" />
             </image>
           </ImageView>
           <AnchorPane>
-            <Text layoutX="68.0" layoutY="63.0" text="error detected... anomalous files deleted" textAlignment="CENTER" wrappingWidth="117.6533882122913">
+            <Text layoutX="104.0" layoutY="97.0" text="error detected... anomalous files deleted" textAlignment="CENTER" wrappingWidth="173.01343459901005">
               <font>
-                <Font size="17.0" />
+                <Font size="22.0" />
               </font>
           </Text>
           </AnchorPane>
         </StackPane>
-        <StackPane fx:id="scene9" layoutX="124.0" layoutY="155.0" prefHeight="170.0" prefWidth="212.0" visible="false">
+        <StackPane fx:id="scene9" layoutX="106.0" layoutY="183.0" prefHeight="170.0" prefWidth="405.0" visible="false">
                <children>
-             <ImageView fitHeight="158.0" fitWidth="190.0" preserveRatio="true">
+             <ImageView fitHeight="242.0" fitWidth="350.0" preserveRatio="true">
                <image>
                  <Image url="@../images/cursingSpeechBubble.png" />
                </image>
              </ImageView>
                </children>
         </StackPane>
-        <StackPane fx:id="scene11" layoutX="527.0" layoutY="137.0" prefHeight="170.0" prefWidth="270.0" visible="false">
-          <ImageView fitHeight="167.0" fitWidth="263.0" preserveRatio="true">
+        <StackPane fx:id="scene11" layoutX="658.0" layoutY="135.0" prefHeight="170.0" prefWidth="545.0" visible="false">
+          <ImageView fitHeight="486.0" fitWidth="416.0" preserveRatio="true">
             <image>
               <Image url="@../images/Speech Balloon 2.png" />
             </image>
           </ImageView>
           <AnchorPane>
-            <Text layoutX="82.0" layoutY="72.0" text="okay! deleting from database.." textAlignment="CENTER" wrappingWidth="117.6533882122913">
+            <Text layoutX="219.0" layoutY="92.0" text="okay! deleting from database.." textAlignment="CENTER" wrappingWidth="128.3682319622913">
               <font>
-                <Font size="18.0" />
+                <Font size="22.0" />
               </font>
           </Text>
           </AnchorPane>
         </StackPane>
 
         <!-- Slide Bar and Proceed Button -->
-        <Slider fx:id="slidingBar" blockIncrement="1.0" layoutX="41.0" layoutY="516.0" majorTickUnit="1.0" max="15.0" minorTickCount="0" prefHeight="84.0" prefWidth="526.0" showTickMarks="true" snapToTicks="true" styleClass="glow-slider" />
-        <Button fx:id="proceedButton" layoutX="610.0" layoutY="537.0" mnemonicParsing="false" onAction="#onProceed" prefHeight="38.0" prefWidth="113.0" text="Proceed" visible="false" />
+        <Slider fx:id="slidingBar" blockIncrement="1.0" layoutX="36.0" layoutY="695.0" majorTickUnit="1.0" max="15.0" minorTickCount="0" prefHeight="84.0" prefWidth="882.0" showTickMarks="true" snapToTicks="true" styleClass="glow-slider" />
+        <Button fx:id="proceedButton" layoutX="922.0" layoutY="710.0" mnemonicParsing="false" onAction="#onProceed" prefHeight="50.0" prefWidth="135.0" text="Proceed" visible="false"/>
       </children>
     </AnchorPane>
 
