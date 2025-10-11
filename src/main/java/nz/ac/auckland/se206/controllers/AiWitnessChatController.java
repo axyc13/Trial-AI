@@ -357,6 +357,15 @@ public class AiWitnessChatController extends ChatControllerCentre {
 
       sliderInstructionLabel.setAlignment(Pos.CENTER);
       parent.getChildren().add(sliderInstructionLabel);
+    } else {
+      // Fallback: add to slider's parent if TextFlow positioning fails
+      System.out.println("DEBUG: TextFlow not found or invalid parent, using fallback positioning");
+      sliderInstructionLabel.setLayoutX(321.0); // Same as slider
+      sliderInstructionLabel.setLayoutY(200.0); // Above slider
+      sliderInstructionLabel.setAlignment(Pos.CENTER);
+      if (slider != null && slider.getParent() instanceof AnchorPane) {
+        ((AnchorPane) slider.getParent()).getChildren().add(sliderInstructionLabel);
+      }
     }
 
     sliderInstructionLabel.setVisible(false);
@@ -515,6 +524,12 @@ public class AiWitnessChatController extends ChatControllerCentre {
 
   /** Shows the slider instruction label when user first enters memory scene. */
   private void showSliderInstruction() {
+    // Check if label exists and was properly initialized
+    if (sliderInstructionLabel == null) {
+      return;
+    }
+
+    System.out.println("DEBUG: Showing slider instruction label");
     sliderInstructionLabel.setVisible(true);
 
     // Make sure it's on top
