@@ -15,40 +15,45 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<StackPane xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.HumanWitnessMemoryController" onKeyPressed="#sendMessage">
+<StackPane onKeyPressed="#sendMessage" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.HumanWitnessMemoryController">
   <children>
     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="789.0" prefWidth="1100.0">
       <children>
-        <ImageView fitHeight="600.0" fitWidth="806.0" layoutX="-5.0" layoutY="1.0" opacity="0.9" preserveRatio="true">
+        <ImageView fitHeight="846.0" fitWidth="1247.0" layoutX="-5.0" layoutY="1.0" opacity="0.9" preserveRatio="true">
           <image>
             <Image url="@../images/musicStudioBackground.jpg" />
           </image>
         </ImageView>
-            <Label layoutX="373.0" layoutY="133.0" prefHeight="138.0" prefWidth="410.0" style="-fx-background-color: black;" />
-            <ImageView fitHeight="105.0" fitWidth="276.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+            <Label layoutX="387.0" layoutY="196.0" prefHeight="138.0" prefWidth="697.0" style="-fx-background-color: black;" />
+            <ImageView fitHeight="138.0" fitWidth="304.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/titleBackground.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="105.0" fitWidth="276.0" layoutX="563.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+            <ImageView fitHeight="240.0" fitWidth="745.0" layoutX="369.0" layoutY="-94.0" pickOnBounds="true">
                <image>
                   <Image url="@../images/titleBackground.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="378.0" fitWidth="231.0" layoutX="284.0" layoutY="-190.0" pickOnBounds="true" rotate="90.0">
+            <ImageView fitHeight="115.0" fitWidth="240.0" layoutX="868.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
                <image>
                   <Image url="@../images/titleBackground.png" />
                </image>
             </ImageView>
-        <TextArea fx:id="txtaChat" editable="false" layoutX="12.0" layoutY="132.0" opacity="0.83" prefHeight="397.0" prefWidth="358.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" wrapText="true" />
-            <ImageView fitHeight="240.0" fitWidth="332.0" layoutX="326.0" layoutY="361.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="412.0" fitWidth="261.0" layoutX="284.0" layoutY="-190.0" pickOnBounds="true" rotate="90.0">
+               <image>
+                  <Image url="@../images/titleBackground.png" />
+               </image>
+            </ImageView>
+        <TextArea fx:id="txtaChat" editable="false" layoutX="24.0" layoutY="277.0" opacity="0.83" prefHeight="432.0" prefWidth="304.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" wrapText="true" />
+            <ImageView fitHeight="294.0" fitWidth="418.0" layoutX="406.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/aICasetteTape.png" />
                </image>
             </ImageView>
-            <Label fx:id="robotTextDisplay" alignment="CENTER" layoutX="427.0" layoutY="398.0" prefHeight="50.0" prefWidth="124.0" style="-fx-background-color: white;" text="     Choose Song to&#10;⬇Insert beats below⬇" textFill="RED" />
-        <TextField fx:id="txtInput" layoutX="12.0" layoutY="545.0" opacity="0.83" prefHeight="30.0" prefWidth="302.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" />
-        <Button fx:id="btnSend" layoutX="321.0" layoutY="545.0" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="30.0" prefWidth="51.0" text="Send">
+            <Label fx:id="robotTextDisplay" alignment="CENTER" layoutX="528.0" layoutY="523.0" prefHeight="64.0" prefWidth="156.0" style="-fx-background-color: white;" text="     Choose Song to&#10;⬇Insert beats below⬇" textFill="RED" />
+        <TextField fx:id="txtInput" layoutX="23.0" layoutY="729.0" opacity="0.83" prefHeight="26.0" prefWidth="304.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" />
+        <Button fx:id="btnSend" layoutX="341.0" layoutY="725.0" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="30.0" prefWidth="51.0" text="Send">
                <font>
                   <Font size="14.0" />
                </font></Button>
@@ -56,52 +61,52 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-          <Label fx:id="timer" layoutX="639.0" layoutY="23.0" prefHeight="63.0" prefWidth="155.0" text="5:00" textFill="WHITE">
+          <Label fx:id="timer" layoutX="941.0" layoutY="24.0" prefHeight="63.0" prefWidth="155.0" text="5:00" textFill="WHITE">
             <font>
               <Font size="50.0" />
             </font></Label>
-        <ProgressBar fx:id="progressBar" layoutX="-1.0" layoutY="104.0" prefHeight="20.0" prefWidth="790.0" progress="0.0" />
-        <Label alignment="CENTER" layoutX="228.0" layoutY="18.0" prefHeight="66.0" prefWidth="367.0" style="-fx-background-color: #000;" text="Human Witness Memory" textFill="WHITE">
+        <ProgressBar fx:id="progressBar" layoutX="-1.0" layoutY="132.0" prefHeight="26.0" prefWidth="1108.0" progress="0.0" />
+        <Label alignment="CENTER" layoutX="328.0" layoutY="18.0" prefHeight="66.0" prefWidth="485.0" style="-fx-background-color: #000;" text="Human Witness Memory" textFill="WHITE">
           <font>
             <Font size="30.0" />
           </font>
         </Label>
-            <Button fx:id="playNextSongButton" layoutX="708.0" layoutY="215.0" mnemonicParsing="false" onAction="#onGoToNextSong" onMouseEntered="#onlightUpNextButton" onMouseExited="#onlightDownNextButton" opacity="0.7" prefHeight="33.0" prefWidth="34.0" style="-fx-background-radius: 17;">
+            <Button fx:id="playNextSongButton" layoutX="860.0" layoutY="276.0" mnemonicParsing="false" onAction="#onGoToNextSong" onMouseEntered="#onlightUpNextButton" onMouseExited="#onlightDownNextButton" opacity="0.7" prefHeight="33.0" prefWidth="34.0" style="-fx-background-radius: 17;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="playPreviousSongButton" layoutX="564.0" layoutY="216.0" mnemonicParsing="false" onAction="#onGoToPreviousSong" onMouseEntered="#onlightUpPreviousButton" onMouseExited="#onlightDownPreviousButton" opacity="0.7" prefHeight="33.0" prefWidth="34.0" style="-fx-background-radius: 17;">
+            <Button fx:id="playPreviousSongButton" layoutX="716.0" layoutY="277.0" mnemonicParsing="false" onAction="#onGoToPreviousSong" onMouseEntered="#onlightUpPreviousButton" onMouseExited="#onlightDownPreviousButton" opacity="0.7" prefHeight="33.0" prefWidth="34.0" style="-fx-background-radius: 17;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="playButton" layoutX="629.0" layoutY="207.0" mnemonicParsing="false" onAction="#onTurnOnCassetteTape" prefHeight="46.0" prefWidth="46.0" style="-fx-background-color: white; -fx-background-radius: 200;">
+            <Button fx:id="playButton" layoutX="781.0" layoutY="268.0" mnemonicParsing="false" onAction="#onTurnOnCassetteTape" prefHeight="46.0" prefWidth="46.0" style="-fx-background-color: white; -fx-background-radius: 200;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label fx:id="songLabel" alignment="CENTER" layoutX="520.0" layoutY="137.0" prefHeight="46.0" prefWidth="258.0" style="-fx-background-color: black; -fx-background-radius: 10;" textFill="WHITE">
+            <Label fx:id="songLabel" alignment="CENTER" layoutX="534.0" layoutY="200.0" prefHeight="46.0" prefWidth="542.0" style="-fx-background-color: black; -fx-background-radius: 10;" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <ImageView disable="true" fitHeight="82.0" fitWidth="84.0" layoutX="613.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView disable="true" fitHeight="82.0" fitWidth="84.0" layoutX="765.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/musicbuttonPlay.png" />
                </image>
             </ImageView>
-            <ImageView disable="true" fitHeight="67.0" fitWidth="69.0" layoutX="547.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView disable="true" fitHeight="67.0" fitWidth="69.0" layoutX="699.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/musicbuttonPrevious.png" />
                </image>
             </ImageView>
-            <ImageView disable="true" fitHeight="67.0" fitWidth="69.0" layoutX="692.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+            <ImageView disable="true" fitHeight="67.0" fitWidth="69.0" layoutX="844.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
                <image>
                   <Image url="@../images/musicbuttonPrevious.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="musicCover" fitHeight="126.0" fitWidth="127.0" layoutX="384.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="musicCover" fitHeight="126.0" fitWidth="127.0" layoutX="398.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/carRadio.jpg" />
                </image>
@@ -113,7 +118,7 @@
                   </InnerShadow>
                </effect>
             </ImageView>
-        <ImageView fx:id="cassetteTape" disable="true" fitHeight="142.0" fitWidth="231.0" layoutX="589.0" layoutY="286.0" preserveRatio="true">
+        <ImageView fx:id="cassetteTape" disable="true" fitHeight="116.0" fitWidth="274.0" layoutX="733.0" layoutY="439.0" preserveRatio="true">
           <image>
             <Image url="@../images/cassetteTape.png" />
           </image>
@@ -121,12 +126,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
         </ImageView>
-            <ImageView fx:id="rotatingCassetteTape" fitHeight="21.0" fitWidth="17.0" layoutX="454.0" layoutY="494.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="rotatingCassetteTape" fitHeight="21.0" fitWidth="33.0" layoutX="568.0" layoutY="641.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/cassetteSpinning.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="rotatingCassetteTape1" fitHeight="21.0" fitWidth="17.0" layoutX="509.0" layoutY="494.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="rotatingCassetteTape1" fitHeight="24.0" fitWidth="24.0" layoutX="630.0" layoutY="639.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/cassetteSpinning.png" />
                </image>

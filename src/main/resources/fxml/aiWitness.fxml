@@ -27,7 +27,7 @@
         <TextArea fx:id="txtaChat" editable="false" layoutX="24.0" layoutY="277.0" opacity="0.7" prefHeight="432.0" prefWidth="304.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" wrapText="true" />
         <TextField fx:id="txtInput" layoutX="23.0" layoutY="729.0" opacity="0.83" prefHeight="26.0" prefWidth="304.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" />
         <Button fx:id="btnSend" layoutX="341.0" layoutY="725.0" mnemonicParsing="false" onAction="#onSendMessage" text="Send" />
-        <Button layoutX="13.0" layoutY="45.0" mnemonicParsing="false" onAction="#onGoBack" prefHeight="52.0" prefWidth="130.0" text="Go Back" />
+        <Button layoutX="25.0" layoutY="29.0" mnemonicParsing="false" onAction="#onGoBack" prefHeight="52.0" prefWidth="130.0" text="Go Back" />
         <Label fx:id="timer" layoutX="941.0" layoutY="24.0" prefHeight="63.0" prefWidth="155.0" text="5:00" textAlignment="CENTER" textFill="WHITE">
           <font>
             <Font name="Book Antiqua" size="50.0" />

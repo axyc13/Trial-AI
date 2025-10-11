@@ -21,53 +21,53 @@
     </VBox>
     <AnchorPane prefHeight="789.0" prefWidth="1100.0">
       <children>
-        <Button id="btn-yes" fx:id="yesButton" alignment="CENTER" layoutX="279.0" layoutY="171.0" mnemonicParsing="false" onAction="#onYesClick" text="YES" />
-        <Button id="btn-no" fx:id="noButton" layoutX="420.0" layoutY="171.0" mnemonicParsing="false" onAction="#onNoClick" text="NO" />
-        <Label layoutX="75.0" layoutY="13.0" text="Was the AI defendant Ethical or Not?">
+        <Button id="btn-yes" fx:id="yesButton" alignment="CENTER" layoutX="432.0" layoutY="272.0" mnemonicParsing="false" onAction="#onYesClick" text="YES" />
+        <Button id="btn-no" fx:id="noButton" layoutX="573.0" layoutY="272.0" mnemonicParsing="false" onAction="#onNoClick" text="NO" />
+        <Label layoutX="228.0" layoutY="114.0" text="Was the AI defendant Ethical or Not?">
           <font>
             <Font size="40.0" />
           </font>
         </Label>
-        <Label fx:id="timer" alignment="CENTER" layoutX="286.0" layoutY="85.0" prefHeight="95.0" prefWidth="230.0" text="1:00">
+        <Label fx:id="timer" alignment="CENTER" layoutX="439.0" layoutY="186.0" prefHeight="95.0" prefWidth="230.0" text="1:00">
           <font>
             <Font size="50.0" />
           </font>
         </Label>
-        <Label layoutX="191.0" layoutY="64.0" text="you have 60 seconds to decide">
+        <Label layoutX="344.0" layoutY="165.0" text="you have 60 seconds to decide">
           <font>
             <Font size="30.0" />
           </font>
         </Label>
-            <Button fx:id="restartButton" layoutX="657.0" layoutY="519.0" mnemonicParsing="false" onAction="#onResetGame" prefHeight="39.0" prefWidth="102.0" text="Restart Game">
+            <Button fx:id="restartButton" layoutX="810.0" layoutY="620.0" mnemonicParsing="false" onAction="#onResetGame" prefHeight="39.0" prefWidth="102.0" text="Restart Game">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <TextArea fx:id="txtInput" layoutX="235.0" layoutY="339.0" onMouseClicked="#onInputStartUp" prefHeight="146.0" prefWidth="336.0" promptText="Input text here" wrapText="true" />
-            <Button fx:id="submitButton" layoutX="368.0" layoutY="532.0" mnemonicParsing="false" onAction="#onSendClick" prefHeight="39.0" prefWidth="70.0" text="Submit" />
-            <Label fx:id="questionLabel" alignment="CENTER" layoutX="323.0" layoutY="302.0" prefHeight="33.0" prefWidth="160.0" text="Briefly state why?">
+            <TextArea fx:id="txtInput" layoutX="388.0" layoutY="440.0" onMouseClicked="#onInputStartUp" prefHeight="146.0" prefWidth="336.0" promptText="Input text here" wrapText="true" />
+            <Button fx:id="submitButton" layoutX="521.0" layoutY="633.0" mnemonicParsing="false" onAction="#onSendClick" prefHeight="39.0" prefWidth="70.0" text="Submit" />
+            <Label fx:id="questionLabel" alignment="CENTER" layoutX="476.0" layoutY="403.0" prefHeight="33.0" prefWidth="160.0" text="Briefly state why?">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="optionTextMessage" alignment="CENTER" layoutX="234.0" layoutY="483.0" prefHeight="46.0" prefWidth="336.0" text="Message" textFill="RED">
+            <Label fx:id="optionTextMessage" alignment="CENTER" layoutX="387.0" layoutY="584.0" prefHeight="46.0" prefWidth="336.0" text="Message" textFill="RED">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="optionPickingMessage" alignment="CENTER" layoutX="227.0" layoutY="259.0" prefHeight="46.0" prefWidth="336.0" text="Message" textFill="RED">
+            <Label fx:id="optionPickingMessage" alignment="CENTER" layoutX="380.0" layoutY="360.0" prefHeight="46.0" prefWidth="336.0" text="Message" textFill="RED">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
       
-          <VBox fx:id="overlay" alignment="CENTER" prefHeight="599.0" prefWidth="790.0" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false">
+          <VBox fx:id="overlay" alignment="CENTER" prefHeight="789.0" prefWidth="1106.0" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false">
             <Label fx:id="waitingLabel" alignment="CENTER" style="-fx-text-fill: white; -fx-font-size: 36px;" text="Awaiting Results">
                   <font>
                      <Font size="18.0" />
                   </font>
                </Label>
-               <ImageView fitHeight="405.0" fitWidth="605.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="570.0" fitWidth="803.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../images/loading.gif" />
                   </image>
