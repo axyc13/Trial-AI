@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
@@ -23,15 +24,42 @@ public class AiWitnessFlashbackController extends ChatControllerCentre {
   @FXML private ImageView flashbackTwo;
   @FXML private ImageView flashbackThree;
   @FXML private Button continueButton;
+  @FXML private Slider flashbackSlider;
   @FXML private VBox flashbackMessage;
 
   @FXML
   private void onContinueFlashback() throws IOException {
-    int currentState = AiWitnessStateManager.getInstance().getFlashbackState();
-    int nextState = currentState + 1;
-    AiWitnessStateManager.getInstance().setFlashbackState(nextState);
+    // Only proceed to memory scene when button is clicked after reaching third flashback
+    if (flashbackSlider.getValue() == 3) {
+      // Transition to memory scene
+      FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/aiWitness.fxml"));
+      Parent root = loader.load();
+      ChatControllerCentre chatController = loader.getController();
+      chatController.initialiseChatGpt("aiWitness.txt", "AI Witness");
+      App.getScene().setRoot(root);
+    }
+  }
 
-    switch (nextState) {
+  /**
+   * Handles flashback changes based on slider value (1-3 only)
+   *
+   * @param targetState The target flashback state (1-3)
+   */
+  private void handleFlashbackChange(int targetState) throws IOException {
+    AiWitnessStateManager.getInstance().setFlashbackState(targetState);
+
+    // Hide continue button by default
+    if (continueButton != null) {
+      continueButton.setVisible(false);
+    }
+
+    switch (targetState) {
+      case 1:
+        // Show first flashback
+        flashbackOne.setVisible(true);
+        flashbackTwo.setVisible(false);
+        flashbackThree.setVisible(false);
+        break;
       case 2:
         // Show second flashback
         flashbackOne.setVisible(false);
@@ -39,21 +67,14 @@ public class AiWitnessFlashbackController extends ChatControllerCentre {
         flashbackThree.setVisible(false);
         break;
       case 3:
-        // Show third flashback
+        // Show third flashback and enable continue button
         flashbackOne.setVisible(false);
         flashbackTwo.setVisible(false);
         flashbackThree.setVisible(true);
         if (continueButton != null) {
-          continueButton.setText("Enter Memory");
+          continueButton.setVisible(true);
+          continueButton.setText("CONTINUE");
         }
-        break;
-      default:
-        // After third flashback, switch to chat room scene
-        FXMLLoader loader = new FXMLLoader(App.class.getResource("/fxml/aiWitness.fxml"));
-        Parent root = loader.load();
-        ChatControllerCentre chatController = loader.getController();
-        chatController.initialiseChatGpt("aiWitness.txt", "AI Witness");
-        App.getScene().setRoot(root);
         break;
     }
   }
@@ -79,7 +100,7 @@ public class AiWitnessFlashbackController extends ChatControllerCentre {
           });
 
       // Initialize flashback UI
-      if (flashbackOne != null && continueButton != null) {
+      if (flashbackOne != null && flashbackSlider != null) {
         // Get saved state
         int state = AiWitnessStateManager.getInstance().getFlashbackState();
 
@@ -89,21 +110,46 @@ public class AiWitnessFlashbackController extends ChatControllerCentre {
             flashbackOne.setVisible(true);
             flashbackTwo.setVisible(false);
             flashbackThree.setVisible(false);
-            continueButton.setText("Continue");
+            flashbackSlider.setValue(1);
+            if (continueButton != null) {
+              continueButton.setVisible(false);
+            }
             break;
           case 2:
             flashbackOne.setVisible(false);
             flashbackTwo.setVisible(true);
             flashbackThree.setVisible(false);
-            continueButton.setText("Continue");
+            flashbackSlider.setValue(2);
+            if (continueButton != null) {
+              continueButton.setVisible(false);
+            }
             break;
           case 3:
             flashbackOne.setVisible(false);
             flashbackTwo.setVisible(false);
             flashbackThree.setVisible(true);
-            continueButton.setText("Enter Memory");
+            flashbackSlider.setValue(3);
+            if (continueButton != null) {
+              continueButton.setVisible(true);
+              continueButton.setText("CONTINUE");
+            }
             break;
         }
+
+        // Add slider listener to handle value changes (only 1-3)
+        flashbackSlider
+            .valueProperty()
+            .addListener(
+                (obs, oldVal, newVal) -> {
+                  int sliderValue = newVal.intValue();
+                  if (sliderValue != oldVal.intValue() && sliderValue >= 1 && sliderValue <= 3) {
+                    try {
+                      handleFlashbackChange(sliderValue);
+                    } catch (IOException e) {
+                      e.printStackTrace();
+                    }
+                  }
+                });
       }
     } catch (Exception e) {
       e.printStackTrace();
