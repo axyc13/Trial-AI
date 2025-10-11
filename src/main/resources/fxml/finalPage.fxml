@@ -19,7 +19,7 @@
     <VBox fx:id="overlayFailure" alignment="CENTER" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false">
       <Label style="-fx-text-fill: white; -fx-font-size: 36px;" text="Wrong! Thanks for playing!" />
     </VBox>
-    <AnchorPane prefHeight="599.0" prefWidth="789.0">
+    <AnchorPane prefHeight="789.0" prefWidth="1100.0">
       <children>
         <Button id="btn-yes" fx:id="yesButton" alignment="CENTER" layoutX="279.0" layoutY="171.0" mnemonicParsing="false" onAction="#onYesClick" text="YES" />
         <Button id="btn-no" fx:id="noButton" layoutX="420.0" layoutY="171.0" mnemonicParsing="false" onAction="#onNoClick" text="NO" />

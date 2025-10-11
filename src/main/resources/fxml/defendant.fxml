@@ -15,7 +15,7 @@
 
 <StackPane stylesheets="@../css/defendantChat.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.DefendantChatController" onKeyPressed="#sendMessage">
   <children>
-    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="789.0">
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="789.0" prefWidth="1100.0">
       <children>
         <ImageView fitHeight="902.0" fitWidth="835.0" layoutX="-12.0" layoutY="-280.0" preserveRatio="true">
           <image>
