@@ -32,7 +32,7 @@
           <font>
             <Font name="Book Antiqua" size="50.0" />
           </font></Label>
-        <ProgressBar fx:id="progressBar" layoutX="948.0" layoutY="132.0" prefHeight="20.0" prefWidth="127.0" progress="0.0" />
+        <ProgressBar fx:id="progressBar" layoutX="948.0" layoutY="132.0" prefHeight="26.0" prefWidth="127.0" progress="0.0" />
        <Slider fx:id="slider" blockIncrement="1" layoutX="410.0" layoutY="714.0" majorTickUnit="1" max="11.0" min="1" minorTickCount="0" prefHeight="66.0" prefWidth="675.0" showTickMarks="true" snapToTicks="true" stylesheets="@../css/aiWitnessStyle.css" value="1">
                <cursor>
                   <Cursor fx:constant="HAND" />

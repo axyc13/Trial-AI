@@ -16,21 +16,21 @@
   <children>
     <Pane>
       <children>
-        <ImageView fitHeight="881.0" fitWidth="1337.0" layoutX="-11.0" layoutY="-13.0" managed="false" preserveRatio="true">
+        <ImageView fitHeight="820.0" fitWidth="1235.0" layoutX="-40.0" layoutY="-14.0" managed="false" preserveRatio="true">
           <image>
             <Image url="@../images/courtroom.jpg" />
           </image>
         </ImageView>
         
-        <Rectangle fx:id="rectPerson1" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="332.0" layoutX="-5.0" layoutY="169.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="326.0">
+        <Rectangle fx:id="rectPerson1" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="543.0" layoutX="-5.0" layoutY="192.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="317.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Rectangle>
-        <Rectangle fx:id="rectPerson2" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="285.0" layoutX="446.0" layoutY="216.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="316.0">
+        <Rectangle fx:id="rectPerson2" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="541.0" layoutX="871.0" layoutY="219.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="232.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Rectangle>
-        <Rectangle fx:id="rectPerson3" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="476.0" layoutX="789.0" layoutY="310.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="306.0">
+        <Rectangle fx:id="rectPerson3" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="518.0" layoutX="423.0" layoutY="212.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="367.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Rectangle>
@@ -49,15 +49,15 @@
                </children>
             </StackPane>
 
-        <Button fx:id="btnGuess" layoutX="484.0" layoutY="81.0" mnemonicParsing="false" onAction="#onDecisionClick" prefHeight="41.0" prefWidth="171.0" text="Make Your Final Decision" />
-        <Label layoutX="467.0" layoutY="53.0" style="-fx-background-color: #000;" text="Click on each character to find out!" textFill="WHITE">
+        <Button fx:id="btnGuess" layoutX="500.0" layoutY="100.0" mnemonicParsing="false" onAction="#onDecisionClick" prefHeight="41.0" prefWidth="171.0" text="Make Your Final Decision" />
+        <Label layoutX="400.0" layoutY="59.0" style="-fx-background-color: #000;" text="Click on each character to find out!" textFill="WHITE">
           <font>
-            <Font size="15.0" />
+            <Font size="26.0" />
           </font>
         </Label>
-        <Label layoutX="382.0" layoutY="26.0" style="-fx-background-color: #000;" text="Did the AI unethically steal from music artists?" textFill="WHITE">
+        <Label layoutX="336.0" layoutY="28.0" style="-fx-background-color: #000;" text="Did the AI unethically steal from music artists?" textFill="WHITE">
           <font>
-            <Font size="20.0" />
+            <Font size="26.0" />
           </font>
         </Label>
 
@@ -67,7 +67,7 @@
           </font>
         </Label>
 
-        <ProgressBar fx:id="progressBar" layoutX="-1.0" layoutY="132.0" prefHeight="26.0" prefWidth="1108.0" progress="0.0" />
+        <ProgressBar fx:id="progressBar" layoutY="158.0" prefHeight="26.0" prefWidth="1100.0" progress="0.0" />
       </children>
     </Pane>
   </children>

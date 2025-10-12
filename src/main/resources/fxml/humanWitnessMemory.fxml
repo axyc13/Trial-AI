@@ -25,22 +25,22 @@
           </image>
         </ImageView>
             <Label layoutX="387.0" layoutY="196.0" prefHeight="138.0" prefWidth="697.0" style="-fx-background-color: black;" />
-            <ImageView fitHeight="138.0" fitWidth="304.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="171.0" fitWidth="378.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/titleBackground.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="240.0" fitWidth="745.0" layoutX="369.0" layoutY="-94.0" pickOnBounds="true">
+            <ImageView fitHeight="273.0" fitWidth="745.0" layoutX="369.0" layoutY="-94.0" pickOnBounds="true">
                <image>
                   <Image url="@../images/titleBackground.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="115.0" fitWidth="240.0" layoutX="868.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+            <ImageView fitHeight="153.0" fitWidth="316.0" layoutX="804.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
                <image>
                   <Image url="@../images/titleBackground.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="412.0" fitWidth="261.0" layoutX="284.0" layoutY="-190.0" pickOnBounds="true" rotate="90.0">
+            <ImageView fitHeight="412.0" fitWidth="300.0" layoutX="284.0" layoutY="-190.0" pickOnBounds="true" rotate="90.0">
                <image>
                   <Image url="@../images/titleBackground.png" />
                </image>
@@ -65,7 +65,7 @@
             <font>
               <Font size="50.0" />
             </font></Label>
-        <ProgressBar fx:id="progressBar" layoutX="-1.0" layoutY="132.0" prefHeight="26.0" prefWidth="1108.0" progress="0.0" />
+        <ProgressBar fx:id="progressBar" layoutY="158.0" prefHeight="26.0" prefWidth="1100.0" progress="0.0" />
         <Label alignment="CENTER" layoutX="328.0" layoutY="18.0" prefHeight="66.0" prefWidth="485.0" style="-fx-background-color: #000;" text="Human Witness Memory" textFill="WHITE">
           <font>
             <Font size="30.0" />
