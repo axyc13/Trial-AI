@@ -1,6 +1,11 @@
 .button {
-    -fx-background-color: rgba(0,255,255,0.2);
-    background-color:rgba(0,255,255,0.2);
+    -fx-font-family: "Futura";
+    font-family: "Futura";
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-font-size: 17px;
+    -fx-background-color: rgba(0,255,255,0.376);
+    background-color:rgba(0,255,255,0.376);
     -fx-text-fill: #fff;
     -fx-font-size: 16px;
     font-size: 16px;
@@ -10,9 +15,10 @@
     border-width: 2;
     -fx-border-radius: 10;
     border-radius: 10;
+    -fx-background-radius: 10;
 }
 
 .button:hover {
-    -fx-background-color: rgba(0, 255, 255, 0.376);
-    background-color: rgba(0, 255, 255, 0.376);
+    -fx-background-color: rgba(0, 255, 255, 0.5);
+    background-color: rgba(0, 255, 255, 0.5);
 }

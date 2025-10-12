@@ -17,7 +17,7 @@
     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="789.0" prefWidth="1100.0">
       <children>
       <!-- Background Images -->
-        <ImageView fx:id="image2" fitHeight="775.0" fitWidth="1298.0" layoutX="-46.0" layoutY="130.0" preserveRatio="true">
+        <ImageView fx:id="image2" fitHeight="775.0" fitWidth="1298.0" layoutX="-46.0" layoutY="140.0" preserveRatio="true">
           <image>
             <Image url="@../images/defendantCalling.png" />
           </image>
@@ -29,21 +29,21 @@
         </ImageView>
 
         <!-- Top Section -->
-        <Label layoutX="-2.0" layoutY="-7.0" prefHeight="145.0" prefWidth="1182.0" style="-fx-background-color: #000;" />
+        <Label layoutX="-2.0" layoutY="-7.0" prefHeight="145.0" prefWidth="1116.0" style="-fx-background-color: #000;" />
         <Label fx:id="timer" layoutX="941.0" layoutY="24.0" prefHeight="63.0" prefWidth="155.0" text="5:00" textFill="WHITE">
             <font>
               <Font size="50.0" />
             </font>
         </Label>
         <ProgressBar fx:id="progressBar" layoutX="-1.0" layoutY="132.0" prefHeight="26.0" prefWidth="1108.0" progress="0.0" />
-        <Label layoutX="279.0" layoutY="27.0" style="-fx-background-color: #000;" text=" This is a flashback! Please use the slide bar to follow " textFill="WHITE">
+        <Label layoutX="245.0" layoutY="36.0" style="-fx-background-color: #000;" text=" This is a flashback! Please use the slide bar to follow " textFill="WHITE">
           <font>
-            <Font size="20.0" />
+            <Font name="Futura Bold" size="20.0" />
           </font>
         </Label>
-        <Label layoutX="263.0" layoutY="58.0" style="-fx-background-color: #000;" text="the defendant's story and proceed when you're satisfied" textFill="WHITE">
+        <Label layoutX="232.0" layoutY="64.0" style="-fx-background-color: #000;" text="the defendant's story and proceed when you're satisfied" textFill="WHITE">
           <font>
-            <Font size="20.0" />
+            <Font name="Futura Bold" size="20.0" />
           </font>
         </Label>
         
