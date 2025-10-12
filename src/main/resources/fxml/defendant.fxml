@@ -72,7 +72,7 @@
                   <Text fill="WHITE" layoutX="53.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unknown Origin" textAlignment="CENTER" wrappingWidth="74.0" />
                </children>
             </AnchorPane>
-        <ImageView fx:id="basket" fitHeight="67.0" fitWidth="131.0" layoutX="449.0" layoutY="489.0" preserveRatio="true" visible="false">
+        <ImageView fx:id="basket" fitHeight="67.0" fitWidth="131.0" layoutX="447.0" layoutY="688.0" preserveRatio="true" visible="false">
           <image>
             <Image url="@../images/basket.png" />
           </image>
@@ -86,32 +86,32 @@
               <Font size="50.0" />
             </font></Label>
         <ProgressBar fx:id="progressBar" layoutX="-1.0" layoutY="132.0" prefHeight="26.0" prefWidth="1108.0" progress="0.0" />
-        <Label layoutX="392.0" layoutY="34.0" style="-fx-background-color: #000;" text="Chat with the defendant, play the mini-game" textFill="WHITE">
+        <Label layoutX="353.0" layoutY="32.0" style="-fx-background-color: #000;" text="Chat with the defendant, play the mini-game" textFill="WHITE">
           <font>
-            <Font size="20.0" />
+            <Font name="Futura Bold" size="20.0" />
           </font>
         </Label>
-        <Label layoutX="435.0" layoutY="59.0" style="-fx-background-color: #000;" text="and find out about it's perspective." textFill="WHITE">
+        <Label layoutX="418.0" layoutY="59.0" style="-fx-background-color: #000;" text="and find out about it's perspective." textFill="WHITE">
           <font>
-            <Font size="20.0" />
+            <Font name="Futura Bold" size="20.0" />
           </font>
         </Label>
-            <Button fx:id="gameButton" layoutX="635.0" layoutY="435.0" mnemonicParsing="false" onAction="#onGameStart" prefHeight="64.0" prefWidth="187.0" text="Click to Start Game" />
-            <Button fx:id="replayButton" layoutX="448.0" layoutY="337.0" mnemonicParsing="false" onAction="#onGameStart" prefHeight="64.0" prefWidth="187.0" text="Replay the Game" visible="false" />
-            <AnchorPane fx:id="messageBox" layoutX="328.0" layoutY="276.0" prefHeight="187.0" prefWidth="401.0" style="-fx-background-color: #000;" visible="false">
+            <Button fx:id="gameButton" layoutX="619.0" layoutY="434.0" mnemonicParsing="false" onAction="#onGameStart" prefHeight="64.0" prefWidth="230.0" text="Click to Start Mini-Game" />
+            <Button fx:id="replayButton" layoutX="644.0" layoutY="435.0" mnemonicParsing="false" onAction="#onGameStart" prefHeight="64.0" prefWidth="187.0" text="Replay the Game" visible="false" />
+            <AnchorPane fx:id="messageBox" layoutX="513.0" layoutY="332.0" prefHeight="275.0" prefWidth="483.0" style="-fx-background-color: #000;" visible="false">
                <children>
-                  <Text fx:id="message" fill="WHITE" layoutX="8.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: #000;" text="Game Over! You made the correct judgement on 4/5 songs" textAlignment="CENTER" wrappingWidth="384.7127152457932">
+                  <Text fx:id="message" fill="WHITE" layoutX="48.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: #000;" text="Game Over! You made the correct judgement on 4/5 songs" textAlignment="CENTER" wrappingWidth="384.7127152457932">
                      <font>
-                        <Font size="37.0" />
+                        <Font name="Futura Bold" size="37.0" />
                      </font>
                   </Text>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="instructions" layoutX="328.0" layoutY="276.0" prefHeight="187.0" prefWidth="401.0" style="-fx-background-color: #000;" visible="false">
+            <AnchorPane fx:id="instructions" layoutX="447.0" layoutY="330.0" prefHeight="272.0" prefWidth="517.0" style="-fx-background-color: #000;" visible="false">
                <children>
-                  <Text fill="WHITE" layoutX="8.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: #000;" text="'Catch' the songs that I would add to my database! Avoid everything else." textAlignment="CENTER" wrappingWidth="384.7127152457932">
+                  <Text fill="WHITE" layoutX="62.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: #000;" text="'Catch' the songs that I would add to my database! Avoid everything else." textAlignment="CENTER" wrappingWidth="384.7127152457932">
                      <font>
-                        <Font size="35.0" />
+                        <Font name="Futura Bold" size="35.0" />
                      </font>
                   </Text>
                </children>

@@ -71,8 +71,8 @@ public class DefendantChatController extends ChatControllerCentre {
         .layoutXProperty()
         .addListener(
             (obs, oldX, newX) -> {
-              double minX = 300;
-              double maxX = 680;
+              double minX = 400;
+              double maxX = 980;
               if (newX.doubleValue() < minX) {
                 basket.setLayoutX(minX);
               } else if (newX.doubleValue() > maxX) {
@@ -95,11 +95,11 @@ public class DefendantChatController extends ChatControllerCentre {
 
   private void dropDisc(AnchorPane disc) {
     // Randomly position disc at the top
-    double minX = 310;
-    double maxX = 650;
+    double minX = 400;
+    double maxX = 980;
     double x = minX + Math.random() * (maxX - minX);
 
-    disc.setLayoutY(70);
+    disc.setLayoutY(100);
     disc.setLayoutX(x);
     disc.setVisible(true);
   }
@@ -136,7 +136,7 @@ public class DefendantChatController extends ChatControllerCentre {
             AnchorPane disc = discs.get(discIndex);
 
             if (disc.isVisible()) {
-              disc.setLayoutY(disc.getLayoutY() + 2);
+              disc.setLayoutY(disc.getLayoutY() + 3);
 
               if (disc.getBoundsInParent().intersects(basket.getBoundsInParent())) {
                 // Disc caught
@@ -147,7 +147,7 @@ public class DefendantChatController extends ChatControllerCentre {
                 sendNextDisc();
               }
 
-              if (disc.getLayoutY() > 530) {
+              if (disc.getLayoutY() > 800) {
                 // Disc missed
                 if (discIndex != 0 || discIndex != 3) {
                   score += 1;
