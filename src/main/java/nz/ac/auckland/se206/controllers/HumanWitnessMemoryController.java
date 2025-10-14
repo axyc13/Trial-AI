@@ -1,8 +1,10 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
+import javafx.animation.KeyFrame;
 import javafx.animation.PauseTransition;
 import javafx.animation.RotateTransition;
+import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -28,13 +30,14 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
 
   private final int rows = 3;
   private final int cols = 5;
+  private final double BEAT_DURATION_MS = 500;
   private final Rectangle[][] cells = new Rectangle[rows][cols];
   private final boolean[][] pattern = new boolean[rows][cols];
 
   private final boolean[][] correctPattern = {
-    {true, false, true, false, true},
-    {false, true, false, true, false},
-    {true, false, true, false, true}
+    {true, true, true, true, true},
+    {true, false, false, false, true},
+    {true, true, true, true, true}
   };
 
   private boolean isPatternCorrect = false;
@@ -44,7 +47,9 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
   private double targetAreaX = 864;
   private double targetAreaY = 643;
   private double targetAreaSize = 200;
+  private Timeline movingBarTimeline;
 
+  @FXML private Rectangle movingBar;
   @FXML private GridPane beatGrid;
   @FXML private TextArea txtaChat;
   @FXML private Label timer;
@@ -69,6 +74,7 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
     }
 
     createBeatGrid();
+    setupMovingBar();
 
     robotTextDisplay.setText("Complete the \r\n" + "pattern first!");
 
@@ -98,6 +104,33 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
             checkIfCassetteInTargetArea();
           }
         });
+  }
+
+  private void setupMovingBar() {
+    movingBar.setVisible(true);
+
+    // Shifting the moving bar
+    movingBarTimeline =
+        new Timeline(
+            new KeyFrame(Duration.ZERO, e -> moveBar(0)),
+            new KeyFrame(Duration.millis(BEAT_DURATION_MS * 0.5), e -> moveBar(0.5)),
+            new KeyFrame(Duration.millis(BEAT_DURATION_MS), e -> moveBar(1)),
+            new KeyFrame(Duration.millis(BEAT_DURATION_MS * 1.5), e -> moveBar(1.5)),
+            new KeyFrame(Duration.millis(BEAT_DURATION_MS * 2), e -> moveBar(2)),
+            new KeyFrame(Duration.millis(BEAT_DURATION_MS * 2.5), e -> moveBar(2.5)),
+            new KeyFrame(Duration.millis(BEAT_DURATION_MS * 3), e -> moveBar(3)),
+            new KeyFrame(Duration.millis(BEAT_DURATION_MS * 3.5), e -> moveBar(3.5)),
+            new KeyFrame(Duration.millis(BEAT_DURATION_MS * 4), e -> moveBar(4)),
+            new KeyFrame(Duration.millis(BEAT_DURATION_MS * 4.5), e -> moveBar(4.5)),
+            new KeyFrame(Duration.millis(BEAT_DURATION_MS * 5), e -> moveBar(0)));
+
+    movingBarTimeline.setCycleCount(Timeline.INDEFINITE);
+    movingBarTimeline.play();
+  }
+
+  private void moveBar(double beat) {
+    double cellWidth = beatGrid.getPrefWidth() / cols;
+    movingBar.setTranslateX(beat * cellWidth);
   }
 
   private void setUpCassetteTape() {
@@ -215,6 +248,7 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
   }
 
   private void onPatternCorrect() {
+    movingBar.setVisible(false);
     instructionLabel.setText("Drag cassette tape onto Ai Witness");
     robotTextDisplay.setText("Drag cassette \r\n" + "tape HERE");
     onTurnOnCassetteTape();

@@ -14,6 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <StackPane onKeyPressed="#sendMessage" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.HumanWitnessMemoryController">
@@ -106,9 +107,15 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
             </GridPane>
-            <Label fx:id="instructionLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="399.0" layoutY="212.0" prefHeight="66.0" prefWidth="681.0" style="-fx-background-color: black;" text="QUICK! SELECT THE RIGHT SONG PATTERN" textFill="WHITE">
+            <Rectangle fx:id="movingBar" arcHeight="5.0" arcWidth="5.0" fill="RED" height="138.0" layoutX="444.0" layoutY="306.0" opacity="0.7" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" visible="false" width="4.0" />
+            <Label fx:id="instructionLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="399.0" layoutY="212.0" prefHeight="66.0" prefWidth="681.0" style="-fx-background-color: black;" text="QUICK! CLICK ON THE SQUARES TO MAKE A SONG " textFill="WHITE">
                <font>
                   <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="instructionLabel1" alignment="CENTER" contentDisplay="CENTER" layoutX="914.0" layoutY="270.0" prefHeight="30.0" prefWidth="166.0" style="-fx-background-color: black;" text="HINT: Colour the border" textFill="RED">
+               <font>
+                  <Font size="14.0" />
                </font>
             </Label>
       </children>
