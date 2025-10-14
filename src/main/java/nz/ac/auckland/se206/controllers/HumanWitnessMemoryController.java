@@ -15,6 +15,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
@@ -48,6 +50,7 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
   private double targetAreaY = 643;
   private double targetAreaSize = 200;
   private Timeline movingBarTimeline;
+  private MediaPlayer[] soundPlayers = new MediaPlayer[rows];
 
   @FXML private Rectangle movingBar;
   @FXML private GridPane beatGrid;
@@ -75,6 +78,7 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
 
     createBeatGrid();
     setupMovingBar();
+    setupSounds();
 
     robotTextDisplay.setText("Complete the \r\n" + "pattern first!");
 
@@ -106,6 +110,17 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
         });
   }
 
+  private void setupSounds() {
+
+    Media sound1 = new Media(getClass().getResource("/sounds/sound1.mp3").toString());
+    Media sound2 = new Media(getClass().getResource("/sounds/sound2.mp3").toString());
+    Media sound3 = new Media(getClass().getResource("/sounds/sound3.mp3").toString());
+
+    soundPlayers[0] = new MediaPlayer(sound1);
+    soundPlayers[1] = new MediaPlayer(sound2);
+    soundPlayers[2] = new MediaPlayer(sound3);
+  }
+
   private void setupMovingBar() {
     movingBar.setVisible(true);
 
@@ -131,6 +146,45 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
   private void moveBar(double beat) {
     double cellWidth = beatGrid.getPrefWidth() / cols;
     movingBar.setTranslateX(beat * cellWidth);
+
+    int currentColumn = (int) beat;
+    if (beat % 1 == 0) {
+      playSoundsForColumn(currentColumn);
+    }
+  }
+
+  private void playSoundsForColumn(int column) {
+    // Sound will play for clicked rectangle in column
+    for (int row = 0; row < rows; row++) {
+      if (pattern[row][column]) {
+        playSound(row);
+
+        // pulses rectangle
+        Rectangle rectangle = cells[row][column];
+        if (rectangle != null) {
+          pulsingRectangle(rectangle);
+        }
+      }
+    }
+  }
+
+  private void pulsingRectangle(Rectangle rectangle) {
+
+    // Plays a pulsing rectangle
+    javafx.animation.ScaleTransition rectanglePulse =
+        new javafx.animation.ScaleTransition(Duration.millis(50), rectangle);
+
+    rectanglePulse.setToX(1.1);
+    rectanglePulse.setToY(1.1);
+    rectanglePulse.setAutoReverse(true);
+    rectanglePulse.setCycleCount(2);
+    rectanglePulse.play();
+  }
+
+  private void playSound(int row) {
+    soundPlayers[row].stop();
+    soundPlayers[row].seek(Duration.ZERO);
+    soundPlayers[row].play();
   }
 
   private void setUpCassetteTape() {
@@ -163,7 +217,7 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
 
   private void lockCassetteInTarget() {
     txtaChat.appendText(
-        "[Human Witness]: Great choice of song! Don't worry about copyright the AI always checks"
+        "[Human Witness]: Don't worry about copyright the AI always checks"
             + " before playing, even when it comes to creating music. \n\n");
     isLocked = true;
 
@@ -177,7 +231,7 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
     cassetteTape.setOpacity(0.8);
 
     rotateCasetteTape();
-    robotTextDisplay.setText("YOU WIN!");
+    robotTextDisplay.setText("SONG CREATED!\r\n" + "YOU WIN!");
   }
 
   private void createBeatGrid() {
@@ -248,9 +302,10 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
   }
 
   private void onPatternCorrect() {
-    movingBar.setVisible(false);
+    movingBarTimeline.stop();
     instructionLabel.setText("Drag cassette tape onto Ai Witness");
     robotTextDisplay.setText("Drag cassette \r\n" + "tape HERE");
+    txtaChat.appendText("[Human Witness]: Great choice of beats! \n\n");
     onTurnOnCassetteTape();
   }
 
@@ -286,6 +341,7 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
 
   @FXML
   private void onGoBack(ActionEvent event) throws ApiProxyException, IOException {
+    movingBarTimeline.stop();
     App.setRoot("room");
   }
 }

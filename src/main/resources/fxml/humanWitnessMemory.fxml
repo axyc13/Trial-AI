@@ -107,7 +107,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
             </GridPane>
-            <Rectangle fx:id="movingBar" arcHeight="5.0" arcWidth="5.0" fill="RED" height="138.0" layoutX="444.0" layoutY="306.0" opacity="0.7" stroke="RED" strokeType="INSIDE" strokeWidth="3.0" visible="false" width="4.0" />
+            <Rectangle fx:id="movingBar" arcHeight="5.0" arcWidth="5.0" fill="#00ffba" height="138.0" layoutX="444.0" layoutY="306.0" opacity="0.7" stroke="#00ffba" strokeType="INSIDE" strokeWidth="3.0" width="4.0" />
             <Label fx:id="instructionLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="399.0" layoutY="212.0" prefHeight="66.0" prefWidth="681.0" style="-fx-background-color: black;" text="QUICK! CLICK ON THE SQUARES TO MAKE A SONG " textFill="WHITE">
                <font>
                   <Font size="20.0" />
