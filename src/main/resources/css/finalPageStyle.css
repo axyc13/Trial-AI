@@ -27,6 +27,19 @@
   -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 8, 0, 0, 4);
 }
 
+.button {
+  -fx-font-family: "Futura";
+  font-family: "Futura";
+  -fx-font-weight: bold;
+  font-weight: bold;
+  -fx-text-fill: #000000;
+  -fx-border-color: #1a1a1a;
+  -fx-border-width: 4px;
+  -fx-border-radius: 10px;
+  -fx-background-radius: 10px;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 8, 0, 0, 4);
+}
+
 /* Text area error state - red border when option text message shows */
 .text-area.text-area-error {
   -fx-font-family: "Futura";
@@ -157,6 +170,8 @@
 
 .text-area:disabled {
   -fx-opacity: 1.0;
+  -fx-border-color: rgb(249, 172, 7);
+  -fx-effect: dropshadow(gaussian, rgba(249, 172, 7, 0.8), 30, 0, 0, 4);
 }
 
 .text-area:disabled .content {
@@ -165,4 +180,12 @@
 
 .text-area:disabled .text {
   -fx-fill: black;
+}
+
+.label:disabled {
+  -fx-opacity: 0.1;
+  -fx-text-fill: #F9E79F;
+  -fx-font-size: 44px;
+  -fx-font-family: "Futura";
+  -fx-font-weight: bold;
 }
