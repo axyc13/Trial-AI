@@ -61,16 +61,16 @@
                <font>
                   <Font size="14.0" />
                </font></Button>
-        <Button layoutX="25.0" layoutY="29.0" mnemonicParsing="false" onAction="#onGoBack" prefHeight="52.0" prefWidth="130.0" text="Go Back">
+        <Button layoutX="25.0" layoutY="51.0" mnemonicParsing="false" onAction="#onGoBack" prefHeight="52.0" prefWidth="130.0" text="Go Back">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-          <Label fx:id="timer" layoutX="941.0" layoutY="24.0" prefHeight="63.0" prefWidth="155.0" text="5:00" textFill="WHITE">
+          <Label fx:id="timer" layoutX="941.0" layoutY="41.0" prefHeight="63.0" prefWidth="155.0" text="5:00" textFill="WHITE">
             <font>
               <Font size="50.0" />
             </font></Label>
         <ProgressBar fx:id="progressBar" layoutY="158.0" prefHeight="26.0" prefWidth="1100.0" progress="0.0" />
-        <Label alignment="CENTER" layoutX="328.0" layoutY="18.0" prefHeight="66.0" prefWidth="485.0" style="-fx-background-color: #000;" text="Human Witness Memory" textFill="WHITE">
+        <Label alignment="CENTER" layoutX="328.0" layoutY="42.0" prefHeight="66.0" prefWidth="485.0" style="-fx-background-color: #000;" text="Human Witness Memory" textFill="WHITE">
           <font>
             <Font size="30.0" />
           </font>
@@ -93,7 +93,7 @@
                   <Image url="@../images/cassetteSpinning.png" />
                </image>
             </ImageView>
-            <GridPane fx:id="beatGrid" gridLinesVisible="true" layoutX="444.0" layoutY="306.0" prefHeight="138.0" prefWidth="412.0">
+            <GridPane fx:id="beatGrid" gridLinesVisible="true" layoutX="508.0" layoutY="336.0" prefHeight="182.0" prefWidth="561.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.60003662109375" minWidth="10.0" prefWidth="100.0" />
@@ -107,7 +107,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
             </GridPane>
-            <Rectangle fx:id="movingBar" arcHeight="5.0" arcWidth="5.0" fill="#00ffba" height="138.0" layoutX="444.0" layoutY="306.0" opacity="0.7" stroke="#00ffba" strokeType="INSIDE" strokeWidth="3.0" width="4.0" />
+            <Rectangle fx:id="movingBar" arcHeight="5.0" arcWidth="5.0" fill="#00ffba" height="182.0" layoutX="507.0" layoutY="336.0" opacity="0.7" stroke="#00ffba" strokeType="INSIDE" strokeWidth="3.0" width="2.0" />
             <Label fx:id="instructionLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="399.0" layoutY="212.0" prefHeight="66.0" prefWidth="681.0" style="-fx-background-color: black;" text="QUICK! CLICK ON THE SQUARES TO MAKE A SONG " textFill="WHITE">
                <font>
                   <Font size="20.0" />
@@ -118,6 +118,21 @@
                   <Font size="14.0" />
                </font>
             </Label>
+            <ImageView fitHeight="53.0" fitWidth="53.0" layoutX="436.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/sound2.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="53.0" fitWidth="53.0" layoutX="434.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/sound1.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="53.0" fitWidth="53.0" layoutX="437.0" layoutY="462.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/sound3.jpg" />
+               </image>
+            </ImageView>
       </children>
     </AnchorPane>
     
