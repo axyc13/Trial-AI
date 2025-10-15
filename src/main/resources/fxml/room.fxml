@@ -40,11 +40,11 @@
             <Font size="50.0" />
           </font>
         </Label>
-            <StackPane fx:id="warningMessage" layoutX="238.0" layoutY="215.0" prefHeight="192.0" prefWidth="336.0" style="-fx-background-color: rgba(0, 0, 0, 0.6);" visible="false">
+            <StackPane visible="false" fx:id="warningMessage" layoutX="297.0" layoutY="287.0" prefHeight="304.0" prefWidth="553.0" style="-fx-background-color: rgba(0, 0, 0, 0.6);">
                <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Sorry! You can't make a decision until you have chatted to all 3 characters!" textAlignment="CENTER" wrappingWidth="274.1817932128906">
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"  text="Sorry! You can't make a decision until you have chatted to all 3 characters!" textAlignment="CENTER" wrappingWidth="490.8764953613281">
                      <font>
-                        <Font size="31.0" />
+                        <Font name="Futura Bold" size="40.0" />
                      </font></Text>
                </children>
             </StackPane>
