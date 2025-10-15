@@ -329,8 +329,8 @@ public class AiWitnessChatController extends ChatControllerCentre {
     instructionLabel.setStyle(
         "-fx-font-size: 43px; -fx-text-fill: white; -fx-background-color: rgba(0, 0, 0, 0.7);"
             + " -fx-padding: 10px;");
-    instructionLabel.setLayoutX(50); // Center horizontally
-    instructionLabel.setLayoutY(200); // Position near top
+    instructionLabel.setLayoutX(350); // Center horizontally
+    instructionLabel.setLayoutY(250); // Position near top
     instructionLabel.setVisible(false);
     ((AnchorPane) slider.getParent()).getChildren().add(instructionLabel);
 
@@ -359,7 +359,6 @@ public class AiWitnessChatController extends ChatControllerCentre {
       parent.getChildren().add(sliderInstructionLabel);
     } else {
       // Fallback: add to slider's parent if TextFlow positioning fails
-      System.out.println("DEBUG: TextFlow not found or invalid parent, using fallback positioning");
       sliderInstructionLabel.setLayoutX(321.0); // Same as slider
       sliderInstructionLabel.setLayoutY(200.0); // Above slider
       sliderInstructionLabel.setAlignment(Pos.CENTER);
@@ -386,8 +385,8 @@ public class AiWitnessChatController extends ChatControllerCentre {
     completionLabel.setTextAlignment(TextAlignment.CENTER);
 
     // Position in the center of the screen
-    completionLabel.setLayoutX(200);
-    completionLabel.setLayoutY(250);
+    completionLabel.setLayoutX(400); // Center horizontally
+    completionLabel.setLayoutY(300); // Position near top;
 
     // Restore the visibility state of the completion label
     completionLabel.setVisible(state.isEndLabelVisible());
