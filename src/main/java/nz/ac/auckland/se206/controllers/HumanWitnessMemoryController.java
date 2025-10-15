@@ -38,9 +38,9 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
   private final boolean[][] pattern = new boolean[rows][cols];
 
   private final boolean[][] correctPattern = {
-    {true, true, true, true, true},
-    {true, false, false, false, true},
-    {true, true, true, true, true}
+    {true, false, false, true, true},
+    {false, false, false, false, true},
+    {true, true, true, true, false}
   };
 
   private boolean isPatternCorrect = false;
@@ -257,7 +257,7 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
     rotateCasetteTape();
     robotTextDisplay.setText("SONG CREATED!\r\n" + "YOU WIN!");
 
-    instructionLabel.setText("YOU WIN!");
+    instructionLabel.setText("SONG CREATED! YOU WIN!");
   }
 
   private void createBeatGrid() {
