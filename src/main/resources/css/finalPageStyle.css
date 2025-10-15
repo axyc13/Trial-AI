@@ -6,11 +6,32 @@
 
 /* General text color for all labels */
 .label {
+  -fx-font-family: "Futura";
+  font-family: "Futura";
+  -fx-font-weight: bold;
+  font-weight: bold;
   -fx-text-fill: #F9E79F;
 }
 
 /* Text color for text areas */
 .text-area {
+  -fx-font-family: "Futura";
+  font-family: "Futura";
+  -fx-font-weight: bold;
+  font-weight: bold;
+  -fx-text-fill: #000000;
+  -fx-border-color: #1a1a1a;
+  -fx-border-width: 4px;
+  -fx-border-radius: 10px;
+  -fx-background-radius: 10px;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 8, 0, 0, 4);
+}
+
+.button {
+  -fx-font-family: "Futura";
+  font-family: "Futura";
+  -fx-font-weight: bold;
+  font-weight: bold;
   -fx-text-fill: #000000;
   -fx-border-color: #1a1a1a;
   -fx-border-width: 4px;
@@ -21,17 +42,29 @@
 
 /* Text area error state - red border when option text message shows */
 .text-area.text-area-error {
+  -fx-font-family: "Futura";
+  font-family: "Futura";
+  -fx-font-weight: bold;
+  font-weight: bold;
   -fx-border-color: #FF4500;
   -fx-effect: dropshadow(gaussian, rgba(255, 69, 0, 0.8), 8, 0, 0, 4);
 }
 
 /* Text color for other text elements */
 .text {
+  -fx-font-family: "Futura";
+  font-family: "Futura";
+  -fx-font-weight: bold;
+  font-weight: bold;
   -fx-text-fill: #F9E79F;
 }
 
 /* Override specific FXML elements that have inline textFill */
 #optionTextMessage {
+  -fx-font-family: "Futura";
+  font-family: "Futura";
+  -fx-font-weight: bold;
+  font-weight: bold;
   -fx-text-fill: #FF4500 !important;
 }
 
@@ -46,6 +79,10 @@
 
 /* Yes button - green gradient with circular styling */
 #btn-yes {
+  -fx-font-family: "Futura";
+  font-family: "Futura";
+  -fx-font-weight: bold;
+  font-weight: bold;
   -fx-pref-width: 90px;
   -fx-pref-height: 90px;
   -fx-background-radius: 50%;
@@ -88,6 +125,10 @@
 
 /* No button - red gradient with circular styling */
 #btn-no {
+  -fx-font-family: "Futura";
+  font-family: "Futura";
+  -fx-font-weight: bold;
+  font-weight: bold;
   -fx-pref-width: 90px;
   -fx-pref-height: 90px;
   -fx-background-radius: 50%;
@@ -125,4 +166,26 @@
   -fx-effect: dropshadow(gaussian, rgba(255, 60, 60, 1.0), 30, 0.8, 0, 0);
   -fx-scale-x: 1.1;
   -fx-scale-y: 1.1;
+}
+
+.text-area:disabled {
+  -fx-opacity: 1.0;
+  -fx-border-color: rgb(249, 172, 7);
+  -fx-effect: dropshadow(gaussian, rgba(249, 172, 7, 0.8), 30, 0, 0, 4);
+}
+
+.text-area:disabled .content {
+  -fx-background-color: white;
+}
+
+.text-area:disabled .text {
+  -fx-fill: black;
+}
+
+.label:disabled {
+  -fx-opacity: 0.1;
+  -fx-text-fill: #F9E79F;
+  -fx-font-size: 44px;
+  -fx-font-family: "Futura";
+  -fx-font-weight: bold;
 }
