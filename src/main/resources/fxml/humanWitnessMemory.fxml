@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,6 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
@@ -22,9 +24,9 @@
   <children>
     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="789.0" prefWidth="1100.0">
       <children>
-        <ImageView fitHeight="846.0" fitWidth="1247.0" layoutX="-5.0" layoutY="1.0" opacity="0.9" preserveRatio="true">
+        <ImageView fitHeight="835.0" fitWidth="1151.0" layoutX="-5.0" layoutY="1.0" opacity="0.9" preserveRatio="true">
           <image>
-            <Image url="@../images/musicStudioBackground.jpg" />
+            <Image url="@../images/musicStudioBackgroundWhite.jpg" />
           </image>
         </ImageView>
             <ImageView fitHeight="171.0" fitWidth="378.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
@@ -47,17 +49,38 @@
                   <Image url="@../images/titleBackground.png" />
                </image>
             </ImageView>
-        <TextArea fx:id="txtaChat" editable="false" layoutX="13.0" layoutY="270.0" opacity="0.83" prefHeight="463.0" prefWidth="356.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" wrapText="true" />
+        <TextArea fx:id="txtaChat" editable="false" layoutX="13.0" layoutY="270.0" opacity="0.83" prefHeight="463.0" prefWidth="356.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" wrapText="true">
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect></TextArea>
             <ImageView fitHeight="294.0" fitWidth="418.0" layoutX="799.0" layoutY="535.0" pickOnBounds="true" preserveRatio="true" scaleX="0.75" scaleY="0.75" scaleZ="0.75">
                <image>
                   <Image url="@../images/aICasetteTape.png" />
                </image>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
             </ImageView>
             <Label fx:id="robotTextDisplay" alignment="CENTER" layoutX="939.0" layoutY="603.0" prefHeight="52.0" prefWidth="117.0" style="-fx-background-color: white;" text="Complete the &#10;pattern first!&#10;" textFill="RED">
                <font>
                   <Font size="14.0" />
                </font></Label>
-        <TextField fx:id="txtInput" layoutX="12.0" layoutY="741.0" opacity="0.83" prefHeight="35.0" prefWidth="356.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" />
+        <TextField fx:id="txtInput" layoutX="12.0" layoutY="741.0" opacity="0.83" prefHeight="35.0" prefWidth="356.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;">
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect></TextField>
         <Button fx:id="btnSend" layoutX="373.0" layoutY="743.0" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="30.0" prefWidth="51.0" text="Send">
                <font>
                   <Font size="14.0" />
@@ -83,6 +106,13 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
         </ImageView>
             <ImageView fx:id="rotatingCassetteTape" fitHeight="20.0" fitWidth="24.0" layoutX="966.0" layoutY="691.0" pickOnBounds="true" preserveRatio="true" scaleX="0.75" scaleY="0.75" scaleZ="0.75">
                <image>
@@ -107,6 +137,9 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </GridPane>
             <Rectangle fx:id="movingBar" arcHeight="5.0" arcWidth="5.0" fill="#00ffba" height="182.0" layoutX="507.0" layoutY="336.0" opacity="0.7" stroke="#00ffba" strokeType="INSIDE" strokeWidth="3.0" width="2.0" />
             <Label fx:id="instructionLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="399.0" layoutY="212.0" prefHeight="66.0" prefWidth="681.0" style="-fx-background-color: black;" text="QUICK! CLICK ON THE SQUARES TO MAKE A SONG " textFill="WHITE">
@@ -123,16 +156,37 @@
                <image>
                   <Image url="@../images/sound2.jpg" />
                </image>
+               <effect>
+                  <DropShadow height="30.0" radius="14.5" width="30.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
             </ImageView>
             <ImageView fitHeight="53.0" fitWidth="53.0" layoutX="434.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/sound1.jpg" />
                </image>
+               <effect>
+                  <DropShadow height="30.0" radius="14.5" width="30.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
             </ImageView>
             <ImageView fitHeight="53.0" fitWidth="53.0" layoutX="437.0" layoutY="462.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/sound3.jpg" />
                </image>
+               <effect>
+                  <DropShadow height="30.0" radius="14.5" width="30.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
             </ImageView>
             <ToggleButton fx:id="soundButton" layoutX="1039.0" layoutY="526.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#onMuteOrUnmute" prefHeight="33.0" prefWidth="34.0">
                <cursor>
@@ -143,6 +197,16 @@
                      <image>
                         <Image url="@../images/unmute.jpg" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
                   </ImageView>
                </graphic>
             </ToggleButton>
