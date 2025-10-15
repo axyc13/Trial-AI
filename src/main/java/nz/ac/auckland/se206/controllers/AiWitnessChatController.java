@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javafx.animation.PauseTransition;
+import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -56,6 +57,7 @@ public class AiWitnessChatController extends ChatControllerCentre {
   @FXML private ImageView rumourBin;
   @FXML private TextArea chatTextArea;
   @FXML private TextFlow StartLabelText;
+  @FXML private ImageView arrowHint;
 
   private int aiWitnessClickCount = 0;
   private int flashbackStep = 0;
@@ -237,6 +239,9 @@ public class AiWitnessChatController extends ChatControllerCentre {
     flashbackMessage.setVisible(true);
     setupSpeechBubbleTexts();
 
+    arrowHint.setVisible(false);
+    hoveringArrowAnimation(arrowHint);
+
     // Restore state from manager
     AiWitnessStateManager state = AiWitnessStateManager.getInstance();
 
@@ -359,6 +364,7 @@ public class AiWitnessChatController extends ChatControllerCentre {
       parent.getChildren().add(sliderInstructionLabel);
     } else {
       // Fallback: add to slider's parent if TextFlow positioning fails
+      System.out.println("DEBUG: TextFlow not found or invalid parent, using fallback positioning");
       sliderInstructionLabel.setLayoutX(321.0); // Same as slider
       sliderInstructionLabel.setLayoutY(200.0); // Above slider
       sliderInstructionLabel.setAlignment(Pos.CENTER);
@@ -372,6 +378,7 @@ public class AiWitnessChatController extends ChatControllerCentre {
     // Show slider instruction if user hasn't started sliding yet
     if (!state.hasShownAllBubbles() && state.getSliderValue() == 0) {
       showSliderInstruction();
+      arrowHint.setVisible(true);
     }
 
     // Create and style the completion label
@@ -385,8 +392,8 @@ public class AiWitnessChatController extends ChatControllerCentre {
     completionLabel.setTextAlignment(TextAlignment.CENTER);
 
     // Position in the center of the screen
-    completionLabel.setLayoutX(400); // Center horizontally
-    completionLabel.setLayoutY(300); // Position near top;
+    completionLabel.setLayoutX(400);
+    completionLabel.setLayoutY(400);
 
     // Restore the visibility state of the completion label
     completionLabel.setVisible(state.isEndLabelVisible());
@@ -400,6 +407,10 @@ public class AiWitnessChatController extends ChatControllerCentre {
               // Hide slider instruction when user starts using slider
               if (newVal.intValue() > 0 && sliderInstructionLabel.isVisible()) {
                 sliderInstructionLabel.setVisible(false);
+              }
+              // Hide arrow hint when user starts using slider
+              if (arrowHint != null && newVal.intValue() > 0) {
+                arrowHint.setVisible(false);
               }
               showSpeechBubble(newVal.intValue());
             });
@@ -715,6 +726,17 @@ public class AiWitnessChatController extends ChatControllerCentre {
     // Add this as a system message to ChatStorage but don't display it
     ChatMessage contextMsg = new ChatMessage("system", contextMessage);
     ChatStorage.addMessage("aiwitness", contextMsg);
+  }
+
+  private void hoveringArrowAnimation(ImageView arrow) {
+    // floating animation
+    TranslateTransition floatTransition = new TranslateTransition(Duration.millis(1500), arrow);
+    floatTransition.setFromY(0);
+    floatTransition.setToY(-15);
+    floatTransition.setAutoReverse(true);
+    floatTransition.setCycleCount(TranslateTransition.INDEFINITE);
+
+    floatTransition.play();
   }
 
   /**

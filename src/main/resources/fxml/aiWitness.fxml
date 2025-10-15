@@ -98,6 +98,11 @@
             </ImageView>
             <AnchorPane layoutX="295.0" layoutY="163.0" prefHeight="356.0" prefWidth="435.0" visible="false" />
             <TextFlow fx:id="StartLabelText" layoutX="392.0" layoutY="492.0" prefHeight="138.0" prefWidth="694.0" />
+            <ImageView fx:id="arrowHint" fitHeight="84.0" fitWidth="84.0" layoutX="416.0" layoutY="635.0" rotate="168.5">
+               <image>
+                  <Image url="@../images/arrow.png" />
+               </image>
+            </ImageView>
       </children>
     </AnchorPane>
     
