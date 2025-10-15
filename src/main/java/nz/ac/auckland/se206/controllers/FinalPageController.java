@@ -44,6 +44,8 @@ public class FinalPageController {
   @FXML private Label questionLabel;
   @FXML private Button restartButton;
   @FXML private Label waitingLabel;
+  @FXML private Label titleLabel1;
+  @FXML private Label titleLabel2;
 
   private Timeline timeline;
   private final int totalSeconds = 60;
@@ -87,6 +89,9 @@ public class FinalPageController {
     txtInput.setDisable(false);
     restartButton.setVisible(false);
     restartButton.setDisable(true);
+    titleLabel1.setDisable(false);
+    titleLabel2.setDisable(false);
+    timer.setDisable(false);
 
     questionLabel.setText("Briefly state why?");
 
@@ -230,6 +235,9 @@ public class FinalPageController {
     yesButton.setDisable(true);
     noButton.setDisable(true);
     txtInput.setDisable(true);
+    titleLabel1.setDisable(true);
+    titleLabel2.setDisable(true);
+    timer.setDisable(true);
     onInputStartUp();
 
     questionLabel.setText("Feedback:");
