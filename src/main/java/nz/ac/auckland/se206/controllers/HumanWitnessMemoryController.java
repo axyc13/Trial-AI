@@ -70,6 +70,7 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
   @FXML private ImageView arrowHint1;
   @FXML private ImageView arrowHint2;
   @FXML private ImageView arrowHint3;
+  @FXML private Label gameInstruction;
 
   @Override
   @FXML
@@ -119,6 +120,7 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
 
   private void setUpHints() {
     arrowHint1.setVisible(true);
+    gameInstruction.setVisible(true);
     arrowHint2.setVisible(false);
     arrowHint3.setVisible(false);
     hoveringArrowAnimation(arrowHint1);
@@ -391,6 +393,7 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
   @FXML
   private void onFirstMouseClick() {
     arrowHint1.setVisible(false);
+    gameInstruction.setVisible(false);
   }
 
   @FXML

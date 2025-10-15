@@ -49,7 +49,7 @@
                   <Image url="@../images/titleBackground.png" />
                </image>
             </ImageView>
-        <TextArea fx:id="txtaChat" editable="false" layoutX="13.0" layoutY="270.0" opacity="0.83" prefHeight="463.0" prefWidth="356.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" wrapText="true" />
+        <TextArea fx:id="txtaChat" editable="false" layoutX="12.0" layoutY="252.0" opacity="0.83" prefHeight="477.0" prefWidth="356.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" wrapText="true" />
             <ImageView fitHeight="294.0" fitWidth="418.0" layoutX="799.0" layoutY="535.0" pickOnBounds="true" preserveRatio="true" scaleX="0.75" scaleY="0.75" scaleZ="0.75">
                <image>
                   <Image url="@../images/aICasetteTape.png" />
@@ -66,7 +66,7 @@
                <font>
                   <Font size="14.0" />
                </font></Label>
-        <TextField fx:id="txtInput" layoutX="12.0" layoutY="741.0" opacity="0.83" prefHeight="35.0" prefWidth="356.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;">
+        <TextField fx:id="txtInput" layoutX="12.0" layoutY="737.0" opacity="0.83" prefHeight="39.0" prefWidth="356.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;">
                <effect>
                   <DropShadow>
                      <color>
@@ -74,11 +74,14 @@
                      </color>
                   </DropShadow>
                </effect></TextField>
-        <Button fx:id="btnSend" layoutX="373.0" layoutY="743.0" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="30.0" prefWidth="51.0" text="Send">
+        <Button fx:id="btnSend" layoutX="376.0" layoutY="736.0" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="40.0" prefWidth="74.0" stylesheets="@../css/humanWitnessStyle.css" text="Send">
                <font>
                   <Font size="14.0" />
-               </font></Button>
-        <Button layoutX="25.0" layoutY="51.0" mnemonicParsing="false" onAction="#onGoBack" prefHeight="52.0" prefWidth="130.0" text="Go Back">
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+        <Button layoutX="25.0" layoutY="41.0" mnemonicParsing="false" onAction="#onGoBack" prefHeight="70.0" prefWidth="130.0" stylesheets="@../css/humanWitnessStyle.css" text="Go Back">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
@@ -179,7 +182,7 @@
                   </DropShadow>
                </effect>
             </ImageView>
-            <ToggleButton fx:id="soundButton" layoutX="1032.0" layoutY="502.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#onMuteOrUnmute" prefHeight="33.0" prefWidth="34.0">
+            <ToggleButton fx:id="soundButton" layoutX="1032.0" layoutY="502.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#onMuteOrUnmute" prefHeight="33.0" prefWidth="34.0" stylesheets="@../css/humanWitnessStyle.css">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -285,6 +288,11 @@
                   </DropShadow>
                </effect>
             </ImageView>
+            <Label fx:id="gameInstruction" layoutX="871.0" layoutY="299.0" prefHeight="27.0" prefWidth="194.0" text="Click a square to begin" textFill="RED">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
       </children>
     </AnchorPane>
     
