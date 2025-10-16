@@ -20,7 +20,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<StackPane onKeyPressed="#sendMessage" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.HumanWitnessMemoryController">
+<StackPane onKeyPressed="#sendMessage" stylesheets="@../css/humanWitnessStyle.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.HumanWitnessMemoryController">
   <children>
     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onFirstMouseClick" prefHeight="789.0" prefWidth="1100.0">
       <children>
@@ -74,7 +74,7 @@
                      </color>
                   </DropShadow>
                </effect></TextField>
-        <Button fx:id="btnSend" layoutX="376.0" layoutY="736.0" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="40.0" prefWidth="74.0" stylesheets="@../css/humanWitnessStyle.css" text="Send">
+        <Button fx:id="btnSend" layoutX="378.0" layoutY="735.0" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="0.0" prefWidth="87.0" text="Send">
                <font>
                   <Font size="14.0" />
                </font>

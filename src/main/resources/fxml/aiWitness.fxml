@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<StackPane onKeyPressed="#sendMessage" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.AiWitnessChatController">
+<StackPane onKeyPressed="#sendMessage" stylesheets="@../css/aiWitnessStyle.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.AiWitnessChatController">
   <children>
     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="789.0" prefWidth="1100.0">
       <children>
@@ -27,18 +27,14 @@
         </ImageView>
         <TextArea fx:id="txtaChat" editable="false" layoutX="24.0" layoutY="277.0" opacity="0.7" prefHeight="432.0" prefWidth="304.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" wrapText="true" />
         <TextField fx:id="txtInput" layoutX="23.0" layoutY="729.0" opacity="0.83" prefHeight="26.0" prefWidth="304.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" />
-        <Button fx:id="btnSend" layoutX="341.0" layoutY="725.0" mnemonicParsing="false" onAction="#onSendMessage" text="Send" />
-        <Button layoutX="27.0" layoutY="54.0" mnemonicParsing="false" onAction="#onGoBack" prefHeight="52.0" prefWidth="130.0" styleClass="continue-button" text="Go Back">
-               <stylesheets>
-                  <URL value="@../css/aiDefendantStyle.css" />
-                  <URL value="@../css/aiWitnessStyle.css" />
-               </stylesheets></Button>
+        <Button fx:id="btnSend" layoutX="341.0" layoutY="718.0" mnemonicParsing="false" onAction="#onSendMessage" text="Send" />
+        <Button layoutX="27.0" layoutY="54.0" mnemonicParsing="false" onAction="#onGoBack" prefHeight="52.0" prefWidth="130.0" styleClass="continue-button" text="Go Back" />
         <Label fx:id="timer" layoutX="960.0" layoutY="41.0" prefHeight="63.0" prefWidth="155.0" text="5:00" textAlignment="CENTER" textFill="WHITE">
           <font>
             <Font name="Book Antiqua" size="50.0" />
           </font></Label>
         <ProgressBar fx:id="progressBar" layoutX="26.0" layoutY="12.0" prefHeight="26.0" prefWidth="1060.0" progress="0.0" />
-       <Slider fx:id="slider" blockIncrement="1" layoutX="410.0" layoutY="714.0" majorTickUnit="1" max="11.0" min="1" minorTickCount="0" prefHeight="66.0" prefWidth="675.0" showTickMarks="true" snapToTicks="true" value="1">
+       <Slider fx:id="slider" blockIncrement="1" layoutX="457.0" layoutY="715.0" majorTickUnit="1" max="11.0" min="1" minorTickCount="0" prefHeight="66.0" prefWidth="605.0" showTickMarks="true" snapToTicks="true" value="1">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -86,7 +82,7 @@
                   <Image url="@../images/speech%20ballooon.png" />
                </image>
             </ImageView>
-            <Button fx:id="clearNoiseBtn" layoutX="644.0" layoutY="719.0" mnemonicParsing="false" onAction="#onClearNoiseBtnClick" prefHeight="39.0" prefWidth="193.0" styleClass="clear-noise-button" text="CLEAR THE NOISE">
+            <Button fx:id="clearNoiseBtn" layoutX="657.0" layoutY="718.0" mnemonicParsing="false" onAction="#onClearNoiseBtnClick" prefHeight="39.0" prefWidth="193.0" styleClass="clear-noise-button" text="Clear The Noise">
                <stylesheets>
                   <URL value="@../css/aiDefendantStyle.css" />
                   <URL value="@../css/aiWitnessStyle.css" />
@@ -98,6 +94,11 @@
             </ImageView>
             <AnchorPane layoutX="295.0" layoutY="163.0" prefHeight="356.0" prefWidth="435.0" visible="false" />
             <TextFlow fx:id="StartLabelText" layoutX="392.0" layoutY="492.0" prefHeight="138.0" prefWidth="694.0" />
+            <ImageView fx:id="arrowHint" fitHeight="66.0" fitWidth="65.0" layoutX="413.0" layoutY="663.0" rotate="168.5">
+               <image>
+                  <Image url="@../images/arrow.png" />
+               </image>
+            </ImageView>
       </children>
     </AnchorPane>
     
