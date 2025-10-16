@@ -37,7 +37,7 @@
           </Label>
           <ProgressBar fx:id="progressBar" layoutX="948.0" layoutY="132.0" prefHeight="26.0" prefWidth="127.0" progress="1.0" />
             <Slider fx:id="flashbackSlider" layoutX="77.0" layoutY="742.0" majorTickUnit="1" max="3" min="1" minorTickCount="0" prefHeight="56.0" prefWidth="749.0" showTickMarks="true" snapToTicks="true" value="1" />
-            <Button fx:id="continueButton" layoutX="856.0" layoutY="724.0" mnemonicParsing="false" onAction="#onContinueFlashback" prefHeight="55.0" prefWidth="172.0" styleClass="continue-button" stylesheets="@../css/aiWitnessStyle.css" text="CONTINUE" visible="false" />
+            <Button fx:id="continueButton" layoutX="856.0" layoutY="724.0" mnemonicParsing="false" onAction="#onContinueFlashback" prefHeight="55.0" prefWidth="172.0" text="Continue" visible="false" />
       </children>
     </AnchorPane>
 
