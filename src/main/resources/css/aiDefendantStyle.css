@@ -33,26 +33,35 @@
 }
 
 .button {
-    -fx-font-family: "Futura";
-    font-family: "Futura";
-    -fx-font-weight: bold;
-    font-weight: bold;
-    -fx-font-size: 17px;
-    -fx-background-color: rgba(0,0,255,0.376);
-    background-color:rgba(0,0,255,0.376);
-    -fx-background-radius: 10;
-    -fx-text-fill: #fff;
-    -fx-font-size: 16px;
-    font-size: 16px;
-    -fx-border-color: #00f;
-    border-color: #00f;
-    -fx-border-width: 2;
-    border-width: 2;
-    -fx-border-radius: 10;
-    border-radius: 10;
+  -fx-background-color: #1a1a1a;
+  background-color: #1a1a1a;
+  -fx-text-fill: #379bc3;
+  color: #379bc3;
+  -fx-font-family: "Futura";
+  font-family: "Futura";
+  -fx-font-size: 17px;
+  font-size: 17px;
+  -fx-font-weight: bold;
+  font-weight: bold;
+  -fx-padding: 10 20;
+  padding: 10px 20px;
+  -fx-border-color: #379bc3;
+  border-color: #379bc3;
+  -fx-border-width: 2;
+  border-width: 2px;
+  -fx-border-radius: 5;
+  border-radius: 5px;
+  -fx-background-radius: 5;
+  -fx-effect: dropshadow(gaussian, #379bc3, 4, 0.4, 0, 0);
 }
 
 .button:hover {
-    -fx-background-color: rgba(0, 0, 255, 0.5);
-    background-color: rgba(0, 0, 255, 0.5);
+  -fx-background-color: #1a1a1a;
+  background-color: #1a1a1a;
+  -fx-text-fill: #b55c43;
+  color: #b55c43;
+  -fx-border-color: #b55c43;
+  border-color: #b55c43;
+  -fx-effect: dropshadow(gaussian, #b55c43, 6, 0.6, 1, 1),
+    dropshadow(gaussian, #379bc3, 6, 0.6, -1, -1);
 }

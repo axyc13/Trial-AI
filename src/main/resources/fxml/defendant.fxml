@@ -79,25 +79,25 @@
         </ImageView>
         <TextArea fx:id="txtaChat" editable="false" layoutX="24.0" layoutY="277.0" opacity="0.83" prefHeight="432.0" prefWidth="304.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" wrapText="true" />
         <TextField fx:id="txtInput" layoutX="23.0" layoutY="729.0" opacity="0.83" prefHeight="26.0" prefWidth="304.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" />
-        <Button fx:id="btnSend" layoutX="341.0" layoutY="725.0" mnemonicParsing="false" onAction="#onSendMessage" text="Send" />
+        <Button fx:id="btnSend" layoutX="344.0" layoutY="718.0" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="31.0" prefWidth="81.0" text="Send" />
         <Button layoutX="25.0" layoutY="29.0" mnemonicParsing="false" onAction="#onGoBack" prefHeight="52.0" prefWidth="130.0" text="Go Back" />
           <Label fx:id="timer" layoutX="941.0" layoutY="24.0" prefHeight="63.0" prefWidth="155.0" text="5:00" textFill="WHITE">
             <font>
               <Font size="50.0" />
             </font></Label>
         <ProgressBar fx:id="progressBar" layoutY="158.0" prefHeight="26.0" prefWidth="1100.0" progress="0.0" />
-        <Label layoutX="353.0" layoutY="32.0" style="-fx-background-color: #000;" text="Chat with the defendant, play the mini-game" textFill="WHITE">
+        <Label layoutX="295.0" layoutY="35.0" style="-fx-background-color: #000;" text="Chat with the defendant, play the mini-game" textFill="WHITE">
           <font>
-            <Font name="Futura Bold" size="20.0" />
+            <Font name="Futura Bold" size="24.0" />
           </font>
         </Label>
-        <Label layoutX="418.0" layoutY="59.0" style="-fx-background-color: #000;" text="and find out about it's perspective." textFill="WHITE">
+        <Label layoutX="360.0" layoutY="62.0" style="-fx-background-color: #000;" text="and find out about it's perspective." textFill="WHITE">
           <font>
-            <Font name="Futura Bold" size="20.0" />
+            <Font name="Futura Bold" size="24.0" />
           </font>
         </Label>
-            <Button fx:id="gameButton" layoutX="619.0" layoutY="434.0" mnemonicParsing="false" onAction="#onGameStart" prefHeight="64.0" prefWidth="230.0" text="Click to Start Mini-Game" />
-            <Button fx:id="replayButton" layoutX="644.0" layoutY="435.0" mnemonicParsing="false" onAction="#onGameStart" prefHeight="64.0" prefWidth="187.0" text="Replay the Game" visible="false" />
+            <Button fx:id="gameButton" layoutX="635.0" layoutY="434.0" mnemonicParsing="false" onAction="#onGameStart" prefHeight="64.0" prefWidth="177.0" text="Start Mini-Game" />
+            <Button fx:id="replayButton" layoutX="629.0" layoutY="435.0" mnemonicParsing="false" onAction="#onGameStart" prefHeight="64.0" prefWidth="187.0" text="Replay" visible="false" />
             <AnchorPane fx:id="messageBox" layoutX="513.0" layoutY="332.0" prefHeight="275.0" prefWidth="483.0" style="-fx-background-color: #000;" visible="false">
                <children>
                   <Text fx:id="message" fill="WHITE" layoutX="48.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: #000;" text="Game Over! You made the correct judgement on 4/5 songs" textAlignment="CENTER" wrappingWidth="384.7127152457932">

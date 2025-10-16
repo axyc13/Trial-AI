@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="789.0" maxWidth="1100.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.HumanWitnessChatController">
+<StackPane maxHeight="789.0" maxWidth="1100.0" stylesheets="@../css/humanWitnessStyle.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.HumanWitnessChatController">
   <children>
     <AnchorPane maxHeight="789.0" maxWidth="1100.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="789.0" prefWidth="1100.0">
       <children>
@@ -144,7 +144,7 @@
                   <ColorAdjust hue="-1.0" />
                </effect>
             </Label>
-            <Button fx:id="continueButton" disable="true" layoutX="959.0" layoutY="731.0" mnemonicParsing="false" onAction="#onGoChat" prefHeight="26.0" prefWidth="111.0" text="Continue" visible="false">
+            <Button fx:id="continueButton" disable="true" layoutX="955.0" layoutY="730.0" mnemonicParsing="false" onAction="#onGoChat" prefHeight="26.0" prefWidth="111.0" text="Continue">
                <font>
                   <Font size="18.0" />
                </font>
