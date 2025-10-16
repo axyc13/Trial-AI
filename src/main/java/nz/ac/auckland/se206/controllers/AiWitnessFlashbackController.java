@@ -41,9 +41,9 @@ public class AiWitnessFlashbackController extends ChatControllerCentre {
   }
 
   /**
-   * Handles flashback changes based on slider value (1-3 only)
+   * Handles flashback changes based on slider value (1-3 only).
    *
-   * @param targetState The target flashback state (1-3)
+   * @param targetState The target flashback state (1-3).
    */
   private void handleFlashbackChange(int targetState) throws IOException {
     AiWitnessStateManager.getInstance().setFlashbackState(targetState);

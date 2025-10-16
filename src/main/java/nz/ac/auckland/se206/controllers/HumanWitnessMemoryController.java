@@ -33,7 +33,7 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
 
   private final int rows = 3;
   private final int cols = 5;
-  private final double BEAT_DURATION_MS = 500;
+  private final double BEAT_DURATION = 500;
   private final Rectangle[][] cells = new Rectangle[rows][cols];
   private final boolean[][] pattern = new boolean[rows][cols];
 
@@ -119,10 +119,13 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
   }
 
   private void setUpHints() {
+    // Show the hints
     arrowHint1.setVisible(true);
     gameInstruction.setVisible(true);
     arrowHint2.setVisible(false);
     arrowHint3.setVisible(false);
+
+    // Set up the hovering animation
     hoveringArrowAnimation(arrowHint1);
     hoveringArrowAnimation(arrowHint2);
     hoveringArrowAnimation(arrowHint3);
@@ -152,16 +155,16 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
     movingBarTimeline =
         new Timeline(
             new KeyFrame(Duration.ZERO, e -> moveBar(0)),
-            new KeyFrame(Duration.millis(BEAT_DURATION_MS * 0.5), e -> moveBar(0.5)),
-            new KeyFrame(Duration.millis(BEAT_DURATION_MS), e -> moveBar(1)),
-            new KeyFrame(Duration.millis(BEAT_DURATION_MS * 1.5), e -> moveBar(1.5)),
-            new KeyFrame(Duration.millis(BEAT_DURATION_MS * 2), e -> moveBar(2)),
-            new KeyFrame(Duration.millis(BEAT_DURATION_MS * 2.5), e -> moveBar(2.5)),
-            new KeyFrame(Duration.millis(BEAT_DURATION_MS * 3), e -> moveBar(3)),
-            new KeyFrame(Duration.millis(BEAT_DURATION_MS * 3.5), e -> moveBar(3.5)),
-            new KeyFrame(Duration.millis(BEAT_DURATION_MS * 4), e -> moveBar(4)),
-            new KeyFrame(Duration.millis(BEAT_DURATION_MS * 4.5), e -> moveBar(4.5)),
-            new KeyFrame(Duration.millis(BEAT_DURATION_MS * 5), e -> moveBar(0)));
+            new KeyFrame(Duration.millis(BEAT_DURATION * 0.5), e -> moveBar(0.5)),
+            new KeyFrame(Duration.millis(BEAT_DURATION), e -> moveBar(1)),
+            new KeyFrame(Duration.millis(BEAT_DURATION * 1.5), e -> moveBar(1.5)),
+            new KeyFrame(Duration.millis(BEAT_DURATION * 2), e -> moveBar(2)),
+            new KeyFrame(Duration.millis(BEAT_DURATION * 2.5), e -> moveBar(2.5)),
+            new KeyFrame(Duration.millis(BEAT_DURATION * 3), e -> moveBar(3)),
+            new KeyFrame(Duration.millis(BEAT_DURATION * 3.5), e -> moveBar(3.5)),
+            new KeyFrame(Duration.millis(BEAT_DURATION * 4), e -> moveBar(4)),
+            new KeyFrame(Duration.millis(BEAT_DURATION * 4.5), e -> moveBar(4.5)),
+            new KeyFrame(Duration.millis(BEAT_DURATION * 5), e -> moveBar(0)));
 
     movingBarTimeline.setCycleCount(Timeline.INDEFINITE);
     movingBarTimeline.play();

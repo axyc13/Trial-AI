@@ -56,7 +56,7 @@ public class AiWitnessChatController extends ChatControllerCentre {
   @FXML private Button clearNoiseBtn;
   @FXML private ImageView rumourBin;
   @FXML private TextArea chatTextArea;
-  @FXML private TextFlow StartLabelText;
+  @FXML private TextFlow startLabelText;
   @FXML private ImageView arrowHint;
 
   private int aiWitnessClickCount = 0;
@@ -347,18 +347,18 @@ public class AiWitnessChatController extends ChatControllerCentre {
     sliderInstructionLabel.setWrapText(true);
 
     // Position the label to fit completely within the TextFlow area
-    if (StartLabelText != null && StartLabelText.getParent() instanceof AnchorPane) {
-      AnchorPane parent = (AnchorPane) StartLabelText.getParent();
+    if (startLabelText != null && startLabelText.getParent() instanceof AnchorPane) {
+      AnchorPane parent = (AnchorPane) startLabelText.getParent();
 
       // Match the TextFlow's exact position and dimensions
-      sliderInstructionLabel.setLayoutX(StartLabelText.getLayoutX());
-      sliderInstructionLabel.setLayoutY(StartLabelText.getLayoutY());
+      sliderInstructionLabel.setLayoutX(startLabelText.getLayoutX());
+      sliderInstructionLabel.setLayoutY(startLabelText.getLayoutY());
 
       // Make the label fit completely within the TextFlow dimensions
-      sliderInstructionLabel.setPrefWidth(StartLabelText.getPrefWidth());
-      sliderInstructionLabel.setPrefHeight(StartLabelText.getPrefHeight());
-      sliderInstructionLabel.setMaxWidth(StartLabelText.getPrefWidth());
-      sliderInstructionLabel.setMaxHeight(StartLabelText.getPrefHeight());
+      sliderInstructionLabel.setPrefWidth(startLabelText.getPrefWidth());
+      sliderInstructionLabel.setPrefHeight(startLabelText.getPrefHeight());
+      sliderInstructionLabel.setMaxWidth(startLabelText.getPrefWidth());
+      sliderInstructionLabel.setMaxHeight(startLabelText.getPrefHeight());
 
       sliderInstructionLabel.setAlignment(Pos.CENTER);
       parent.getChildren().add(sliderInstructionLabel);
