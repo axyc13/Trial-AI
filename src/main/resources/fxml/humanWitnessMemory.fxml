@@ -85,7 +85,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-          <Label fx:id="timer" layoutX="941.0" layoutY="41.0" prefHeight="63.0" prefWidth="155.0" stylesheets="@../css/humanWitnessStyle.css" text="5:00" textFill="WHITE">
+          <Label fx:id="timer" layoutX="937.0" layoutY="41.0" prefHeight="63.0" prefWidth="155.0" stylesheets="@../css/humanWitnessStyle.css" text="5:00" textFill="WHITE">
             <font>
               <Font size="50.0" />
             </font></Label>
@@ -298,7 +298,7 @@
     
     <VBox fx:id="flashbackMessage" alignment="CENTER" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false">
       <children>
-        <Label prefHeight="88.0" prefWidth="165.0" style="-fx-text-fill: white; -fx-font-size: 36px;" text="Memory!">
+        <Label prefHeight="88.0" prefWidth="165.0" style="-fx-text-fill: white; -fx-font-size: 36px;" stylesheets="@../css/humanWitnessStyle.css" text="Memory!">
           <font>
             <Font size="14.0" />
           </font>

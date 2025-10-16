@@ -243,7 +243,7 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
     arrowHint2.setVisible(false);
 
     txtaChat.appendText(
-        "[Human Witness]: Don't worry about copyright the AI always checks"
+        "[Human Witness]: Don't worry about copyright the defendant always checks"
             + " before playing, even when it comes to creating music. \n\n");
     isLocked = true;
 
@@ -331,7 +331,7 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
 
   private void onPatternCorrect() {
     movingBarTimeline.stop();
-    instructionLabel.setText("Drag cassette tape onto Ai Witness");
+    instructionLabel.setText("Drag cassette tape onto the Defendant");
     robotTextDisplay.setText("Drag cassette \r\n" + "tape HERE");
     txtaChat.appendText("[Human Witness]: Great choice of beats! \n\n");
     arrowHint3.setVisible(true);

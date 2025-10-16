@@ -1,35 +1,35 @@
 .glow-slider {
-    -fx-padding: 10;
-    padding: 10px;
+  -fx-padding: 10;
+  padding: 10px;
 }
 
 /* Track */
 .glow-slider .track {
-    -fx-background-color: linear-gradient(to right, #0ff, #00f);
-    background-color: #0ff;
-    -fx-background-radius: 6;
-    -fx-pref-height: 15; 
+  -fx-background-color: linear-gradient(to right, #0ff, #00f);
+  background-color: #0ff;
+  -fx-background-radius: 6;
+  -fx-pref-height: 15;
 }
 
 /* Draggable knob or thumb */
 .glow-slider .thumb {
-    -fx-background-color: radial-gradient(center 50% 50%, radius 70%, #0ff, #00f);
-    background-color: #0ff;
-    -fx-background-radius: 50%;
-    -fx-pref-width: 18;
-    -fx-pref-height: 18;
-    -fx-effect: dropshadow(gaussian, rgba(0,255,255,0.6), 12, 0.6, 0, 0);
-    -fx-border-color: #fff;
-    border-color: #fff;
-    -fx-border-radius: 50%;
-    border-radius: 50%;
-    -fx-border-width: 1;
-    border-width: 1px;
+  -fx-background-color: radial-gradient(center 50% 50%, radius 70%, #0ff, #00f);
+  background-color: #0ff;
+  -fx-background-radius: 50%;
+  -fx-pref-width: 18;
+  -fx-pref-height: 18;
+  -fx-effect: dropshadow(gaussian, rgba(0, 255, 255, 0.6), 12, 0.6, 0, 0);
+  -fx-border-color: #fff;
+  border-color: #fff;
+  -fx-border-radius: 50%;
+  border-radius: 50%;
+  -fx-border-width: 1;
+  border-width: 1px;
 }
 
 /* When slider is selected */
 .glow-slider:focused .thumb {
-    -fx-effect: dropshadow(gaussian, rgba(0,200,255,0.9), 16, 0.8, 0, 0);
+  -fx-effect: dropshadow(gaussian, rgba(0, 200, 255, 0.9), 16, 0.8, 0, 0);
 }
 
 .button {
@@ -64,4 +64,9 @@
   border-color: #b55c43;
   -fx-effect: dropshadow(gaussian, #b55c43, 6, 0.6, 1, 1),
     dropshadow(gaussian, #379bc3, 6, 0.6, -1, -1);
+}
+
+.label {
+  -fx-font-family: "Futura";
+  -fx-font-weight: bold;
 }
