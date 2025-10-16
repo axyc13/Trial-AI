@@ -6,11 +6,13 @@
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 
@@ -46,97 +48,92 @@
                   <Image url="@../images/titleBackground.png" />
                </image>
             </ImageView>
-        <Label fx:id="timer" layoutX="921.0" layoutY="25.0" prefHeight="87.0" prefWidth="168.0" text="5:00" textFill="WHITE">
+        <Label fx:id="timer" layoutX="921.0" layoutY="25.0" prefHeight="87.0" prefWidth="168.0" stylesheets="@../css/humanWitnessStyle.css" text="5:00" textFill="WHITE">
           <font>
             <Font size="50.0" />
           </font></Label>
         <ProgressBar fx:id="progressBar" layoutY="158.0" prefHeight="26.0" prefWidth="1100.0" progress="0.0" />
-        <Label alignment="CENTER" layoutX="476.0" layoutY="44.0" prefHeight="30.0" prefWidth="143.0" style="-fx-background-color: #000;" text="Flashback" textFill="WHITE">
+        <Label alignment="CENTER" layoutX="476.0" layoutY="44.0" prefHeight="30.0" prefWidth="143.0" style="-fx-background-color: #000;" stylesheets="@../css/humanWitnessStyle.css" text="Flashback" textFill="WHITE">
           <font>
-            <Font size="20.0" />
+            <Font size="28.0" />
           </font>
         </Label>
-        <Label alignment="CENTER" layoutX="437.0" layoutY="90.0" prefHeight="30.0" prefWidth="244.0" style="-fx-background-color: #000;" text="Drag across to reveal story" textFill="WHITE">
+        <Label alignment="CENTER" layoutX="341.0" layoutY="93.0" prefHeight="40.0" prefWidth="394.0" style="-fx-background-color: #000;" stylesheets="@../css/humanWitnessStyle.css" text="Drag across to reveal story" textFill="WHITE">
           <font>
-            <Font size="20.0" />
+            <Font size="28.0" />
          </font>     
         </Label>
-            <Slider fx:id="slidingBar" blockIncrement="2.0" layoutX="271.0" layoutY="732.0" max="15.0" prefHeight="40.0" prefWidth="446.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" style="-fx-background-size: 10;">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Slider>
-            <ImageView fx:id="phoneInHand" fitHeight="475.0" fitWidth="950.0" layoutX="83.0" layoutY="200.0" pickOnBounds="true" visible="false">
+            <ImageView fx:id="phoneInHand" fitHeight="647.0" fitWidth="1127.0" layoutX="-24.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
-                  <Image url="@../images/phoneInHand.png" />
+                  <Image url="@../images/phoneInHand.jpg" />
                </image>
             </ImageView>
-            <Polygon fx:id="dialogueText1" fill="WHITE" layoutX="96.0" layoutY="276.0" points="-14.400009155273438, 57.0, 35.99998474121094, 41.399993896484375, 3.9999847412109375, 29.0" stroke="WHITE" strokeType="INSIDE" visible="false" />
-            <Label fx:id="dialogue1" alignment="CENTER" contentDisplay="CENTER" layoutX="97.0" layoutY="232.0" prefHeight="91.0" prefWidth="281.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="My music is falling off the charts. &#10;Let me hit up my homeboy." visible="false">
+            <Polygon fx:id="dialogueText1" fill="WHITE" layoutX="96.0" layoutY="276.0" points="-27.0, 80.39999389648438, 47.399993896484375, 37.20001220703125, 3.9999847412109375, 29.0" stroke="WHITE" strokeType="INSIDE" visible="false" />
+            <Label fx:id="dialogue1" alignment="CENTER" contentDisplay="CENTER" layoutX="86.0" layoutY="232.0" prefHeight="91.0" prefWidth="302.0" style="-fx-background-color: white; -fx-background-radius: 5;" stylesheets="@../css/humanWitnessStyle.css" text="My music is falling off the charts. &#10;Let me hit up my homeboy." visible="false">
                <font>
-                  <Font size="16.0" />
+                  <Font size="18.0" />
                </font></Label>
-            <ImageView fx:id="musiciansCalling" fitHeight="475.0" fitWidth="950.0" layoutX="83.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="musiciansCalling" fitHeight="610.0" fitWidth="1213.0" layoutX="-67.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../images/guyAndAiCalling.png" />
                </image>
             </ImageView>
-            <Label fx:id="dialogue2" alignment="CENTER" contentDisplay="CENTER" layoutX="456.0" layoutY="300.0" prefHeight="87.0" prefWidth="201.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Human Witness: yooo!&#10;&#10;" visible="false">
+            <Label fx:id="dialogue2" alignment="CENTER" contentDisplay="CENTER" layoutX="443.0" layoutY="320.0" prefHeight="87.0" prefWidth="208.0" style="-fx-background-color: white; -fx-background-radius: 5;" stylesheets="@../css/humanWitnessStyle.css" text="Human Witness: yooo!&#10;&#10;" visible="false">
                <font>
-                  <Font size="14.0" />
+                  <Font size="18.0" />
                </font></Label>
-            <Polygon fx:id="dialogueText2" fill="WHITE" layoutX="653.0" layoutY="303.0" points="27.4000244140625, 113.19998168945312, 0.4000244140625, 70.0, -23.79998779296875, 79.0" stroke="WHITE" strokeType="INSIDE" visible="false" />
-            <Label fx:id="dialogue3" alignment="CENTER" contentDisplay="CENTER" layoutX="454.0" layoutY="308.0" prefHeight="69.0" prefWidth="186.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Defendant: Yes Hello&#10;" visible="false">
+            <Polygon fx:id="dialogueText2" fill="WHITE" layoutX="653.0" layoutY="303.0" points="43.20001220703125, 147.0, -8.79998779296875, 104.19998168945312, -40.0, 104.19998168945312" stroke="WHITE" strokeType="INSIDE" visible="false" />
+            <Label fx:id="dialogue3" alignment="CENTER" contentDisplay="CENTER" layoutX="411.0" layoutY="330.0" prefHeight="70.0" prefWidth="201.0" style="-fx-background-color: white; -fx-background-radius: 5;" stylesheets="@../css/humanWitnessStyle.css" text="Defendant: Yes Hello&#10;" visible="false">
                <font>
-                  <Font size="14.0" />
+                  <Font size="18.0" />
                </font></Label>
-            <Polygon fx:id="dialogueText3" fill="WHITE" layoutX="481.0" layoutY="300.0" points="-41.39996337890625, 113.60000610351562, 6.79998779296875, 76.20001220703125, -18.39996337890625, 76.20001220703125" stroke="WHITE" strokeType="INSIDE" visible="false" />
-            <Label fx:id="dialogue4" alignment="CENTER" contentDisplay="CENTER" layoutX="486.0" layoutY="311.0" prefHeight="58.0" prefWidth="166.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Do you wanna collab g&#10;&#10;" visible="false">
+            <Polygon fx:id="dialogueText3" fill="WHITE" layoutX="481.0" layoutY="300.0" points="-98.4000244140625, 185.19998168945312, -13.5999755859375, 100.39999389648438, -42.4000244140625, 100.39999389648438" stroke="WHITE" strokeType="INSIDE" visible="false" />
+            <Label fx:id="dialogue4" alignment="CENTER" contentDisplay="CENTER" layoutX="439.0" layoutY="323.0" prefHeight="66.0" prefWidth="208.0" style="-fx-background-color: white; -fx-background-radius: 5;" stylesheets="@../css/humanWitnessStyle.css" text="Do you wanna collab g&#10;&#10;" visible="false">
                <font>
-                  <Font size="14.0" />
+                  <Font size="18.0" />
                </font></Label>
-            <Polygon fx:id="dialogueText4" fill="WHITE" layoutX="644.0" layoutY="290.0" points="49.79998779296875, 112.39999389648438, 5.4000244140625, 75.39999389648438, -36.5999755859375, 75.39999389648438" stroke="WHITE" strokeType="INSIDE" visible="false" />
-            <Label fx:id="dialogue5" alignment="CENTER" contentDisplay="CENTER" layoutX="453.0" layoutY="320.0" prefHeight="67.0" prefWidth="155.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Yes I would love to &#10;collaborate!" visible="false">
+            <Polygon fx:id="dialogueText4" fill="WHITE" layoutX="644.0" layoutY="290.0" points="49.0, 171.19998168945312, -11.79998779296875, 95.39999389648438, -54.20001220703125, 95.39999389648438" stroke="WHITE" strokeType="INSIDE" visible="false" />
+            <Label fx:id="dialogue5" alignment="CENTER" contentDisplay="CENTER" layoutX="429.0" layoutY="351.0" prefHeight="67.0" prefWidth="174.0" style="-fx-background-color: white; -fx-background-radius: 5;" stylesheets="@../css/humanWitnessStyle.css" text="Yes I would love to &#10;collaborate!" visible="false">
                <font>
-                  <Font size="14.0" />
+                  <Font size="18.0" />
                </font></Label>
-            <Polygon fx:id="dialogueText5" fill="WHITE" layoutX="465.0" layoutY="274.0" points="-30.93328857421875, 162.39999389648438, 27.733367919921875, 113.20001220703125, 4.26666259765625, 113.20001220703125" stroke="WHITE" strokeType="INSIDE" visible="false" />
-            <Label fx:id="dialogue6" alignment="CENTER" contentDisplay="CENTER" layoutX="490.0" layoutY="310.0" prefHeight="70.0" prefWidth="166.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Aight, Meet up at my &#10;studio cuz" visible="false">
+            <Polygon fx:id="dialogueText5" fill="WHITE" layoutX="465.0" layoutY="274.0" points="-84.79998779296875, 221.60000610351562, 16.0, 141.60000610351562, -22.4000244140625, 141.60000610351562" stroke="WHITE" strokeType="INSIDE" visible="false" />
+            <Label fx:id="dialogue6" alignment="CENTER" contentDisplay="CENTER" layoutX="442.0" layoutY="310.0" prefHeight="70.0" prefWidth="214.0" style="-fx-background-color: white; -fx-background-radius: 5;" stylesheets="@../css/humanWitnessStyle.css" text="Aight, Meet up at my &#10;studio cuz" visible="false">
                <font>
-                  <Font size="14.0" />
+                  <Font size="18.0" />
                </font></Label>
-            <Polygon fx:id="dialogueText6" fill="WHITE" layoutX="602.0" layoutY="211.0" points="73.13336181640625, 210.4666748046875, 43.26666259765625, 168.86666870117188, 9.13336181640625, 168.86666870117188" stroke="WHITE" strokeType="INSIDE" visible="false" />
-            <ImageView fx:id="musiciansStudio" fitHeight="475.0" fitWidth="950.0" layoutX="83.0" layoutY="200.0" pickOnBounds="true" visible="false">
+            <Polygon fx:id="dialogueText6" fill="WHITE" layoutX="602.0" layoutY="211.0" points="99.0, 248.60000610351562, 43.26666259765625, 168.86666870117188, 9.13336181640625, 168.86666870117188" stroke="WHITE" strokeType="INSIDE" visible="false" />
+            <ImageView fx:id="musiciansStudio" fitHeight="654.0" fitWidth="1200.0" layoutX="-26.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
-                  <Image url="@../images/humanAiCollaboration.png" />
+                  <Image url="@../images/guyAndAiInStudio.png" />
                </image>
             </ImageView>
-            <Label fx:id="dialogue7" alignment="CENTER" contentDisplay="CENTER" layoutX="441.0" layoutY="302.0" prefHeight="71.0" prefWidth="174.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Cook up something homie&#10;" visible="false">
+            <Label fx:id="dialogue7" alignment="CENTER" contentDisplay="CENTER" layoutX="365.0" layoutY="302.0" prefHeight="71.0" prefWidth="250.0" style="-fx-background-color: white; -fx-background-radius: 5;" stylesheets="@../css/humanWitnessStyle.css" text="Cook up something homie&#10;" visible="false">
                <font>
-                  <Font size="14.0" />
+                  <Font size="18.0" />
                </font></Label>
-            <Polygon fx:id="dialogueText7" fill="WHITE" layoutX="456.0" layoutY="300.0" points="-57.133331298828125, 101.20001220703125, 31.4000244140625, 73.20001220703125, -5.93328857421875, 73.20001220703125" stroke="WHITE" strokeType="INSIDE" visible="false" />
-            <Label fx:id="dialogue8" alignment="CENTER" contentDisplay="CENTER" layoutX="451.0" layoutY="288.0" prefHeight="65.0" prefWidth="166.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Generating beats... done." visible="false">
+            <Polygon fx:id="dialogueText7" fill="WHITE" layoutX="456.0" layoutY="300.0" points="-116.86666870117188, 99.06668090820312, -41.13336181640625, 73.20001220703125, -81.66665649414062, 73.20001220703125" stroke="WHITE" strokeType="INSIDE" visible="false" />
+            <Label fx:id="dialogue8" alignment="CENTER" contentDisplay="CENTER" layoutX="384.0" layoutY="270.0" prefHeight="66.0" prefWidth="245.0" style="-fx-background-color: white; -fx-background-radius: 5;" stylesheets="@../css/humanWitnessStyle.css" text="Generating beats... done." visible="false">
                <font>
-                  <Font size="14.0" />
+                  <Font size="18.0" />
                </font></Label>
-            <Polygon fx:id="dialogueText8" fill="WHITE" layoutX="557.0" layoutY="280.0" points="92.79998779296875, 101.60000610351562, 41.60003662109375, 66.39999389648438, 8.79998779296875, 66.39999389648438" stroke="WHITE" strokeType="INSIDE" visible="false" />
-            <Label fx:id="dialogue9" alignment="CENTER" contentDisplay="CENTER" layoutX="439.0" layoutY="316.0" prefHeight="65.0" prefWidth="155.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="That's lit yo, &#10;we're publishing this&#10;" visible="false">
+            <Polygon fx:id="dialogueText8" fill="WHITE" layoutX="557.0" layoutY="280.0" points="107.4666748046875, 91.33334350585938, 58.4000244140625, 51.866668701171875, 22.13330078125, 51.866668701171875" stroke="WHITE" strokeType="INSIDE" visible="false" />
+            <Label fx:id="dialogue9" alignment="CENTER" contentDisplay="CENTER" layoutX="369.0" layoutY="250.0" prefHeight="91.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 5;" stylesheets="@../css/humanWitnessStyle.css" text="That's lit yo, &#10;we're publishing this&#10;" visible="false">
                <font>
-                  <Font size="14.0" />
+                  <Font size="18.0" />
                </font></Label>
-            <Polygon fx:id="dialogueText9" fill="WHITE" layoutX="450.0" layoutY="304.0" points="-46.20001220703125, 105.19998168945312, 25.0, 77.0, -3.79998779296875, 77.0" stroke="WHITE" strokeType="INSIDE" visible="false" />
-            <ImageView fx:id="celebrationParty" fitHeight="475.0" fitWidth="950.0" layoutX="83.0" layoutY="200.0" pickOnBounds="true" visible="false">
+            <Polygon fx:id="dialogueText9" fill="WHITE" layoutX="450.0" layoutY="304.0" points="-109.80001831054688, 97.20001220703125, -29.800018310546875, 33.20001220703125, -67.13336181640625, 33.20001220703125" stroke="WHITE" strokeType="INSIDE" visible="false" />
+            <ImageView fx:id="celebrationParty" fitHeight="658.0" fitWidth="1191.0" layoutX="-76.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
-                  <Image url="@../images/partyCelebration.png" />
+                  <Image url="@../images/celebrationParty.png" />
                </image>
             </ImageView>
-            <Label fx:id="dialogue10" alignment="CENTER" contentDisplay="CENTER" layoutX="526.0" layoutY="239.0" prefHeight="71.0" prefWidth="214.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="We gon be rich forever gang" visible="false">
+            <Label fx:id="dialogue10" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="241.0" prefHeight="71.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 5;" stylesheets="@../css/humanWitnessStyle.css" text="We gon be rich forever gang" visible="false">
                <font>
-                  <Font size="14.0" />
+                  <Font size="18.0" />
                </font></Label>
-            <Polygon fx:id="dialogueText10" fill="WHITE" layoutX="534.0" layoutY="194.0" points="-22.066680908203125, 186.93331909179688, 39.79998779296875, 116.20001220703125, 4.5999755859375, 116.20001220703125" stroke="WHITE" strokeType="INSIDE" visible="false" />
-            <Label fx:id="storyCompletionLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="431.0" layoutY="690.0" prefHeight="42.0" prefWidth="264.0" style="-fx-background-color: #a6793d; -fx-background-radius: 5;" text="Story completion: 0 % " textAlignment="CENTER" textFill="WHITE">
+            <Polygon fx:id="dialogueText10" fill="WHITE" layoutX="534.0" layoutY="194.0" points="-228.99996948242188, 207.20001220703125, -295.13336181640625, 116.20001220703125, -355.9333190917969, 116.20001220703125" stroke="WHITE" strokeType="INSIDE" visible="false" />
+            <Label fx:id="storyCompletionLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="431.0" layoutY="690.0" prefHeight="42.0" prefWidth="264.0" style="-fx-background-color: #a6793d; -fx-background-radius: 5;" stylesheets="@../css/humanWitnessStyle.css" text="Story completion: 0 % " textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -144,20 +141,32 @@
                   <ColorAdjust hue="-1.0" />
                </effect>
             </Label>
-            <Button fx:id="continueButton" disable="true" layoutX="955.0" layoutY="730.0" mnemonicParsing="false" onAction="#onGoChat" prefHeight="26.0" prefWidth="111.0" text="Continue">
+            <Button fx:id="continueButton" disable="true" layoutX="955.0" layoutY="730.0" mnemonicParsing="false" onAction="#onGoChat" prefHeight="50.0" prefWidth="127.0" text="Continue" visible="false">
                <font>
                   <Font size="18.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
-            </Button> 
+            </Button>
+            <Slider fx:id="slidingBar" blockIncrement="2.0" layoutX="270.0" layoutY="747.0" max="15.0" prefHeight="0.0" prefWidth="446.0" scaleX="2.0" scaleY="2.0" scaleZ="2.0" style="-fx-background-size: 10; -fx-border-radius: 5; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(80,80,80,1), 12, 0.6, 0, 0);">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" height="10.0" radius="4.5" spread="0.2" width="10.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Slider> 
       </children>
     </AnchorPane>
     
     <VBox fx:id="flashbackMessage" alignment="CENTER" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false">
       <children>
-        <Label prefHeight="88.0" prefWidth="165.0" style="-fx-text-fill: white; -fx-font-size: 36px;" text="Flashback!">
+        <Label prefHeight="88.0" prefWidth="195.0" style="-fx-text-fill: white; -fx-font-size: 36px;" text="Flashback!">
           <font>
             <Font size="14.0" />
           </font>

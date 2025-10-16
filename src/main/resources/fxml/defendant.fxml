@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
@@ -76,27 +77,39 @@
           <image>
             <Image url="@../images/basket.png" />
           </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
         </ImageView>
         <TextArea fx:id="txtaChat" editable="false" layoutX="24.0" layoutY="277.0" opacity="0.83" prefHeight="432.0" prefWidth="304.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" wrapText="true" />
         <TextField fx:id="txtInput" layoutX="23.0" layoutY="729.0" opacity="0.83" prefHeight="26.0" prefWidth="304.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" />
-        <Button fx:id="btnSend" layoutX="344.0" layoutY="718.0" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="31.0" prefWidth="81.0" text="Send" />
-        <Button layoutX="25.0" layoutY="29.0" mnemonicParsing="false" onAction="#onGoBack" prefHeight="52.0" prefWidth="130.0" text="Go Back" />
-          <Label fx:id="timer" layoutX="941.0" layoutY="24.0" prefHeight="63.0" prefWidth="155.0" text="5:00" textFill="WHITE">
+        <Button fx:id="btnSend" layoutX="344.0" layoutY="718.0" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="50.0" prefWidth="90.0" text="Send">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+        <Button layoutX="37.0" layoutY="35.0" mnemonicParsing="false" onAction="#onGoBack" prefHeight="73.0" prefWidth="124.0" text="Go Back">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+          <Label fx:id="timer" layoutX="941.0" layoutY="36.0" prefHeight="63.0" prefWidth="155.0" stylesheets="@../css/humanWitnessStyle.css" text="5:00" textFill="WHITE">
             <font>
               <Font size="50.0" />
             </font></Label>
         <ProgressBar fx:id="progressBar" layoutY="158.0" prefHeight="26.0" prefWidth="1100.0" progress="0.0" />
-        <Label layoutX="295.0" layoutY="35.0" style="-fx-background-color: #000;" text="Chat with the defendant, play the mini-game" textFill="WHITE">
+        <Label layoutX="295.0" layoutY="35.0" style="-fx-background-color: #000;" stylesheets="@../css/humanWitnessStyle.css" text="Chat with the defendant, play the mini-game" textFill="WHITE">
           <font>
-            <Font name="Futura Bold" size="24.0" />
+            <Font size="26.0" />
           </font>
         </Label>
-        <Label layoutX="360.0" layoutY="62.0" style="-fx-background-color: #000;" text="and find out about it's perspective." textFill="WHITE">
+        <Label layoutX="360.0" layoutY="69.0" style="-fx-background-color: #000;" stylesheets="@../css/humanWitnessStyle.css" text="and find out about it's perspective." textFill="WHITE">
           <font>
-            <Font name="Futura Bold" size="24.0" />
+            <Font size="26.0" />
           </font>
         </Label>
-            <Button fx:id="gameButton" layoutX="635.0" layoutY="434.0" mnemonicParsing="false" onAction="#onGameStart" prefHeight="64.0" prefWidth="177.0" text="Start Mini-Game" />
+            <Button fx:id="gameButton" layoutX="635.0" layoutY="434.0" mnemonicParsing="false" onAction="#onGameStart" prefHeight="64.0" prefWidth="177.0" text="Start Mini-Game">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <Button fx:id="replayButton" layoutX="629.0" layoutY="435.0" mnemonicParsing="false" onAction="#onGameStart" prefHeight="64.0" prefWidth="187.0" text="Replay" visible="false" />
             <AnchorPane fx:id="messageBox" layoutX="513.0" layoutY="332.0" prefHeight="275.0" prefWidth="483.0" style="-fx-background-color: #000;" visible="false">
                <children>
@@ -121,7 +134,7 @@
     
     <VBox fx:id="memoryMessage" alignment="CENTER" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false">
       <children>
-        <Label prefHeight="88.0" prefWidth="165.0" style="-fx-text-fill: white; -fx-font-size: 36px;" text="Memory!">
+        <Label prefHeight="88.0" prefWidth="165.0" style="-fx-text-fill: white; -fx-font-size: 36px;" stylesheets="@../css/humanWitnessStyle.css" text="Memory!">
           <font>
             <Font size="14.0" />
           </font>

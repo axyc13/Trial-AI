@@ -38,9 +38,9 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
   private final boolean[][] pattern = new boolean[rows][cols];
 
   private final boolean[][] correctPattern = {
-    {true, true, true, true, true},
-    {true, false, false, false, true},
-    {true, true, true, true, true}
+    {true, false, false, true, true},
+    {false, false, false, false, true},
+    {true, true, true, true, false}
   };
 
   private boolean isPatternCorrect = false;
@@ -70,6 +70,7 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
   @FXML private ImageView arrowHint1;
   @FXML private ImageView arrowHint2;
   @FXML private ImageView arrowHint3;
+  @FXML private Label gameInstruction;
 
   @Override
   @FXML
@@ -119,6 +120,7 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
 
   private void setUpHints() {
     arrowHint1.setVisible(true);
+    gameInstruction.setVisible(true);
     arrowHint2.setVisible(false);
     arrowHint3.setVisible(false);
     hoveringArrowAnimation(arrowHint1);
@@ -241,7 +243,7 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
     arrowHint2.setVisible(false);
 
     txtaChat.appendText(
-        "[Human Witness]: Don't worry about copyright the AI always checks"
+        "[Human Witness]: Don't worry about copyright the defendant always checks"
             + " before playing, even when it comes to creating music. \n\n");
     isLocked = true;
 
@@ -257,7 +259,7 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
     rotateCasetteTape();
     robotTextDisplay.setText("SONG CREATED!\r\n" + "YOU WIN!");
 
-    instructionLabel.setText("YOU WIN!");
+    instructionLabel.setText("SONG CREATED! YOU WIN!");
   }
 
   private void createBeatGrid() {
@@ -329,7 +331,7 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
 
   private void onPatternCorrect() {
     movingBarTimeline.stop();
-    instructionLabel.setText("Drag cassette tape onto Ai Witness");
+    instructionLabel.setText("Drag cassette tape onto the Defendant");
     robotTextDisplay.setText("Drag cassette \r\n" + "tape HERE");
     txtaChat.appendText("[Human Witness]: Great choice of beats! \n\n");
     arrowHint3.setVisible(true);
@@ -391,6 +393,7 @@ public class HumanWitnessMemoryController extends ChatControllerCentre {
   @FXML
   private void onFirstMouseClick() {
     arrowHint1.setVisible(false);
+    gameInstruction.setVisible(false);
   }
 
   @FXML

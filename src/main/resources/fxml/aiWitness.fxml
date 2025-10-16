@@ -27,9 +27,15 @@
         </ImageView>
         <TextArea fx:id="txtaChat" editable="false" layoutX="24.0" layoutY="277.0" opacity="0.7" prefHeight="432.0" prefWidth="304.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" wrapText="true" />
         <TextField fx:id="txtInput" layoutX="23.0" layoutY="729.0" opacity="0.83" prefHeight="26.0" prefWidth="304.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" />
-        <Button fx:id="btnSend" layoutX="341.0" layoutY="718.0" mnemonicParsing="false" onAction="#onSendMessage" text="Send" />
-        <Button layoutX="27.0" layoutY="54.0" mnemonicParsing="false" onAction="#onGoBack" prefHeight="52.0" prefWidth="130.0" styleClass="continue-button" text="Go Back" />
-        <Label fx:id="timer" layoutX="960.0" layoutY="41.0" prefHeight="63.0" prefWidth="155.0" text="5:00" textAlignment="CENTER" textFill="WHITE">
+        <Button fx:id="btnSend" layoutX="341.0" layoutY="718.0" mnemonicParsing="false" onAction="#onSendMessage" text="Send">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+        <Button layoutX="27.0" layoutY="54.0" mnemonicParsing="false" onAction="#onGoBack" prefHeight="52.0" prefWidth="130.0" styleClass="continue-button" text="Go Back">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+        <Label fx:id="timer" layoutX="960.0" layoutY="41.0" prefHeight="63.0" prefWidth="155.0" stylesheets="@../css/humanWitnessStyle.css" text="5:00" textAlignment="CENTER" textFill="WHITE">
           <font>
             <Font name="Book Antiqua" size="50.0" />
           </font></Label>
@@ -86,7 +92,10 @@
                <stylesheets>
                   <URL value="@../css/aiDefendantStyle.css" />
                   <URL value="@../css/aiWitnessStyle.css" />
-               </stylesheets></Button>
+               </stylesheets>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <ImageView fx:id="rumourBin" fitHeight="138.0" fitWidth="160.0" layoutX="22.0" layoutY="125.0">
                <image>
                   <Image url="@../images/Bin.png" />
@@ -104,7 +113,7 @@
     
     <VBox fx:id="flashbackMessage" alignment="CENTER" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false">
       <children>
-        <Label prefHeight="88.0" prefWidth="165.0" style="-fx-text-fill: white; -fx-font-size: 36px;" text="Memory!">
+        <Label prefHeight="88.0" prefWidth="165.0" style="-fx-text-fill: white; -fx-font-size: 36px;" stylesheets="@../css/humanWitnessStyle.css" text="Memory!">
           <font>
             <Font size="14.0" />
           </font>

@@ -49,7 +49,7 @@
                   <Image url="@../images/titleBackground.png" />
                </image>
             </ImageView>
-        <TextArea fx:id="txtaChat" editable="false" layoutX="13.0" layoutY="270.0" opacity="0.83" prefHeight="463.0" prefWidth="356.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" wrapText="true" />
+        <TextArea fx:id="txtaChat" editable="false" layoutX="12.0" layoutY="252.0" opacity="0.83" prefHeight="477.0" prefWidth="356.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" wrapText="true" />
             <ImageView fitHeight="294.0" fitWidth="418.0" layoutX="799.0" layoutY="535.0" pickOnBounds="true" preserveRatio="true" scaleX="0.75" scaleY="0.75" scaleZ="0.75">
                <image>
                   <Image url="@../images/aICasetteTape.png" />
@@ -62,11 +62,11 @@
                   </DropShadow>
                </effect>
             </ImageView>
-            <Label fx:id="robotTextDisplay" alignment="CENTER" layoutX="939.0" layoutY="603.0" prefHeight="52.0" prefWidth="117.0" style="-fx-background-color: white;" text="Complete the &#10;pattern first!&#10;" textFill="RED">
+            <Label fx:id="robotTextDisplay" alignment="CENTER" layoutX="939.0" layoutY="603.0" prefHeight="52.0" prefWidth="117.0" style="-fx-background-color: white;" stylesheets="@../css/humanWitnessStyle.css" text="Complete the &#10;pattern first!&#10;" textFill="RED">
                <font>
                   <Font size="14.0" />
                </font></Label>
-        <TextField fx:id="txtInput" layoutX="12.0" layoutY="741.0" opacity="0.83" prefHeight="35.0" prefWidth="356.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;">
+        <TextField fx:id="txtInput" layoutX="12.0" layoutY="737.0" opacity="0.83" prefHeight="39.0" prefWidth="356.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;">
                <effect>
                   <DropShadow>
                      <color>
@@ -77,17 +77,20 @@
         <Button fx:id="btnSend" layoutX="378.0" layoutY="735.0" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="0.0" prefWidth="87.0" text="Send">
                <font>
                   <Font size="14.0" />
-               </font></Button>
-        <Button layoutX="25.0" layoutY="51.0" mnemonicParsing="false" onAction="#onGoBack" prefHeight="52.0" prefWidth="130.0" text="Go Back">
+               </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-          <Label fx:id="timer" layoutX="941.0" layoutY="41.0" prefHeight="63.0" prefWidth="155.0" text="5:00" textFill="WHITE">
+        <Button layoutX="25.0" layoutY="41.0" mnemonicParsing="false" onAction="#onGoBack" prefHeight="70.0" prefWidth="130.0" stylesheets="@../css/humanWitnessStyle.css" text="Go Back">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+          <Label fx:id="timer" layoutX="937.0" layoutY="41.0" prefHeight="63.0" prefWidth="155.0" stylesheets="@../css/humanWitnessStyle.css" text="5:00" textFill="WHITE">
             <font>
               <Font size="50.0" />
             </font></Label>
         <ProgressBar fx:id="progressBar" layoutY="158.0" prefHeight="26.0" prefWidth="1100.0" progress="0.0" />
-        <Label alignment="CENTER" layoutX="328.0" layoutY="42.0" prefHeight="66.0" prefWidth="485.0" style="-fx-background-color: #000;" text="Human Witness Memory" textFill="WHITE">
+        <Label alignment="CENTER" layoutX="328.0" layoutY="42.0" prefHeight="66.0" prefWidth="485.0" style="-fx-background-color: #000;" stylesheets="@../css/humanWitnessStyle.css" text="Human Witness Memory" textFill="WHITE">
           <font>
             <Font size="30.0" />
           </font>
@@ -117,7 +120,7 @@
                   <Image url="@../images/cassetteSpinning.png" />
                </image>
             </ImageView>
-            <GridPane fx:id="beatGrid" gridLinesVisible="true" layoutX="508.0" layoutY="336.0" prefHeight="182.0" prefWidth="561.0">
+            <GridPane fx:id="beatGrid" gridLinesVisible="true" layoutX="812.0" layoutY="343.0" prefHeight="150.0" prefWidth="250.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.60003662109375" minWidth="10.0" prefWidth="100.0" />
@@ -134,8 +137,8 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </GridPane>
-            <Rectangle fx:id="movingBar" arcHeight="5.0" arcWidth="5.0" fill="#00ffba" height="182.0" layoutX="507.0" layoutY="336.0" opacity="0.7" stroke="#00ffba" strokeType="INSIDE" strokeWidth="3.0" width="2.0" />
-            <Label fx:id="instructionLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="399.0" layoutY="212.0" prefHeight="66.0" prefWidth="681.0" style="-fx-background-color: black;" text="QUICK! CLICK ON THE SQUARES TO MAKE A SONG " textFill="WHITE">
+            <Rectangle fx:id="movingBar" arcHeight="5.0" arcWidth="5.0" fill="#00ffba" height="152.0" layoutX="812.0" layoutY="342.0" opacity="0.7" stroke="#00ffba" strokeType="INSIDE" strokeWidth="3.0" width="2.0" />
+            <Label fx:id="instructionLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="399.0" layoutY="212.0" prefHeight="66.0" prefWidth="681.0" style="-fx-background-color: black;" stylesheets="@../css/humanWitnessStyle.css" text="COPY THE PATTERN TO MAKE A SONG " textFill="WHITE">
                <font>
                   <Font size="28.0" />
                </font>
@@ -143,12 +146,7 @@
                   <DropShadow />
                </effect>
             </Label>
-            <Label fx:id="instructionLabel1" alignment="CENTER" contentDisplay="CENTER" layoutX="914.0" layoutY="270.0" prefHeight="30.0" prefWidth="166.0" style="-fx-background-color: black;" text="HINT: Colour the border" textFill="RED">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="53.0" fitWidth="53.0" layoutX="436.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="756.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/sound2.jpg" />
                </image>
@@ -160,7 +158,7 @@
                   </DropShadow>
                </effect>
             </ImageView>
-            <ImageView fitHeight="53.0" fitWidth="53.0" layoutX="434.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="46.0" fitWidth="43.0" layoutX="753.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/sound1.jpg" />
                </image>
@@ -172,7 +170,7 @@
                   </DropShadow>
                </effect>
             </ImageView>
-            <ImageView fitHeight="53.0" fitWidth="53.0" layoutX="437.0" layoutY="462.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="46.0" fitWidth="43.0" layoutX="754.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/sound3.jpg" />
                </image>
@@ -184,7 +182,7 @@
                   </DropShadow>
                </effect>
             </ImageView>
-            <ToggleButton fx:id="soundButton" layoutX="1039.0" layoutY="526.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#onMuteOrUnmute" prefHeight="33.0" prefWidth="34.0">
+            <ToggleButton fx:id="soundButton" layoutX="1032.0" layoutY="502.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#onMuteOrUnmute" prefHeight="33.0" prefWidth="34.0" stylesheets="@../css/humanWitnessStyle.css">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -206,7 +204,7 @@
                   </ImageView>
                </graphic>
             </ToggleButton>
-            <ImageView fx:id="arrowHint1" disable="true" fitHeight="137.0" fitWidth="106.0" layoutX="528.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true" rotate="-45.0">
+            <ImageView fx:id="arrowHint1" disable="true" fitHeight="60.0" fitWidth="63.0" layoutX="818.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true" rotate="160.0">
                <image>
                   <Image url="@../images/arrow.png" />
                </image>
@@ -242,12 +240,65 @@
                   </DropShadow>
                </effect>
             </ImageView>
+            <ImageView fitHeight="152.0" fitWidth="250.0" layoutX="434.0" layoutY="343.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/patternSolution.png" />
+               </image>
+               <effect>
+                  <DropShadow height="30.0" radius="14.5" width="30.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </ImageView>
+            <ImageView fitHeight="46.0" fitWidth="43.0" layoutX="381.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/sound1.jpg" />
+               </image>
+               <effect>
+                  <DropShadow height="30.0" radius="14.5" width="30.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="383.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/sound2.jpg" />
+               </image>
+               <effect>
+                  <DropShadow height="30.0" radius="14.5" width="30.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </ImageView>
+            <ImageView fitHeight="46.0" fitWidth="43.0" layoutX="382.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/sound3.jpg" />
+               </image>
+               <effect>
+                  <DropShadow height="30.0" radius="14.5" width="30.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </ImageView>
+            <Label fx:id="gameInstruction" layoutX="871.0" layoutY="299.0" prefHeight="27.0" prefWidth="194.0" text="Click a square to begin" textFill="RED">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
       </children>
     </AnchorPane>
     
     <VBox fx:id="flashbackMessage" alignment="CENTER" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false">
       <children>
-        <Label prefHeight="88.0" prefWidth="165.0" style="-fx-text-fill: white; -fx-font-size: 36px;" text="Memory!">
+        <Label prefHeight="88.0" prefWidth="165.0" style="-fx-text-fill: white; -fx-font-size: 36px;" stylesheets="@../css/humanWitnessStyle.css" text="Memory!">
           <font>
             <Font size="14.0" />
           </font>
