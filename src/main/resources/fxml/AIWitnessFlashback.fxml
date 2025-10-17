@@ -16,27 +16,26 @@
   <children>
     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="789.0" prefWidth="1100.0">
       <children>
-          <ImageView fx:id="flashbackThree" fitHeight="800.0" fitWidth="1109.0" visible="false">
+          <ImageView fx:id="flashbackThree" fitHeight="800.0" fitWidth="1109.0">
             <image>
                 <Image url="@../images/3.png" />
             </image>
           </ImageView>
-          <ImageView fx:id="flashbackOne" fitHeight="800.0" fitWidth="1187.0" layoutX="-48.0">
+          <ImageView fx:id="flashbackOne" fitHeight="800.0" fitWidth="1187.0" layoutX="-48.0" visible="false">
             <image>
                 <Image url="@../images/1.png" />
             </image>
           </ImageView>
-          <ImageView fx:id="flashbackTwo" fitHeight="795.0" fitWidth="1106.0" visible="false">
-            <image>
-                <Image url="@../images/2.png" />
-            </image>
-          </ImageView>
-          <Label fx:id="timer" layoutX="937.0" layoutY="41.0" prefHeight="63.0" prefWidth="155.0" stylesheets="@../css/humanWitnessStyle.css" text="5:00" textFill="WHITE">
+            <ImageView fx:id="flashbackTwo" fitHeight="841.0" fitWidth="1188.0" layoutY="-42.0">
+               <image>
+                  <Image url="@../images/Gemini_Generated_Image_ugadstugadstugad.png" />
+               </image>
+            </ImageView>
+          <Label fx:id="timer" layoutX="940.0" layoutY="47.0" prefHeight="63.0" prefWidth="155.0" stylesheets="@../css/humanWitnessStyle.css" text="5:00" textFill="WHITE">
             <font>
                 <Font name="Book Antiqua" size="50.0" />
             </font>
           </Label>
-          <ProgressBar fx:id="progressBar" layoutX="948.0" layoutY="132.0" prefHeight="26.0" prefWidth="127.0" progress="1.0" />
             <Slider fx:id="flashbackSlider" layoutX="77.0" layoutY="742.0" majorTickUnit="1" max="3" min="1" minorTickCount="0" prefHeight="56.0" prefWidth="749.0" showTickMarks="true" snapToTicks="true" value="1">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -45,6 +44,17 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
+            <ProgressBar fx:id="progressBar" layoutX="10.0" layoutY="168.0" prefHeight="26.0" prefWidth="1100.0" progress="0.0" />
+            <Label layoutX="242.0" layoutY="49.0" style="-fx-background-color: #000;" text=" This is a flashback! Please use the slide bar to follow " textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="228.0" layoutY="97.0" style="-fx-background-color: #000;" text="the Ai Witness' story and proceed when you're satisfied" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
       </children>
     </AnchorPane>
 

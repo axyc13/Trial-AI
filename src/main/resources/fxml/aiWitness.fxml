@@ -31,15 +31,10 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-        <Button layoutX="27.0" layoutY="54.0" mnemonicParsing="false" onAction="#onGoBack" prefHeight="52.0" prefWidth="130.0" styleClass="continue-button" text="Go Back">
+        <Button layoutX="25.0" layoutY="38.0" mnemonicParsing="false" onAction="#onGoBack" prefHeight="52.0" prefWidth="130.0" styleClass="continue-button" text="Go Back">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-        <Label fx:id="timer" layoutX="937.0" layoutY="41.0" prefHeight="63.0" prefWidth="155.0" stylesheets="@../css/humanWitnessStyle.css" text="5:00" textAlignment="CENTER" textFill="WHITE">
-          <font>
-            <Font name="Book Antiqua" size="50.0" />
-          </font></Label>
-        <ProgressBar fx:id="progressBar" layoutX="26.0" layoutY="12.0" prefHeight="26.0" prefWidth="1060.0" progress="0.0" />
        <Slider fx:id="slider" blockIncrement="1" layoutX="457.0" layoutY="715.0" majorTickUnit="1" max="11.0" min="1" minorTickCount="0" prefHeight="66.0" prefWidth="605.0" showTickMarks="true" snapToTicks="true" value="1">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -48,42 +43,42 @@
                   <URL value="@../css/aiWitnessStyle.css" />
                   <URL value="@../css/aiDefendantStyle.css" />
                </stylesheets></Slider>
-            <ImageView fx:id="speechBubble2" fitHeight="144.0" fitWidth="262.0" layoutX="321.0" layoutY="266.0">
+            <ImageView fx:id="speechBubble2" fitHeight="144.0" fitWidth="262.0" layoutX="316.0" layoutY="360.0">
                <image>
                   <Image url="@../images/Speech%20Balloon%203.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="speechBubble1" fitHeight="124.0" fitWidth="181.0" layoutX="403.0" layoutY="80.0">
+            <ImageView fx:id="speechBubble1" fitHeight="124.0" fitWidth="181.0" layoutX="417.0" layoutY="208.0">
                <image>
                   <Image url="@../images/speech%20ballooon.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="speechBubble7" fitHeight="157.0" fitWidth="279.0" layoutX="840.0" layoutY="122.0">
+            <ImageView fx:id="speechBubble7" fitHeight="157.0" fitWidth="279.0" layoutX="835.0" layoutY="216.0">
                <image>
                   <Image url="@../images/Speech%20Balloon%202.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="speechBubble8" fitHeight="130.0" fitWidth="181.0" layoutX="892.0" layoutY="330.0">
+            <ImageView fx:id="speechBubble8" fitHeight="130.0" fitWidth="181.0" layoutX="887.0" layoutY="424.0">
                <image>
                   <Image url="@../images/speech%20ballooon%204.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="speechBubble9" fitHeight="138.0" fitWidth="203.0" layoutX="760.0" layoutY="486.0">
+            <ImageView fx:id="speechBubble9" fitHeight="138.0" fitWidth="203.0" layoutX="755.0" layoutY="562.0">
                <image>
                   <Image url="@../images/speech%20ballooon%204.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="speechBubble4" fitHeight="138.0" fitWidth="203.0" layoutX="646.0" layoutY="76.0">
+            <ImageView fx:id="speechBubble4" fitHeight="138.0" fitWidth="203.0" layoutX="641.0" layoutY="170.0">
                <image>
                   <Image url="@../images/speech%20ballooon%204.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="speechBubble5" fitHeight="169.0" fitWidth="262.0" layoutX="617.0" layoutY="236.0">
+            <ImageView fx:id="speechBubble5" fitHeight="169.0" fitWidth="262.0" layoutX="612.0" layoutY="354.0">
                <image>
                   <Image url="@../images/Speech%20Balloon%202.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="speechBubble6" fitHeight="138.0" fitWidth="213.0" layoutX="474.0" layoutY="417.0">
+            <ImageView fx:id="speechBubble6" fitHeight="139.0" fitWidth="213.0" layoutX="469.0" layoutY="518.0">
                <image>
                   <Image url="@../images/speech%20ballooon.png" />
                </image>
@@ -96,18 +91,34 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <ImageView fx:id="rumourBin" fitHeight="138.0" fitWidth="160.0" layoutX="22.0" layoutY="125.0">
+            <ImageView fx:id="rumourBin" fitHeight="108.0" fitWidth="108.0" layoutX="15.0" layoutY="164.0">
                <image>
                   <Image url="@../images/Bin.png" />
                </image>
             </ImageView>
             <AnchorPane layoutX="295.0" layoutY="163.0" prefHeight="356.0" prefWidth="435.0" visible="false" />
-            <TextFlow fx:id="startLabelText" layoutX="392.0" layoutY="492.0" prefHeight="138.0" prefWidth="694.0" />
+            <TextFlow fx:id="startLabelText" layoutX="381.0" layoutY="499.0" prefHeight="138.0" prefWidth="694.0" />
             <ImageView fx:id="arrowHint" fitHeight="66.0" fitWidth="65.0" layoutX="466.0" layoutY="653.0" rotate="168.5">
                <image>
                   <Image url="@../images/arrow.png" />
                </image>
             </ImageView>
+            <Label fx:id="timer" layoutX="951.0" layoutY="32.0" prefHeight="63.0" prefWidth="155.0" stylesheets="@../css/humanWitnessStyle.css" text="5:00" textFill="WHITE">
+               <font>
+                  <Font size="50.0" />
+               </font>
+            </Label>
+            <ProgressBar fx:id="progressBar" layoutX="7.0" layoutY="134.0" prefHeight="26.0" prefWidth="1088.0" progress="0.0" />
+            <Label layoutX="263.0" layoutY="28.0" style="-fx-background-color: #000;" stylesheets="@../css/humanWitnessStyle.css" text="Chat with the AI Witness, complete the interactable" textFill="WHITE">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label layoutX="363.0" layoutY="66.0" style="-fx-background-color: #000;" stylesheets="@../css/humanWitnessStyle.css" text="and find out about it's perspective." textFill="WHITE">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
       </children>
     </AnchorPane>
     
