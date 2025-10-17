@@ -31,7 +31,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-        <Button layoutX="25.0" layoutY="38.0" mnemonicParsing="false" onAction="#onGoBack" prefHeight="52.0" prefWidth="130.0" styleClass="continue-button" text="Go Back">
+        <Button layoutX="26.0" layoutY="42.0" mnemonicParsing="false" onAction="#onGoBack" prefHeight="52.0" prefWidth="130.0" styleClass="continue-button" text="Go Back">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
@@ -109,12 +109,12 @@
                </font>
             </Label>
             <ProgressBar fx:id="progressBar" layoutY="158.0" prefHeight="26.0" prefWidth="1100.0" progress="0.0" />
-            <Label layoutX="263.0" layoutY="34.0" style="-fx-background-color: #000;" stylesheets="@../css/humanWitnessStyle.css" text=" Chat with the AI Witness, complete the interactable, " textFill="WHITE">
+            <Label layoutX="300.0" layoutY="35.0" style="-fx-background-color: #000;" stylesheets="@../css/humanWitnessStyle.css" text=" Chat with the AI Witness and complete the " textFill="WHITE">
                <font>
                   <Font name="Futura Bold" size="26.0" />
                </font>
             </Label>
-            <Label layoutX="364.0" layoutY="80.0" style="-fx-background-color: #000;" stylesheets="@../css/humanWitnessStyle.css" text=" and find out about it's perspective. " textFill="WHITE">
+            <Label layoutX="346.0" layoutY="78.0" style="-fx-background-color: #000;" stylesheets="@../css/humanWitnessStyle.css" text=" interactable to learn it's perspective " textFill="WHITE">
                <font>
                   <Font name="Futura Bold" size="26.0" />
                </font>

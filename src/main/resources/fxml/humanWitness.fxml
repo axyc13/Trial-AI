@@ -118,7 +118,7 @@
                   <Font size="18.0" />
                </font></Label>
             <Polygon fx:id="dialogueText8" fill="WHITE" layoutX="557.0" layoutY="280.0" points="107.4666748046875, 91.33334350585938, 58.4000244140625, 51.866668701171875, 22.13330078125, 51.866668701171875" stroke="WHITE" strokeType="INSIDE" visible="false" />
-            <Label fx:id="dialogue9" alignment="CENTER" contentDisplay="CENTER" layoutX="369.0" layoutY="250.0" prefHeight="91.0" prefWidth="210.0" style="-fx-background-color: white; -fx-background-radius: 5;" stylesheets="@../css/humanWitnessStyle.css" text="That's lit yo, &#10;we're publishing this&#10;" visible="false">
+            <Label fx:id="dialogue9" alignment="CENTER" contentDisplay="CENTER" layoutX="369.0" layoutY="250.0" prefHeight="91.0" prefWidth="263.0" style="-fx-background-color: white; -fx-background-radius: 5;" stylesheets="@../css/humanWitnessStyle.css" text="That's lit and copyright free? &#10;we're publishing this now&#10;&#10;" visible="false">
                <font>
                   <Font size="18.0" />
                </font></Label>
@@ -128,11 +128,11 @@
                   <Image url="@../images/celebrationParty.png" />
                </image>
             </ImageView>
-            <Label fx:id="dialogue10" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="241.0" prefHeight="71.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 5;" stylesheets="@../css/humanWitnessStyle.css" text="We gon be rich forever gang" visible="false">
+            <Label fx:id="dialogue10" alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="243.0" prefHeight="71.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 5;" stylesheets="@../css/humanWitnessStyle.css" text="I can't belive you did it all&#10;ethically, good job gang&#10;&#10;" visible="false">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Polygon fx:id="dialogueText10" fill="WHITE" layoutX="534.0" layoutY="194.0" points="-228.99996948242188, 207.20001220703125, -295.13336181640625, 116.20001220703125, -355.9333190917969, 116.20001220703125" stroke="WHITE" strokeType="INSIDE" visible="false" />
+            <Polygon fx:id="dialogueText10" fill="WHITE" layoutX="561.0" layoutY="196.0" points="-228.99996948242188, 207.20001220703125, -295.13336181640625, 116.20001220703125, -355.9333190917969, 116.20001220703125" stroke="WHITE" strokeType="INSIDE" visible="false" />
             <Label fx:id="storyCompletionLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="431.0" layoutY="690.0" prefHeight="42.0" prefWidth="264.0" style="-fx-background-color: #a6793d; -fx-background-radius: 5;" stylesheets="@../css/humanWitnessStyle.css" text="Story completion: 0 % " textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="18.0" />

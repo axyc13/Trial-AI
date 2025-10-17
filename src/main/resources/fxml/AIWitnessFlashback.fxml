@@ -45,12 +45,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
             <ProgressBar fx:id="progressBar" layoutY="158.0" prefHeight="26.0" prefWidth="1100.0" progress="0.0" />
-            <Label layoutX="155.0" layoutY="41.0" style="-fx-background-color: #000;" text=" This is a flashback! Please use the slide bar to follow " textFill="WHITE">
+            <Label layoutX="414.0" layoutY="39.0" style="-fx-background-color: #000;" text=" AI Witness Flashback " textFill="WHITE">
                <font>
                   <Font name="Futura Bold" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="141.0" layoutY="89.0" style="-fx-background-color: #000;" text="the AI Witness' story and proceed when you're satisfied" textFill="WHITE">
+            <Label layoutX="377.0" layoutY="81.0" style="-fx-background-color: #000;" text=" Drag across to reveal story " textFill="WHITE">
                <font>
                   <Font name="Futura Bold" size="24.0" />
                </font>
