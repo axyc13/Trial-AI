@@ -333,7 +333,7 @@ public class AiWitnessChatController extends ChatControllerCentre {
     instructionLabel = new Label("Drag the speech bubbles into the bin");
     instructionLabel.setStyle(
         "-fx-font-size: 43px; -fx-text-fill: white; -fx-background-color: rgba(0, 0, 0, 0.7);"
-            + " -fx-padding: 10px;");
+            + " -fx-padding: 10px; -fx-font-family: Futura; -fx-font-weight: bold;");
     instructionLabel.setLayoutX(350); // Center horizontally
     instructionLabel.setLayoutY(250); // Position near top
     instructionLabel.setVisible(false);
@@ -343,7 +343,8 @@ public class AiWitnessChatController extends ChatControllerCentre {
     sliderInstructionLabel = new Label("To start the interactable slide the slider");
     sliderInstructionLabel.setStyle(
         "-fx-font-size: 35px; -fx-text-fill: white; -fx-background-color: rgba(0, 0, 0, 0.7);"
-            + " -fx-padding: 10px; -fx-background-radius: 5px;");
+            + " -fx-padding: 10px; -fx-background-radius: 5px; -fx-font-family: Futura;"
+            + " -fx-font-weight: bold;");
     sliderInstructionLabel.setWrapText(true);
 
     // Position the label to fit completely within the TextFlow area
@@ -385,7 +386,8 @@ public class AiWitnessChatController extends ChatControllerCentre {
     completionLabel = new Label("The AI witness testimony is unreliable and based on rumours.");
     completionLabel.setStyle(
         "-fx-font-size: 30px; -fx-text-fill: white; -fx-background-color: rgba(0, 0, 0, 0.8);"
-            + " -fx-padding: 20px; -fx-background-radius: 10px;");
+            + " -fx-padding: 20px; -fx-background-radius: 10px; -fx-font-family: Futura;"
+            + " -fx-font-weight: bold;");
     completionLabel.setWrapText(true);
     completionLabel.setPrefWidth(600);
     completionLabel.setAlignment(Pos.CENTER);

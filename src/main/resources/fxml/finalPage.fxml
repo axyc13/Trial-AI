@@ -23,25 +23,25 @@
     </VBox>
     <AnchorPane prefHeight="789.0" prefWidth="1100.0">
       <children>
-        <Button id="btn-yes" fx:id="yesButton" alignment="CENTER" layoutX="413.0" layoutY="272.0" mnemonicParsing="false" onAction="#onYesClick" prefHeight="110.0" text="YES">
+        <Button id="btn-yes" fx:id="yesButton" alignment="CENTER" layoutX="413.0" layoutY="259.0" mnemonicParsing="false" onAction="#onYesClick" prefHeight="110.0" text="YES">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-        <Button id="btn-no" fx:id="noButton" layoutX="593.0" layoutY="273.0" mnemonicParsing="false" onAction="#onNoClick" text="NO">
+        <Button id="btn-no" fx:id="noButton" layoutX="593.0" layoutY="260.0" mnemonicParsing="false" onAction="#onNoClick" text="NO">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-        <Label fx:id="titleLabel1" alignment="CENTER" layoutX="13.0" layoutY="57.0" prefHeight="66.0" prefWidth="1061.0" text="Was the AI defendant ethical or not?">
+        <Label fx:id="titleLabel1" alignment="CENTER" layoutX="26.0" layoutY="38.0" prefHeight="66.0" prefWidth="1061.0" text="Was the AI defendant ethical or not?">
           <font>
             <Font size="44.0" />
           </font>
         </Label>
-        <Label fx:id="timer" alignment="CENTER" layoutX="426.0" layoutY="167.0" prefHeight="95.0" prefWidth="230.0" stylesheets="@../css/finalPageStyle.css" text="1:00">
+        <Label fx:id="timer" alignment="CENTER" layoutX="430.0" layoutY="167.0" prefHeight="95.0" prefWidth="230.0" stylesheets="@../css/finalPageStyle.css" text="1:00">
           <font>
             <Font size="44.0" />
           </font>
         </Label>
-        <Label fx:id="titleLabel2" alignment="CENTER" layoutX="16.0" layoutY="112.0" prefHeight="66.0" prefWidth="1065.0" stylesheets="@../css/finalPageStyle.css" text="You have 60 seconds to decide">
+        <Label fx:id="titleLabel2" alignment="CENTER" layoutX="11.0" layoutY="97.0" prefHeight="66.0" prefWidth="1065.0" stylesheets="@../css/finalPageStyle.css" text="You have 60 seconds to decide">
           <font>
             <Font size="44.0" />
           </font>
@@ -58,7 +58,7 @@
                   <String fx:value="button" />
                </styleClass>
             </Button>
-            <TextArea fx:id="txtInput" layoutX="388.0" layoutY="440.0" onMouseClicked="#onInputStartUp" prefHeight="159.0" prefWidth="347.0" promptText="Input text here" styleClass="text-area" stylesheets="@../css/finalPageStyle.css" wrapText="true">
+            <TextArea fx:id="txtInput" layoutX="381.0" layoutY="450.0" onMouseClicked="#onInputStartUp" prefHeight="159.0" prefWidth="347.0" promptText="Input text here" styleClass="text-area" stylesheets="@../css/finalPageStyle.css" wrapText="true">
                <effect>
                   <DropShadow />
                </effect></TextArea>

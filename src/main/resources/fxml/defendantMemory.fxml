@@ -31,18 +31,18 @@
 
         <!-- Top Section -->
         <Label layoutX="-2.0" layoutY="-7.0" prefHeight="180.0" prefWidth="1116.0" style="-fx-background-color: #000;" />
-        <Label fx:id="timer" layoutX="941.0" layoutY="39.0" prefHeight="63.0" prefWidth="155.0" text="5:00" textFill="WHITE">
+        <Label fx:id="timer" layoutX="937.0" layoutY="41.0" prefHeight="63.0" prefWidth="155.0" text="5:00" textFill="WHITE">
             <font>
               <Font size="50.0" />
             </font>
         </Label>
         <ProgressBar fx:id="progressBar" layoutY="158.0" prefHeight="26.0" prefWidth="1100.0" progress="0.0" />
-        <Label layoutX="232.0" layoutY="39.0" style="-fx-background-color: #000;" text=" This is a flashback! Please use the slide bar to follow " textFill="WHITE">
+        <Label layoutX="443.0" layoutY="38.0" style="-fx-background-color: #000;" text=" Defendant Flashback " textFill="WHITE">
           <font>
             <Font size="24.0" />
           </font>
         </Label>
-        <Label layoutX="212.0" layoutY="87.0" style="-fx-background-color: #000;" text="the defendant's story and proceed when you're satisfied" textFill="WHITE">
+        <Label layoutX="412.0" layoutY="84.0" style="-fx-background-color: #000;" text=" Drag across to reveal story " textFill="WHITE">
           <font>
             <Font size="24.0" />
           </font>

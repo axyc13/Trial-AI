@@ -49,6 +49,21 @@
                   </Text>
                </children>
             </StackPane>
+                    <Label layoutX="555.0" layoutY="685.0" opacity="0.7" prefHeight="66.0" prefWidth="145.0" stylesheets="@../css/humanWitnessStyle.css" text="The Defendant" textFill="WHITE">
+          <font>
+            <Font name="Futura Bold" size="20.0" />
+          </font>
+        </Label>
+                <Label layoutX="27.0" layoutY="684.0" opacity="0.7" prefHeight="66.0" prefWidth="200.0" stylesheets="@../css/humanWitnessStyle.css" text="Human Witness/Jeff" textFill="WHITE">
+          <font>
+            <Font name="Futura Bold" size="20.0" />
+          </font>
+        </Label>
+                <Label layoutX="913.0" layoutY="683.0" opacity="0.7" prefHeight="66.0" prefWidth="192.0" stylesheets="@../css/humanWitnessStyle.css" text="AI Witness/Deb" textFill="WHITE">
+          <font>
+            <Font name="Futura Bold" size="20.0" />
+          </font>
+        </Label>
 
         <Button fx:id="btnGuess" layoutX="448.0" layoutY="92.0" mnemonicParsing="false" onAction="#onDecisionClick" prefHeight="47.0" prefWidth="251.0" text="Make Your Final Decision">
                <cursor>

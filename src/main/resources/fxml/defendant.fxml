@@ -23,6 +23,7 @@
             <Image url="@../images/music.jpg" />
           </image>
         </ImageView>
+      <Label layoutX="-2.0" layoutY="-7.0" prefHeight="180.0" prefWidth="1116.0" style="-fx-background-color: #000;" />
             <AnchorPane fx:id="disc1" layoutX="371.0" layoutY="175.0" prefHeight="200.0" prefWidth="200.0" visible="false">
                <children>
               <ImageView fitHeight="163.0" fitWidth="178.0">
@@ -91,17 +92,17 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-          <Label fx:id="timer" layoutX="941.0" layoutY="36.0" prefHeight="63.0" prefWidth="155.0" stylesheets="@../css/humanWitnessStyle.css" text="5:00" textFill="WHITE">
+          <Label fx:id="timer" layoutX="937.0" layoutY="41.0" prefHeight="63.0" prefWidth="155.0" stylesheets="@../css/humanWitnessStyle.css" text="5:00" textFill="WHITE">
             <font>
               <Font size="50.0" />
             </font></Label>
         <ProgressBar fx:id="progressBar" layoutY="158.0" prefHeight="26.0" prefWidth="1100.0" progress="0.0" />
-        <Label layoutX="295.0" layoutY="35.0" style="-fx-background-color: #000;" stylesheets="@../css/humanWitnessStyle.css" text="Chat with the defendant, play the mini-game" textFill="WHITE">
+        <Label layoutX="340.0" layoutY="44.0" style="-fx-background-color: #000;" stylesheets="@../css/humanWitnessStyle.css" text=" Chat with the defendant and play the " textFill="WHITE">
           <font>
             <Font size="26.0" />
           </font>
         </Label>
-        <Label layoutX="360.0" layoutY="69.0" style="-fx-background-color: #000;" stylesheets="@../css/humanWitnessStyle.css" text="and find out about it's perspective." textFill="WHITE">
+        <Label layoutX="358.0" layoutY="89.0" style="-fx-background-color: #000;" stylesheets="@../css/humanWitnessStyle.css" text=" mini-game to learn it's perspective " textFill="WHITE">
           <font>
             <Font size="26.0" />
           </font>

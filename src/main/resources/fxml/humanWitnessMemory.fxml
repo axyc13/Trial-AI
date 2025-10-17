@@ -74,7 +74,7 @@
                      </color>
                   </DropShadow>
                </effect></TextField>
-        <Button fx:id="btnSend" layoutX="378.0" layoutY="735.0" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="0.0" prefWidth="87.0" text="Send">
+        <Button fx:id="btnSend" layoutX="378.0" layoutY="734.0" mnemonicParsing="false" onAction="#onSendMessage" prefHeight="0.0" prefWidth="87.0" text="Send">
                <font>
                   <Font size="14.0" />
                </font>
@@ -90,9 +90,14 @@
               <Font size="50.0" />
             </font></Label>
         <ProgressBar fx:id="progressBar" layoutY="158.0" prefHeight="26.0" prefWidth="1100.0" progress="0.0" />
-        <Label alignment="CENTER" layoutX="328.0" layoutY="42.0" prefHeight="66.0" prefWidth="485.0" style="-fx-background-color: #000;" stylesheets="@../css/humanWitnessStyle.css" text="Human Witness Memory" textFill="WHITE">
+        <Label alignment="CENTER" layoutX="275.0" layoutY="21.0" prefHeight="66.0" prefWidth="602.0" style="-fx-background-color: #000;" stylesheets="@../css/humanWitnessStyle.css" text="Chat with the Human Witness and follow" textFill="WHITE">
           <font>
-            <Font size="30.0" />
+            <Font size="26.0" />
+          </font>
+        </Label>
+        <Label layoutX="336.0" layoutY="80.0" style="-fx-background-color: #000;" stylesheets="@../css/humanWitnessStyle.css" text=" the instructions to learn it's perspective " textFill="WHITE">
+          <font>
+            <Font size="26.0" />
           </font>
         </Label>
         <ImageView fx:id="cassetteTape" disable="true" fitHeight="126.0" fitWidth="270.0" layoutX="415.0" layoutY="614.0" onDragDetected="#onCassetteClick" preserveRatio="true" scaleX="0.75" scaleY="0.75" scaleZ="0.75">
