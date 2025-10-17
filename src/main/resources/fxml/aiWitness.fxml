@@ -25,7 +25,7 @@
               <Image url="@../images/make%20the%20ai%20humanoid.png" />
             </image>
         </ImageView>
-        <TextArea fx:id="txtaChat" editable="false" layoutX="24.0" layoutY="277.0" opacity="0.7" prefHeight="432.0" prefWidth="304.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" wrapText="true" />
+        <TextArea fx:id="txtaChat" editable="false" layoutX="24.0" layoutY="327.0" opacity="0.7" prefHeight="382.0" prefWidth="304.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" wrapText="true" />
         <TextField fx:id="txtInput" layoutX="23.0" layoutY="729.0" opacity="0.83" prefHeight="26.0" prefWidth="304.0" style="-fx-control-inner-background: black; -fx-text-fill: #39FF14;" />
         <Button fx:id="btnSend" layoutX="341.0" layoutY="718.0" mnemonicParsing="false" onAction="#onSendMessage" text="Send">
                <cursor>
@@ -68,7 +68,7 @@
                   <Image url="@../images/speech%20ballooon%204.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="speechBubble4" fitHeight="138.0" fitWidth="203.0" layoutX="641.0" layoutY="170.0">
+            <ImageView fx:id="speechBubble4" fitHeight="138.0" fitWidth="203.0" layoutX="651.0" layoutY="207.0">
                <image>
                   <Image url="@../images/speech%20ballooon%204.png" />
                </image>
@@ -91,7 +91,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <ImageView fx:id="rumourBin" fitHeight="108.0" fitWidth="108.0" layoutX="15.0" layoutY="164.0">
+            <ImageView fx:id="rumourBin" fitHeight="108.0" fitWidth="108.0" layoutX="30.0" layoutY="203.0">
                <image>
                   <Image url="@../images/Bin.png" />
                </image>
@@ -103,20 +103,20 @@
                   <Image url="@../images/arrow.png" />
                </image>
             </ImageView>
-            <Label fx:id="timer" layoutX="951.0" layoutY="32.0" prefHeight="63.0" prefWidth="155.0" stylesheets="@../css/humanWitnessStyle.css" text="5:00" textFill="WHITE">
+            <Label fx:id="timer" layoutX="937.0" layoutY="41.0" prefHeight="63.0" prefWidth="155.0" stylesheets="@../css/humanWitnessStyle.css" text="5:00" textFill="WHITE">
                <font>
-                  <Font size="50.0" />
+                  <Font name="Futura Bold" size="50.0" />
                </font>
             </Label>
-            <ProgressBar fx:id="progressBar" layoutX="7.0" layoutY="134.0" prefHeight="26.0" prefWidth="1088.0" progress="0.0" />
-            <Label layoutX="263.0" layoutY="28.0" style="-fx-background-color: #000;" stylesheets="@../css/humanWitnessStyle.css" text="Chat with the AI Witness, complete the interactable" textFill="WHITE">
+            <ProgressBar fx:id="progressBar" layoutY="158.0" prefHeight="26.0" prefWidth="1100.0" progress="0.0" />
+            <Label layoutX="263.0" layoutY="34.0" style="-fx-background-color: #000;" stylesheets="@../css/humanWitnessStyle.css" text=" Chat with the AI Witness, complete the interactable, " textFill="WHITE">
                <font>
-                  <Font size="26.0" />
+                  <Font name="Futura Bold" size="26.0" />
                </font>
             </Label>
-            <Label layoutX="363.0" layoutY="66.0" style="-fx-background-color: #000;" stylesheets="@../css/humanWitnessStyle.css" text="and find out about it's perspective." textFill="WHITE">
+            <Label layoutX="364.0" layoutY="80.0" style="-fx-background-color: #000;" stylesheets="@../css/humanWitnessStyle.css" text=" and find out about it's perspective. " textFill="WHITE">
                <font>
-                  <Font size="26.0" />
+                  <Font name="Futura Bold" size="26.0" />
                </font>
             </Label>
       </children>

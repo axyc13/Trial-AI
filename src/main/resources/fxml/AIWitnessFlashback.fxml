@@ -31,9 +31,9 @@
                   <Image url="@../images/Gemini_Generated_Image_ugadstugadstugad.png" />
                </image>
             </ImageView>
-          <Label fx:id="timer" layoutX="940.0" layoutY="47.0" prefHeight="63.0" prefWidth="155.0" stylesheets="@../css/humanWitnessStyle.css" text="5:00" textFill="WHITE">
+          <Label fx:id="timer" layoutX="937.0" layoutY="41.0" prefHeight="63.0" prefWidth="155.0" stylesheets="@../css/humanWitnessStyle.css" text="5:00" textFill="WHITE">
             <font>
-                <Font name="Book Antiqua" size="50.0" />
+                <Font name="Futura Bold" size="50.0" />
             </font>
           </Label>
             <Slider fx:id="flashbackSlider" layoutX="77.0" layoutY="742.0" majorTickUnit="1" max="3" min="1" minorTickCount="0" prefHeight="56.0" prefWidth="749.0" showTickMarks="true" snapToTicks="true" value="1">
@@ -44,15 +44,15 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <ProgressBar fx:id="progressBar" layoutX="10.0" layoutY="168.0" prefHeight="26.0" prefWidth="1100.0" progress="0.0" />
-            <Label layoutX="242.0" layoutY="49.0" style="-fx-background-color: #000;" text=" This is a flashback! Please use the slide bar to follow " textFill="WHITE">
+            <ProgressBar fx:id="progressBar" layoutY="158.0" prefHeight="26.0" prefWidth="1100.0" progress="0.0" />
+            <Label layoutX="155.0" layoutY="41.0" style="-fx-background-color: #000;" text=" This is a flashback! Please use the slide bar to follow " textFill="WHITE">
                <font>
-                  <Font size="24.0" />
+                  <Font name="Futura Bold" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="228.0" layoutY="97.0" style="-fx-background-color: #000;" text="the Ai Witness' story and proceed when you're satisfied" textFill="WHITE">
+            <Label layoutX="141.0" layoutY="89.0" style="-fx-background-color: #000;" text="the AI Witness' story and proceed when you're satisfied" textFill="WHITE">
                <font>
-                  <Font size="24.0" />
+                  <Font name="Futura Bold" size="24.0" />
                </font>
             </Label>
       </children>

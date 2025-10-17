@@ -31,7 +31,7 @@
 
         <!-- Top Section -->
         <Label layoutX="-2.0" layoutY="-7.0" prefHeight="180.0" prefWidth="1116.0" style="-fx-background-color: #000;" />
-        <Label fx:id="timer" layoutX="941.0" layoutY="39.0" prefHeight="63.0" prefWidth="155.0" text="5:00" textFill="WHITE">
+        <Label fx:id="timer" layoutX="937.0" layoutY="41.0" prefHeight="63.0" prefWidth="155.0" text="5:00" textFill="WHITE">
             <font>
               <Font size="50.0" />
             </font>
