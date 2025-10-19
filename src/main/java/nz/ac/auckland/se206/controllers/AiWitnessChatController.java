@@ -334,7 +334,7 @@ public class AiWitnessChatController extends ChatControllerCentre {
     instructionLabel.setStyle(
         "-fx-font-size: 43px; -fx-text-fill: white; -fx-background-color: rgba(0, 0, 0, 0.7);"
             + " -fx-padding: 10px; -fx-font-family: Futura; -fx-font-weight: bold;");
-    instructionLabel.setLayoutX(350); // Center horizontally
+    instructionLabel.setLayoutX(300); // Center horizontally
     instructionLabel.setLayoutY(250); // Position near top
     instructionLabel.setVisible(false);
     ((AnchorPane) slider.getParent()).getChildren().add(instructionLabel);
