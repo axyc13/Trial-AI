@@ -169,7 +169,7 @@ public class AiWitnessChatController extends ChatControllerCentre {
                 + " They said it themselves.";
       } else if (bubbleText.contains("same as stealing")) {
         // Only respond to this attempt to justify the behavior
-        comment = "oh yeah that one you can get rid of. I don't think it's right.";
+        comment = "Oh yeah that one you can get rid of. I don't think it's right.";
       } else {
         // Stay silent for other bubbles, including other attempts to minimize the issue
         comment = "";
@@ -792,7 +792,7 @@ public class AiWitnessChatController extends ChatControllerCentre {
               ChatMessage assistantMsg = choice.getChatMessage();
 
               String content = assistantMsg.getContent().trim();
-              String prefix = "Ai Witness:";
+              String prefix = "[AI Witness]:";
 
               // If GPT already added the same prefix, strip it
               if (content.startsWith(prefix)) {
