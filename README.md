@@ -1,43 +1,39 @@
-# Sample JavaFX application using Proxy API
+# Trial AI
 
-## To setup the API to access Chat Completions and TTS
+This is a design project, completed under SOFTENG206 in collaboration with [Sophie](https://github.com/sophiec8081) and [Vincent](https://github.com/Comrademonke). 
+
+Frontend with JavaFX and CSS, Backend with Java and utilising OpenAI API.
+<hr />
+
+Trial AI is an interactive 'game' that aims to teach users about the ethics of using AI. Set in the near future, an AI defendant appears before the court, having created a song that sounds eerily like other copyrighted works. 
+
+You have 6 minutes to answer the question: <b>"Was the Defendant acting ethically?"</b>
+
+Chat with three characters (an AI Witness, a Human Witness, and the defendant itself) and play with the interactable elements to uncover the truth. 
+
+There may be conflicts in their stories – can you figure out the true narrative?
+
+
+
+
+## How to try for yourself:
+
+In your terminal:
+```
+git clone https://github.com/axyc13/Trial-AI.git trialAi
+```
+```
+cd trialAi
+```
+Set up API keys in order to chat with characters:
 
 - add in the root of the project (i.e., the same level where `pom.xml` is located) a file named `apiproxy.config`
-- put inside the credentials that you received from no-reply@digitaledu.ac.nz (put the quotes "")
+- copy inside the following details:
 
   ```
-  email: "UPI@aucklanduni.ac.nz"
+  email: "YOUR_EMAIL"
   apiKey: "YOUR_KEY"
   ```
-  These are your credentials to invoke the APIs. 
-
-  The token credits are charged as follows:
-  - 1 token credit per 1 character for Google "Standard" Text-to-Speech. 
-  - 4 token credit per 1 character for Google "WaveNet" and "Neural2" Text-to-Speech.
-  - 1 token credit per 1 character for OpenAI Text-to-Text.
-  - 1 token credit per 1 token for OpenAI Chat Completions (as determined by OpenAI, charging both input and output tokens).
-
-
-## To setup codestyle's API
-
-- add in the root of the project (i.e., the same level where `pom.xml` is located) a file named `codestyle.config`
-- put inside the credentials that you received from gradestyle@digitaledu.ac.nz (put the quotes "")
-
-  ```
-  email: "UPI@aucklanduni.ac.nz"
-  accessToken: "YOUR_KEY"
-  ```
-
- these are your credentials to invoke gradestyle
-
-## To run the game
-
-`./mvnw clean javafx:run`
-
-## To debug the game
-
-`./mvnw clean javafx:run@debug` then in VS Code "Run & Debug", then run "Debug JavaFX"
-
-## To run codestyle
-
-`./mvnw clean compile exec:java@style`
+```
+./mvnw clean javafx:run
+```
